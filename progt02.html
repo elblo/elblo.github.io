@@ -1,0 +1,1074 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Elementos básicos de la programación</title>
+
+		<meta name="description" content="Elementos básicos de la programación">
+		<meta name="author" content="Eladio Blanco">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+
+		<!-- TEMA: beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+		<!-- CSS propio -->
+		<link rel="stylesheet" href="css/micss.css">
+
+		<!-- Theme used for syntax highlighting of code. Descargar de https://highlightjs.org/download/
+			monokai, zenburn, vs2015.min.css, vs.min.css, github.min.css, github-dark.min.css ... -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<!-- Título -->
+				<section>
+					<h1>Programación</h1>
+					<h3>Tema 2: Elementos básicos de la programación</h3>
+					<p>
+						<small><a href="http://www.eladioblanco.es">Eladio Blanco</a></small>
+					</p>
+				</section>
+
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li class="fragment highlight-blue">Introducción</li>
+						<li>Variables e identificadores</li>
+						<li>Tipos de datos</li>
+						<li>Operadores y expresiones</li>
+						<li>Conversión de tipo</li>
+						<li>Comentarios</li>
+						<li>Estructuras selectivas</li>
+						<li>Estructuras repetitivas</li>
+					</ol>
+				</section>
+
+				<!-- Introducción -->
+				<section>
+					<h2>Introducción</h2>
+					<p></p>
+				</section>
+
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li>Introducción</li>
+						<li class="fragment highlight-blue">Variables e identificadores</li>
+						<li>Tipos de datos</li>
+						<li>Operadores y expresiones</li>
+						<li>Conversión de tipo</li>
+						<li>Comentarios</li>
+						<li>Estructuras selectivas</li>
+						<li>Estructuras repetitivas</li>
+					</ol>
+				</section>
+
+				<!-- Variables e identificadores -->
+				<section>
+					<h2>Variables e identificadores</h2>
+					<h3>Identificadores</h3>
+					<ul>
+						<li>Es el nombre que damos a una variable.</li>
+						<li>Java distingue mayúsculas de minúsculas: (num != Num)</li>
+						<li>Se escribe según la norma lowerCamelCase.</li>
+						<li>Primer carácter: letra. También _ o símbolo (no recomendados).</li>
+						<li>Utilizar identificadores descriptivos.</li>
+					</ul>
+				</section>
+
+				<!-- Variables e identificadores -->
+				<section>
+					<h2>Variables e identificadores</h2>
+					<h3>Identificadores</h3>
+					<p><img src="img/progt02-01.png" alt="Identificadores" /></p>
+				</section>
+
+				<!-- Variables e identificadores -->
+				<section>
+					<h2>Variables e identificadores</h2>
+					<h3>Variables</h3>
+					<ul>
+						<li>Zona de memoria (RAM) con un valor modificable.</li>
+						<li>Tienen un nombre (identificador) y un tipo de dato asociado (que determina su rango de valores).</li>
+					</ul>
+				</section>
+
+				<!-- Variables e identificadores -->
+				<section>
+					<h2>Variables e identificadores</h2>
+					<h3>Variables</h3>
+					<p><img src="img/progt02-02.png" alt="Variables caja" /></p>
+				</section>
+
+				<!-- Variables e identificadores -->
+				<section>
+					<h2>Variables e identificadores</h2>
+					<h3>Variables</h3>
+					<p><img src="img/progt02-03.png" alt="Variables memoria RAM" /></p>
+				</section>
+
+				<!-- Variables e identificadores -->
+				<section>
+					<h2>Variables e identificadores</h2>
+					<h3>Palabras reservadas</h3>
+					<p>No pueden utilizarse para crear identificadores.</p>
+					<p><img src="img/progt02-04.png" alt="Palabras reservadas" /></p>
+				</section>
+
+				<!-- Variables e identificadores -->
+				<section>
+					<h2>Variables e identificadores</h2>
+					<h3>Tipos de variables</h3>
+					<ul>
+						<li>Variable de tipo primitivo o referenciado (punteros), según el valor que almacene.</li>
+						<li>Variable o constante, según cambie o no su valor.</li>
+						<li>Variable miembro o local, según su ámbito de actuación.</li>
+					</ul>
+				</section>
+
+				<!-- Variables e identificadores -->
+				<section>
+					<h2>Variables e identificadores</h2>
+					<h3>Tipos de variables</h3>
+					<p><img src="img/progt02-05.png" alt="Tipos de variables" /></p>
+				</section>
+
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li>Introducción</li>
+						<li>Variables e identificadores</li>
+						<li class="fragment highlight-blue">Tipos de datos</li>
+						<li>Operadores y expresiones</li>
+						<li>Conversión de tipo</li>
+						<li>Comentarios</li>
+						<li>Estructuras selectivas</li>
+						<li>Estructuras repetitivas</li>
+					</ol>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<p>Son la especificación de los <em>valores válidos</em> para una variable, y de las <em>operaciones</em> que se pueden realizar con ellos.</p>
+					<p>Al crear la variable, especificamos su tipo de dato.</p>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<ul>
+						<li><strong>Primitivos:</strong> Representan valores predefinidos en el lenguaje: enteros (short, int, long...), reales (float, double), boolean...</li>
+						<li><strong>Referenciados:</strong> Se definen con un nombre o referencia (puntero) que contiene la dirección en memoria de un valor o grupo de valores: Clases, interfaces, arrays...</li>
+					</ul>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<p><img src="img/progt02-06.png" alt="Tipos de datos primitivos" /></p>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<p><img src="img/progt02-07.png" alt="Tipos de datos primitivos" /></p>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<p><img src="img/progt02-08.png" alt="Tipos de datos primitivos" /></p>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<p><img src="img/progt02-09.png" alt="Tipos de datos primitivos" /></p>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<h3>Declaración e inicialización</h3>
+					<ul>
+						<li>Declarar variable = reservar espacio en RAM para alojar un dato.</li>
+						<li>Por ello, se especifica su tipo de dato: int, long, double...</li>
+						<li>Se puede declarar una variable en cualquier lugar del código.</li>
+						<li>En la misma declaración, se puede inicializar (asignar un valor).</li>
+					</ul>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<h3>Declaración e inicialización</h3>
+					<ul>
+						<li>Una <em>variable</em> se declara sólo 1 vez, pero su valor puede cambiar muchas veces.</li>
+						<li>Si su valor no cambia nunca, estamos declarando una <em>constante</em> (se le añade "final" en la declaración).</li>
+					</ul>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<h3>Declaración e inicialización</h3>
+					<p><img src="img/progt02-10.png" alt="Declaración de variables y constantes" /></p>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<h3>Declaración e inicialización</h3>
+					<p>Se puede declarar la variable con "var" y el intérprete le asignará el tipo de datos correspondiente al valor de su inicialización. <strong class="fragment highlight-blue">NO RECOMENDABLE</strong></p>
+					<p><img src="img/progt02-11.png" alt="Declaración de variables con var" /></p>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<h3>Declaración e inicialización</h3>
+					<p>A las variables con tipo de dato <strong>char</strong> se les puede hacer la asignación mediante:</p>
+					<ul>
+						<li>El carácter en sí.</li>
+						<li>El código Unicode del carácter.</li>
+						<li>El valor decimal del carácter.</li>
+					</ul>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<h3>Declaración e inicialización</h3>
+					<p><img src="img/progt02-12.png" alt="Declaración de variables char" /></p>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<h3>Declaración e inicialización</h3>
+					<p>Tipos boolean</p>
+					<p><img src="img/progt02-13.png" alt="Declaración de variables boolean" /></p>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<h3>Declaración e inicialización</h3>
+					<p>Tipos boolean</p>
+					<p><img src="img/progt02-14.png" alt="Declaración de variables boolean" /></p>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<h3>Declaración e inicialización</h3>
+					<p>Depuración de código</p>
+					<p><img src="img/progt02-15.png" alt="Usando el debugger" /></p>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<h3>Tipos de datos referenciados</h3>
+					<ul>
+						<li>Estructuras de datos: Arrays, listas, árboles...</li>
+						<li>Objetos de clases</li>
+					</ul>
+					<p><img src="img/progt02-16.png" alt="Tipos de datos referenciados" /></p>
+				</section>
+
+				<!-- Tipos de datos: Ejercicio -->
+				<section data-background-iframe="doc/progt02-EjercicioTiposDatos.pdf" data-background-interactive></section>
+
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li>Introducción</li>
+						<li>Variables e identificadores</li>
+						<li>Tipos de datos</li>
+						<li class="fragment highlight-blue">Operadores y expresiones</li>
+						<li>Conversión de tipo</li>
+						<li>Comentarios</li>
+						<li>Estructuras selectivas</li>
+						<li>Estructuras repetitivas</li>
+					</ol>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<ul>
+						<li>Llevan a cabo operaciones sobre tipos de datos primitivos.</li>
+						<li>Devuelven un tipo de dato primitivo.</li>
+						<li>Una <strong>expresión</strong> es un conjunto de operadores y operandos que devuelve un resultado.</li>
+						<li>Las expresiones combiandas con palabras reservadas foraman las <strong>sentencias</strong> o <strong>instrucciones</strong>.</li>
+					</ul>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<p>Ejemplo</p>
+					<ul>
+						<li>Expresión: <strong>i + 1</strong></li>
+						<li>Sentencia: <strong>suma = i + 1;</strong></li>
+					</ul>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operadores aritméticos</h3>
+					<p><img src="img/progt02-17.png" alt="Operadores aritméticos" /></p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operadores aritméticos</h3>
+					<p><img src="img/progt02-18.png" alt="Operadores aritméticos incrementales / decrementales" /></p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operadores aritméticos</h3>
+					<p><img src="img/progt02-19.png" alt="Ejemplos operadores" /></p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operadores aritméticos</h3>
+					<p>Formatear la salida para mostrar datos correctamente:</p>
+					<p><img src="img/progt02-20.png" alt="Ejemplo opciones printf" /></p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operadores aritméticos</h3>
+					<p>Diferencia entre operadores pre-incremento y post-incremento:</p>
+					<p><img src="img/progt02-21.png" alt="Ejemplo operadores pre y post-incremento" /></p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operadores de asignación</h3>
+					<p><img src="img/progt02-22.png" alt="Operadores de asignación" /></p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operadores de asignación</h3>
+					<p><img src="img/progt02-23.png" alt="Ejemplo de operadores de asignación" /></p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operadores relacionales</h3>
+					<p>Comparan valores y devuelven un valor booleano: <strong>true</strong> o <strong>false</strong>.</p>
+					<p><img src="img/progt02-24.png" alt="Operadores relacionales" /></p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operadores relacionales</h3>
+					<p>Ojo, las cadenas (String) se comparan con su método <strong>.equals()</strong>.</p>
+					<p><img src="img/progt02-25.png" alt="Ejemplo comparación Strings" /></p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operadores lógicos</h3>
+					<p>Para realizar operaciones con valores booleanos. Devuelven otro booleano: <strong>true</strong> o <strong>false</strong>.</p>
+					<p><img src="img/progt02-26.png" alt="Operadores relacionales" /></p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operadores lógicos</h3>
+					<p>Ejercicio: Diseñar un programa que devuelva si un número está dentro de un rango establecido entre los valores 0 y 10. Debe devolver true si está en el rango y false en caso contrario.</p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operadores lógicos</h3>
+					<p><img src="img/progt02-27.png" alt="Ejercicio comprobar número en rango" /></p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operadores lógicos</h3>
+					<p>Ejercicio: Diseñar un programa de login que, a partir de unas variables booleanas previamente inicializadas, muestre diferentes mensajes en función de si no está logueado en el sistema, si sí lo está y si además de estarlo, es admin.</p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operadores lógicos</h3>
+					<p><img src="img/progt02-28.png" alt="Ejercicio login" /></p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operador ternario</h3>
+					<ul>
+						<li>Operador que evalúa una condición y devuelve un valor u otro.</li>
+						<li>Sintáxis: <strong class="fragment highlight-blue">variable = condición ? valor si V : valor si F;</strong></li>
+						<li>Ejemplo: <strong class="fragment highlight-blue">rdo = num % 2 ? "Es par" : "Es impar";</strong></li>
+					</ul>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operador ternario</h3>
+					<p><img src="img/progt02-29.png" alt="Ejemplo operador ternario" /></p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Trabajo con cadenas</h3>
+					<ul>
+						<li><strong>length()</strong>: Devuelve la longitud de una cadena</li>
+						<li><strong>concat()</strong>: Une varias cadenas</li>
+						<li><strong>equals()</strong>: Compara cadenas</li>
+						<li><strong>equalsIgnoreCase()</strong>: Compara cadenas sin distinguir mayúsculas ni minúsculas</li>
+						<li><strong>substring()</strong>: Extrae una subcadena</li>
+						<li><strong>toUpperCase()</strong>: Convierte cadena a mayúsculas</li>
+						<li><strong>toLowerCase()</strong>: Convierte cadena a minúculas</li>
+					</ul>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Trabajo con cadenas</h3>
+					<p><img src="img/progt02-30.png" alt="Ejemplo de trabajo con cadenas" /></p>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Orden de precedencia de operadores</h3>
+					<p><img src="img/progt02-31.png" alt="Orden de precedencia de operadores" /></p>
+				</section>
+
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li>Introducción</li>
+						<li>Variables e identificadores</li>
+						<li>Tipos de datos</li>
+						<li>Operadores y expresiones</li>
+						<li class="fragment highlight-blue">Conversión de tipo</li>
+						<li>Comentarios</li>
+						<li>Estructuras selectivas</li>
+						<li>Estructuras repetitivas</li>
+					</ol>
+				</section>
+
+				<!-- Conversión de tipo -->
+				<section>
+					<h2>Conversión de tipo</h2>
+					<p><strong>Conversión automática o implícita</strong>: La realiza el intérprete cuando asignamos un valor (de una variable o expresión) de menor tamaño a otro de mayor.</p>
+					<p><img src="img/progt02-32.png" alt="Ejemplo conversión de tipo automática" /></p>
+				</section>
+
+				<!-- Conversión de tipo -->
+				<section>
+					<h2>Conversión de tipo</h2>
+					<p><strong>Conversión explícita</strong>: Al hacer la conversión de un tipo con más bits a uno con menos bits. La realiza el programador mediante operador cast. Se puede producir pérdida de datos.</p>
+					<p><img src="img/progt02-33.png" alt="Ejemplo conversión de tipo explícita" /></p>
+				</section>
+
+				<!-- Conversión de tipo -->
+				<section>
+					<h2>Conversión de tipo</h2>
+					<p><img src="img/progt02-34.png" alt="Tabla de conversión de tipos" /></p>
+					<ul>
+						<li>N: Conversión no permitida.</li>
+						<li>CI: Conversión implícita o automática.</li>
+						<li>C: Casting de tipos o conversión explícita.</li>
+						<li>*: Posible pérdida de datos. int usa 32 bits, float también, pero 8 son para el exponente.</li>
+					</ul>
+				</section>
+
+				<!-- Conversión de tipo -->
+				<section>
+					<h2>Conversión de tipo</h2>
+					<p>¿Qué hace el código? ¿Cómo se soluciona?</p>
+					<p><img src="img/progt02-35.png" alt="Ejemplo conversión de tipos" /></p>
+				</section>
+
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li>Introducción</li>
+						<li>Variables e identificadores</li>
+						<li>Tipos de datos</li>
+						<li>Operadores y expresiones</li>
+						<li>Conversión de tipo</li>
+						<li class="fragment highlight-blue">Comentarios</li>
+						<li>Estructuras selectivas</li>
+						<li>Estructuras repetitivas</li>
+					</ol>
+				</section>
+
+				<!-- Comentarios -->
+				<section>
+					<h2>Comentarios</h2>
+					<p>Para entender qué hace nuestro código. Para nosotros mismos y al compartirlo con otros programadores. 3 tipos:</p>
+					<ul>
+						<li><strong>//</strong> comentario de una línea</li>
+						<li><strong>/*</strong> comentario de varias líneas <strong>*/</strong></li>
+						<li><strong>/**</strong> comentario para Javadoc <strong>*/</strong></li>
+					</ul>
+				</section>
+
+				<!-- Comentarios -->
+				<section>
+					<h2>Comentarios</h2>
+					<p>Ejercicio: Diseña un programa para determinar si un número introducido por teclado es par o impar. Muy importante utilizar comentarios. Opcional, hacerlo con el operador ternario.</p>
+				</section>
+
+				<!-- Comentarios -->
+				<section>
+					<h2>Comentarios</h2>
+					<p><img src="img/progt02-36.png" alt="Solución ejercicio número par o impar" /></p>
+				</section>
+
+				<!-- Ejercicios -->
+				<section>
+					<h2>¡¡Ejercicios!!</h2>
+					<p><img src="img/progt02-ejercicios.gif" alt="Gif ejercicios" /></p>
+					<p>Hacer hasta el ejercicio 24 de la relación.</p>
+				</section>
+
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li>Introducción</li>
+						<li>Variables e identificadores</li>
+						<li>Tipos de datos</li>
+						<li>Operadores y expresiones</li>
+						<li>Conversión de tipo</li>
+						<li>Comentarios</li>
+						<li class="fragment highlight-blue">Estructuras selectivas</li>
+						<li>Estructuras repetitivas</li>
+					</ol>
+				</section>
+
+				<!-- Estructuras selectivas -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<p>Las estructuras de control de flujo selectivas se emplean en los programas para ejecutar sentencias si se cumple una determinada condición. Vamos a ver las estructuras <strong>if-else</strong> y <strong>switch</strong>.</p>
+				</section>
+
+				<!-- Estructuras selectivas -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<h3>Estructura if-else</h3>
+					<p><img src="img/progt02-37.png" alt="Estructura selectiva si" /></p>
+				</section>
+
+				<!-- Estructuras selectivas -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<h3>Estructura if-else</h3>
+					<p>Estructura simple:</p>
+					<pre>
+						<code class="hljs" data-trim>
+							if(expresionLogica){
+								sentenciasSiVerdadero;
+							}
+						</code>
+					</pre>
+					<p>Estructura doble:</p>
+					<pre>
+						<code class="hljs" data-trim>
+							if(expresionLogica) {
+								sentenciasSiVerdadero;
+							}else{
+								sentenciasSiFalso;
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Estructuras selectivas -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<h3>Estructura if-else</h3>
+					<p>Ejemplo:</p>
+					<pre>
+						<code class="hljs" data-trim>
+							if (a > b) {
+								System.out.println("a es mayor que b");
+							} else { 
+								System.out.println("a no es mayor que b");
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Estructuras selectivas -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<h3>Estructura if-else</h3>
+					<p>Si sólo lleva una sentencia en un bloque, se pueden omitir las llaves:</p>
+					<pre>
+						<code class="hljs" data-trim>
+							if (a > b) 
+								System.out.println("a es mayor que b");
+							else
+								System.out.println("a no es mayor que b");
+						</code>
+					</pre>
+				</section>
+
+				<!-- Estructuras selectivas -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<h3>Estructura if-else</h3>
+					<p>Ejercicio: Diseña un programa para determinar la nota de un alumno (insuficiente, suficiente, bien, notable y sobresaliente) a partir del valor numérico.</p>
+				</section>
+
+				<!-- Estructuras selectivas -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<h3>Estructura if-else</h3>
+					<p><img src="img/progt02-38.png" alt="Ejercicio notas" /></p>
+				</section>
+
+				<!-- Estructuras selectivas -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<h3>Estructura switch</h3>
+					<pre>
+						<code class="hljs" data-trim>
+							switch(expresionLogica) {
+								case valor1:
+									sentencias;
+									break;
+
+								case valor2:
+									sentencias;
+									break;
+
+								...
+
+								default:
+									sentencias;
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Estructuras selectivas -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<h3>Estructura switch</h3>
+					<p>Completa el ejemplo:</p>
+					<pre>
+						<code class="hljs" data-trim>
+							var s = new Scanner(System.in);
+							System.out.println("Introduce el número del mes: ");
+							int mes = Integer.parseInt(s.nextLine());
+							String nombreDelMes;
+
+							switch(mes){
+								case 1:
+									nombreDelMes = "enero";
+									break;
+								case 2:
+									nombreDelMes = "febrero";
+									break;
+
+								// COMPLETA EL CÓDIGO QUE FALTA AQUÍ
+							}
+							System.out.println("Mes " + mes + ": " + nombreDelMes);
+						</code>
+					</pre>
+				</section>
+
+				<!-- Estructuras selectivas -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<h3>Estructura switch</h3>
+					<p>Ejercicio: Diseña un programa que pida el número de mes y devuelva la estación meteorológica a la que corresponde. Variante: Cambia el programa para que en vez de pedir el número del mes, se pida el nombre del mes.</p>
+				</section>
+
+				<!-- Estructuras selectivas -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<h3>Estructura switch</h3>
+					<p>Ejercicio: Diseña un programa para calcular el área del cuadrado, rectángulo y triángulo. Realiza un menú para que el usuario seleccione la figura que le interese. Utiliza la estructura switch.</p>
+				</section>
+
+				<!-- Estructuras selectivas -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<h3>Estructura switch</h3>
+					<p><img src="img/progt02-39.png" alt="Ejercicio menú áreas" /></p>
+				</section>
+
+				<!-- Ejercicios -->
+				<section>
+					<h2>¡¡Ejercicios!!</h2>
+					<p><img src="img/progt02-ejercicios2.gif" alt="Gif ejercicios" /></p>
+					<p>Hacer hasta el ejercicio 44 de la relación.</p>
+				</section>
+
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li>Introducción</li>
+						<li>Variables e identificadores</li>
+						<li>Tipos de datos</li>
+						<li>Operadores y expresiones</li>
+						<li>Conversión de tipo</li>
+						<li>Comentarios</li>
+						<li>Estructuras selectivas</li>
+						<li class="fragment highlight-blue">Estructuras repetitivas</li>
+					</ol>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<p>Las estructuras de control de flujo repetitivas se emplean en los programas para ejecutar sentencias de forma reiterada. Vamos a ver las estructuras o bucles <strong>for</strong>, <strong>while</strong> y <strong>do-while</strong>.</p>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Bucle for</h3>
+					<p><img src="img/progt02-40.png" alt="Diagrama bucle for" /></p>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Bucle for</h3>
+					<p>Sintáxis:</p>
+					<pre>
+						<code class="hljs" data-trim>
+							for (inicio; termino; iteracion){
+								sentencias;
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Bucle for</h3>
+					<p>Ejemplo:</p>
+					<pre>
+						<code class="hljs" data-trim>
+							System.out.println("Tabla de multiplicar del 5");
+							for (int i=0; i<=10; i++) {
+								System.out.println(5 + " * " + i + " = " + 5 * i);
+							}	
+						</code>
+					</pre>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Bucle for</h3>
+					<p>Ejemplo:</p>
+					<pre>
+						<code class="hljs" data-trim>
+							System.out.println("Contando hasta el 10");
+							for (int i=0; i<=10; i++) {
+								System.out.println("i = " + i);
+							}	
+							System.out.println("Contando hacia atrás");
+							for (int i=10; i>10; i--) {
+								System.out.println("i = " + i);
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Bucle for-in / foreach</h3>
+					<p>Para recorrer arrays de forma automática:</p>
+					<pre>
+						<code class="hljs" data-trim>
+							String semana[] = {"lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"};
+
+							for (String dia: semana){
+								System.out.println("día = " + dia);
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Bucle while</h3>
+					<p><img src="img/progt02-41.png" alt="Diagrama bucle while" /></p>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Bucle while</h3>
+					<p>Sintáxis:</p>
+					<pre>
+						<code class="hljs" data-trim>
+							[inicializacion;]
+							while (expresionLogica) {
+								sentencias;
+								[iteracion;]
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Bucle while</h3>
+					<p>Ejemplo:</p>
+					<pre>
+						<code class="hljs" data-trim>
+							System.out.println("Tabla de multiplicar del 5");
+							int i=0; // inicialización
+							while(i<=10) {
+								System.out.println(5 + " * " + i + " = " + 5 * i);
+								i++; // iteración
+							}	
+						</code>
+					</pre>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Bucle do-while</h3>
+					<p>¿Qué hace este código?</p>
+					<p><img src="img/progt02-43.png" alt="Ejemplo bucle while" /></p>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Bucle do-while</h3>
+					<p>Sintáxis:</p>
+					<pre>
+						<code class="hljs" data-trim>
+							do{
+								sentencias;
+								[iteracion;]
+							} while(expresionLogica);
+						</code>
+					</pre>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Bucle do-while</h3>
+					<p>Ejemplo:</p>
+					<pre>
+						<code class="hljs" data-trim>
+							System.out.println("Tabla de multiplicar del 5");
+							int i=0; // inicialización
+							do{
+								System.out.println(5 + " * " + i + " = " + 5 * i);
+								i++; // iteración
+							}while(i<=10);	
+						</code>
+					</pre>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Bucle do-while</h3>
+					<p>¿Qué hace este código?</p>
+					<p><img src="img/progt02-44.png" alt="Ejemplo bucle do-while" /></p>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>¿Cuándo utilizar un bucle u otro?</h3>
+					<ul>
+						<li><strong>for</strong>, sabemos el número de veces que se van a repetir las instrucciones.</li>
+						<li><strong>while</strong>, las repeticiones dependen de algo interno al bucle que no controlamos. Ejemplo: leer opción de menú de usuario.</li>
+						<li><strong>do-while</strong>, igual que el while, sólo que necesitamos que el cuerpo del bucle se ejecute al menos 1 vez.</li>
+					</ul>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Estructuras de salto</h3>
+					<ul>
+						<li><strong>break</strong> y <strong>continue</strong>.
+						<li>Rompen el esquema de programación estructurada haciendo que el flujo de ejecución "salte" a otra parte.</li>
+						<li>Hacen que el código sea más difícil de comprender y reutilizar, por lo que se suelen evitar.</li>
+						<li>Justificadas en determinados casos para ganar eficiencia. Ejemplo: Al encontrar elemento buscado en un array, no seguir recorriéndolo.</li>
+					</ul>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Estructuras de salto</h3>
+					<p><strong>break</strong> termina la ejecución del bucle, saliendo de él.</p>
+					<p><img src="img/progt02-45.png" alt="Ejemplo break" /></p>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Estructuras de salto</h3>
+					<p><strong>continue</strong> salta a la siguiente iteración del bucle.</p>
+					<p><img src="img/progt02-46.png" alt="Ejemplo continue" /></p>
+				</section>
+
+				<!-- Estructuras repetitivas -->
+				<section>
+					<h2>Estructuras repetitivas</h2>
+					<h3>Estructuras de salto</h3>
+					<p>Ejemplo:</p>
+					<p><img src="img/progt02-47.png" alt="Ejemplo continue" /></p>
+				</section>
+
+				<!-- Ejercicios Repaso Clase -->
+				<section data-background-iframe="doc/progt02-EjerciciosRepasoClase.pdf" data-background-interactive></section>
+
+				<!-- Para repasar -->
+				<section>
+					<h2>Repasar</h2>
+					<ul>
+						<li><a href="https://www.w3schools.com/java/default.asp" target="_blank">Java Tutorial</a></li>
+						<li><a href="https://www.w3schools.com/java/exercise.asp" target="_blank">Ejercicios interactivos</a> (hasta Java Loops)</li>
+					</ul>
+				</section>
+
+				<!-- SEGUIR POR LA 59 cogiendo ejemplo y metiendo el for-in / for each-->
+				<!-- 
+					Java Tutorial 
+					EJERCICIOS ONLINE https://www.w3schools.com/java/exercise.asp -->
+				
+				<!-- Presentación en PDF -->
+				<section>
+					<h2>Tips de la presentación</h2>
+					<p>¿Imprimir en PDF?</p>
+					<ol>
+						<li><a href="?print-pdf" target="_blank">Clic aquí</a></li>
+						<li><kbd>CTRL</kbd>/<kbd>CMD</kbd> + <kbd>P</kbd></li>
+						<li>Guardar como PDF</li>
+					</ol>
+					<p>Navegar por las diapositivas</p>
+					<ol>
+						<li>Pulsa <kbd>ESC</kbd></li>
+						<li>Clic a la que quieras ir</li>
+					</ol>
+				</section>
+
+				<!-- FIN -->
+				<section>
+					<h2>A trabajar...</h2>
+					<p><img src="img/progt02-fin.gif" alt="código matrix" /></p>
+				</section>
+				
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				slideNumber: true, // true/none
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Parallax background image
+				//parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+
+				// Parallax background size
+				//parallaxBackgroundSize: '2100px 900px',
+
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

@@ -8,3 +8,11 @@ kbd {
 	background-color: #f7f7f7;
 	color: #222;
 }
+
+/* Resaltar con el mismo azul, verde o rojo que .fragment.highlight-blue -green -red */
+.azul{ color: #1b91ff; }
+.verde { color: #17ff2e; }
+.rojo { color: #ff2c2d; }
+
+/* strong y em que no sean de la clases .fragment, para no quitarles su efecto de inicio  */
+section strong:not(.fragment), section em:not(.fragment) { color: #1b91ff; }
