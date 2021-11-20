@@ -1203,38 +1203,93 @@
 					</ol>
 				</section>
 
-				<!-- Constructores -->
+				<!-- Empaquetado de clases -->
 				<section>
 					<h2>Empaquetado de clases</h2>
-					<p></p>
-				</section>
-
-
-
-
-
-				</section>
-
-				<!-- Operadores y expresiones -->
-				<section>
-					<h2>Operadores y expresiones</h2>
-					<h3>Operador ternario</h3>
 					<ul>
-						<li>Operador que evalúa una condición y devuelve un valor u otro.</li>
-						<li>Sintáxis: <strong class="fragment highlight-blue">variable = condición ? valor si V : valor si F;</strong></li>
-						<li>Ejemplo: <strong class="fragment highlight-blue">rdo = num % 2 ? "Es par" : "Es impar";</strong></li>
+						<li>La encapsulación dentro de las clases nos permite realizar el proceso de ocultación</li>
+						<li>Cuando las aplicaciones crecen, es necesario utilizar un nivel superior de encapsulación y ocultación: el empaquetado</li>
+						<li>Un <em>paquete</em> es un conjunto e clases relacionadas entre sí y agrupadas bajo un mismo nombre</li>
+						<li>Los atributos y métodos <span class="naranja">protected</span> son accesibles desde cualquier clase del paquete</li>
 					</ul>
 				</section>
 
-				<!-- Ejercicios Repaso Clase -->
-				<section data-background-iframe="doc/progt02-EjerciciosRepasoClase.pdf" data-background-interactive></section>
+				<!-- Empaquetado de clases -->
+				<section>
+					<h2>Empaquetado de clases</h2>
+					<h3>Jerarquía de paquetes</h3>
+					<ul>
+						<li>Los paquetes se organizan jerárquicamente como el sistema de archivos</li>
+						<li>Clases: archivos</li>
+						<li>Paquete: carpeta que aloja otras clases o paquetes</li>
+					</ul>
+					<pre>
+						<code class="hljs" data-trim> 
+							paquete_raiz.subpaquete1. ... .subpaquete_n.NombreClase
+							java.lang.String
+							java.util.Scanner
+							java.util.regex.Pattern
+						</code>
+					</pre>	
+					<aside class="notes"><!-- Notas orador (pulsar S) -->
+						si la clase Punto se encuentra dentro del paquete prog.figuras, el archivo Punto.java debería encontrarse en la carpeta prog/figuras					</aside>
+				</section>
+
+				<!-- Empaquetado de clases -->
+				<section>
+					<h2>Empaquetado de clases</h2>
+					<h3>Uso de paquetes</h3>
+					<ul>
+						<li>Cada vez que usemos una clase tendríamos que utilizar todo su trayectoria</li>
+						<li>La sentencia <em>import</em> simplifica su uso</li>
+						<li>Al inicio de nuestra código se realizan todos los imports que necesitemos</li>
+					</ul>
+					<pre>
+						<code class="hljs" data-trim> 
+							import java.lang.String;
+							import java.util.Scanner;
+							import java.util.regex.Pattern;
+							// Importa todas las clases directas de util: Date, Calendar, Timer...
+							import java.util.*; 
+						</code>
+					</pre>	
+					<aside class="notes"><!-- Notas orador (pulsar S) -->
+						import static java.lang.Math.* importaría todos los métodos estáticos de Math para usarlos tal cual: sqrt, pow...
+					</aside>
+				</section>
+
+				<!-- Empaquetado de clases -->
+				<section>
+					<h2>Empaquetado de clases</h2>
+					<h3>Incluir clase en paquete</h3>
+					<ul>
+						<li>Al inicio del archivo .java se indica mediante <em>package</em> a qué paquete pertenece la clase</li>
+						<li>Si no se especifica, formará parte del paquete por omisión (paquete sin nombre asociado al proyecto)</li>
+					</ul>
+					<pre>
+						<code class="hljs" data-trim> 
+							package paqueteEjemplo; 
+							
+							class claseEjemplo { 
+								...
+							}
+							   
+						</code>
+					</pre>	
+					<aside class="notes"><!-- Notas orador (pulsar S) -->
+						El nombre del paquete se define de manera inversa al dominio de la organización: com.dominio.utilidades
+					</aside>
+				</section>
+
+				<!-- Ejercicio Cliente Banco -->
+				<section data-background-iframe="doc/progt03-EjercicioClienteBanco.pdf" data-background-interactive></section>
 
 				<!-- Para repasar -->
 				<section>
 					<h2>Repasar</h2>
 					<ul>
-						<li><a href="https://www.w3schools.com/java/default.asp" target="_blank">Java Tutorial</a></li>
-						<li><a href="https://www.w3schools.com/java/exercise.asp" target="_blank">Ejercicios interactivos</a> (hasta Java Loops)</li>
+						<li><a href="https://www.w3schools.com/java/java_oop.asp" target="_blank">Java Tutorial - Clases</a></li>
+						<li><a href="https://www.w3schools.com/java/exercise.asp?filename=exercise_classes1" target="_blank">Ejercicios interactivos - Clases/Objetos</a></li>
 					</ul>
 				</section>
 				
@@ -1255,11 +1310,9 @@
 				</section>
 
 				<!-- FIN -->
-				<section>
+				<section data-background-image="img/progt03-fin.gif">
 					<h2>A trabajar...</h2>
-					<p><img src="img/progt03-fin.gif" alt="" /></p>
-				</section>
-				
+				</section>				
 			</div>
 		</div>
 
