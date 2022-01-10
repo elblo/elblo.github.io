@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Funciones, aleatorios y excepciones</title>
+
+		<meta name="description" content="Funciones, aleatorios y excepciones">
+		<meta name="author" content="Eladio Blanco">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+
+		<!-- TEMA: beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+		<!-- CSS propio -->
+		<link rel="stylesheet" href="css/micss.css">
+
+		<!-- Theme used for syntax highlighting of code. Descargar de https://highlightjs.org/download/
+			monokai, zenburn, vs2015.min.css, vs.min.css, github.min.css, github-dark.min.css ... -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<!-- Título -->
+				<section>
+					<h1>Programación</h1>
+					<h3>Tema 4: Funciones, aleatorios y excepciones</h3>
+					<p>
+						<small><a href="http://www.eladioblanco.es">Eladio Blanco</a></small>
+					</p>
+				</section>
+
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li class="fragment highlight-blue">Funciones</li>
+						<li>Números aleatorios</li>
+						<li>Excepciones</li>
+					</ol>
+				</section>
+
+				<!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+					    <p>Fragmento de código que realiza una tarea muy concreta y que se puede 
+                        incluir en cualquier programa cuando hace falta resolver esa tarea.</p>
+                        <p>Opcionalmente aceptan una entrada (parámetros) y devuelven una salida.</p>
+				</section>
+
+                <!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+                    <p>Buena documentación mediante comentarios <span class="naranja">Javadoc</span>:</p>
+                    <ul>
+                        <li><strong>/**</strong>: Inicio comentario Javadoc</li>
+                        <li><strong>@author:</strong> Autor de la función</li>
+                        <li><strong>@param:</strong> Parámetros de la función</li>
+                        <li><strong>@return:</strong> Lo que devuelve la función</li>
+                    </ul>
+				</section>
+
+                <!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+                    <h3>Declaración</h3>
+                    <pre>
+						<code class="hljs" data-trim> 
+                            /**
+                            * Comprueba si un número entero positivo es primo o no.
+                            * Un número es primo cuando únicamente es divisible entre * él mismo y la unidad.
+                            *
+                            * @author Thomas A. Anderson
+                            * @param x un número entero positivo
+                            * @return true si el número es primo
+                            * @return false en caso contrario
+                            */
+
+                            public static boolean esPrimo(int x) { 
+                                for (int i = 2; i < x; i++) {
+                                    if ((x % i) == 0) {
+                                        return false;
+                                    } 
+                                }
+                                return true;
+                            }
+						</code>
+					</pre>
+
+                    <aside class="notes"><!-- Notas orador (pulsar S) -->
+						Importante declararla como <strong>static</strong> para que pueda ser llamada directamente
+					</aside>
+				</section>
+
+                <!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+                    <h3>Llamada</h3>
+                    <pre>
+						<code class="hljs" data-trim> 
+                            public static void main(String[] args) {
+                                Scanner s = new Scanner(System.in);
+
+                                System.out.print("Bienvenido, introduzca un número: ");
+                                int num1 = Integer.parseInt(s.nextLine());
+                                if (esPrimo(num1)) System.out.println("El número 1 es primo"); 
+                                else System.out.println("El número 1 no es primo"); 
+                                
+                                System.out.print("Introduzca otro número: ");
+                                int num2 = Integer.parseInt(s.nextLine());
+                                if (esPrimo(num2)) System.out.println("El número 2 es primo"); 
+                                else System.out.println("El número 2 no es primo");
+                            }
+						</code>
+					</pre>
+				</section>
+
+                <!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+                    <p>Comentarios Javadoc automáticos en IntelliJ</p>
+					<p><img src="img/progt04-01.gif" alt="IntelliJ comentarios automáticos" /></p>
+				</section>
+
+                <!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+                    <p>Tools > Generate JavaDoc</p>
+					<p><img src="img/progt04-02.png" alt="Generar Javadoc" /></p>
+
+                    <aside class="notes"><!-- Notas orador (pulsar S) -->
+						Seleccionar el <strong>output directory</strong> y <strong>nivel de visibilidad</strong>
+                        (private, package, protected o public) de los miembros a incluir en la documentación.
+					</aside>
+				</section>
+
+                <!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+                    <p>Ejemplo de documentación generada con Javadoc</p>
+					<p><img src="img/progt04-03.png" alt="Ejemplo de documentación Javadoc" /></p>
+				</section>
+
+                <!-- Funciones -->
+                <section>
+                    <h2>Funciones</h2>
+                    <h3>Ámbito de las variables</h3>
+                    <p>Una variable actúa dentro de su ámbito o bloque donde está definida.</p>
+                    <p>Dos variables con el mismo nombre, definidas dentro y fuera de la función serán dos variables distintas.</p>
+                </section>
+
+                <!-- Funciones -->
+                <section>
+                    <h2>Funciones</h2>
+                    <h3>Ámbito de las variables</h3>
+                    <pre>
+						<code class="hljs" data-trim> 
+                            public static void main(String[] args) {
+                                Scanner s = new Scanner(System.in);
+
+                                System.out.print("Bienvenido, introduzca un número: ");
+                                int i = Integer.parseInt(s.nextLine());
+                                if (esPrimo(i)) System.out.println("El número 1 es primo"); 
+                                else System.out.println("El número 1 no es primo"); 
+                                
+                                System.out.print("Introduzca otro número: ");
+                                int x = Integer.parseInt(s.nextLine());
+                                if (esPrimo(x)) System.out.println("El número 2 es primo"); 
+                                else System.out.println("El número 2 no es primo");
+                            }
+
+                            public static boolean esPrimo(int x) { 
+                                for (int i = 2; i < x; i++) {
+                                    if ((x % i) == 0) {
+                                        return false;
+                                    } 
+                                }
+                                return true;
+                            }
+						</code>
+					</pre>
+                </section>
+
+                <!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+                    <p>Ejercicios del 1 al 7</p>
+					<p><img src="img/progt04-04.gif" alt="Ejercicios" /></p>
+				</section>
+
+                <!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li>Funciones</li>
+						<li class="fragment highlight-blue">Números aleatorios</li>
+						<li>Excepciones</li>
+					</ol>
+				</section>
+
+                <!-- Números aleatorios -->
+				<section>
+					<h2>Números aleatorios</h2>
+                    <p>Se utilizan para emular el comportamiento de algún fenómeno natural, el resultado de un juego de azar o
+                         para generar cualquier valor impredecible a priori.</p>
+				</section>
+
+                <!-- Números aleatorios -->
+				<section>
+					<h2>Números aleatorios</h2>
+                    <p><strong>Math.random()</strong> genera un double aleatorio tal que<br/> <span class="naranja">0 <= número < 1</span></p>
+                    <p>Multiplicamos el número aleatorio por el número de elementos del rango</p>
+                    <p>Para que llegue al valor final le sumamos 1 y hacemos casting a (int) si lo querems entero</p>
+				</section>
+
+                <!-- Números aleatorios -->
+				<section>
+					<h2>Números aleatorios</h2>
+                    <pre>
+						<code class="hljs" data-trim> 
+                            public static void main(String[] args) {
+                                System.out.println("Veinte números aleatorios entre 1 y 10:\n"); 
+                                for (int i = 1; i < 21; i++) {
+                                    System.out.println((int) (Math.random()*10) + 1); 
+                                }
+
+                                System.out.println("Diez números aleatorios entre 50 y 60:\n"); 
+                                    for (int i = 1; i < 11; i++) {
+                                        System.out.println((int) (Math.random()*11) + 50); 
+                                }
+                            }
+						</code>
+					</pre>
+				</section>
+
+                <!-- Números aleatorios -->
+				<section>
+					<h2>Números aleatorios</h2>
+                    <p>Combinados con un <em>switch</em> se pueden generar palabras aleatorias</p>
+                    <pre>
+						<code class="hljs" data-trim> 
+                            public static void main(String[] args) {
+                                System.out.println("Genera al azar piedra, papel o tijera:"); 
+                                // genera un número al azar entre 0 y 2 (ambos incluidos)
+                                int mano = (int) (Math.random() * 3); 
+
+                                switch (mano) {
+                                    case 0: System.out.println("piedra"); break;
+                                    case 1: System.out.println("papel"); break;
+                                    case 2: System.out.println("tijera"); break;
+                                    default: 
+                                }
+                            }
+						</code>
+					</pre>
+				</section>
+
+                <!-- Números aleatorios -->
+				<section>
+					<h2>Números aleatorios</h2>
+                    <p>Ejercicio: Implementa un programa que devuelva un día de la semana aleatorio.</p>
+					<p><img src="img/progt04-05.gif" alt="Ejercicios" /></p>
+				</section>
+
+                <!-- Números aleatorios -->
+				<section>
+					<h2>Números aleatorios</h2>
+                    <p>Ejercicios del 8 al 20</p>
+					<p><img src="img/progt04-06.gif" alt="Ejercicios" /></p>
+				</section>
+
+                <!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li>Funciones</li>
+						<li>Números aleatorios</li>
+						<li class="fragment highlight-blue">Excepciones</li>
+					</ol>
+				</section>
+
+				<!-- Excepciones -->
+				<section>
+					<h2>Excepciones</h2>
+                    <p>Existen errores de sintáxis detectables en tiempo de <em>compilación</em> (una instrucción mal escrita, un ; que falta...).</p>
+					<p>Y otros errores sólo detectables en tiempo de <em>ejecución</em> → Excepciones.</p>
+				</section>
+
+				<!-- Excepciones -->
+				<section>
+					<h2>Excepciones</h2>
+					<p>Sin excepciones:<br /><img src="img/progt04-07.png" alt="Ejemplo sin excepciones" /></p>
+					<p>Con excepciones:<br /><img src="img/progt04-08.png" alt="Ejemplo con excepciones" /></p>
+				</section>
+
+				<!-- Excepciones -->
+				<section>
+					<h2>Excepciones</h2>
+					<ul>
+						<li>Java tiene muchos errores predefinidos como la división entre 0, fallos de entrada de datos...</li>
+						<li>Todas las excepciones están representadas por clases organizadas en el paquete <em>java.lang.Exception</em> y subpaquetes.</li>
+						<li>El programador también puede lanzar sus propias excepciones.</li>
+					</ul>
+				</section>
+
+				<!-- Excepciones -->
+				<section>
+					<h2>Excepciones</h2>
+					<p>Todas las excepciones derivan de la clase <strong>Throwable</strong></p>
+					<ul>
+						<li><em>Error</em>: Errores en la máquina virtual.</li>
+						<li><em>Exception</em>: Errores en nuestros programas. </li>
+					</ul>
+					<p><img src="img/progt04-09.png" alt="Jerarquía de clases de excepciones" /></p>
+
+					<aside class="notes"><!-- Notas orador (pulsar S) -->
+						Exception es la que nos interesa a nosotros. Se genera un objeto de este tipo o derivados al producirse un error en tiempo de ejecución.
+					</aside>
+				</section>
+
+				<!-- Excepciones -->
+				<section>
+					<h2>Excepciones</h2>
+					<h3>Excepciones comúnes</h3>
+					<pre>
+						<code class="hljs" data-trim> 
+							int a=50/0; //ArithmeticException  
+							
+							String s=null;  
+							System.out.println(s.length()); //NullPointerException  
+
+							String s="abc";  
+							int i=Integer.parseInt(s); //NumberFormatException
+							
+							int a[]=new int[5];  
+							a[10]=50; //ArrayIndexOutOfBoundsException  
+						</code>
+					</pre>
+				</section>
+
+				<!-- Excepciones -->
+				<section>
+					<h2>Excepciones</h2>
+					<h3>Capturar excepciones</h3>
+					<ol>
+						<li>Identificar el código donde se puede dar una excepción.</li>
+						<li>Empaquetarlo con la estructura <strong>try-catch-finally</strong></li>
+					</ol>
+					<pre>
+						<code class="hljs" data-trim> 
+							try {
+								código que puede generar excepciones;
+							} catch (Tipo_excepcion_1 objeto_excepcion) {
+								Manejo de excepción de Tipo_excepcion_1;
+							} catch (Tipo_excepcion_2 objeto_excepcion) { 
+								Manejo de excepción de Tipo_excepcion_2;
+							}
+							...
+							finally {
+								Instrucciones que se ejecutan siempre
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Excepciones -->
+				<section>
+					<h2>Excepciones</h2>
+					<h3>Capturar excepciones</h3>
+					<p>Si se capturan excepciones con varios catch, siempre hacerlo de la más específica a la más genérica en la jerarquía.</p>
+					<p>Esto no tendría sentido:</p>
+					<p><img src="img/progt04-10.png" alt="Ejemplo captura excepciones" /></p>
+				</section>
+				
+				<!-- Excepciones -->
+				<section>
+					<h2>Excepciones</h2>
+					<h3>Capturar excepciones</h3>
+					<p>Sacar información de la excepción por consola:</p>
+					<p><img src="img/progt04-11.png" alt="Ejemplo captura excepciones" /></p>
+				</section>
+
+				<!-- Excepciones -->
+				<section>
+					<h2>Excepciones</h2>
+					<h3>Capturar excepciones</h3>
+					<pre>
+						<code class="hljs" data-trim> 
+							public static void main(String[] args) { 
+								int numero=-1, intentos=0;
+								String linea;
+								Scanner teclado = new Scanner(System.in);
+								
+								do{ 
+									try{
+										System.out.print("Introduzca un número entre 0 y 100: "); 
+										linea = teclado.nextLine();
+										numero = Integer.parseInt(linea);
+									
+									// capturamos el objeto de NumberFormatException 
+									// creado si se produce el error
+									}catch(NumberFormatException e){
+										System.out.println("Debe introducir un número entre 0 y 100."); 
+
+									}finally{
+										intentos++;
+									}
+								}while (numero < 0 || numero > 100);
+
+								System.out.println("El número introducido es: " + numero);
+								System.out.println("Número de intentos: " + intentos); 
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Excepciones -->
+				<section>
+					<h2>Excepciones</h2>
+					<h3>Delegación de excepciones</h3>
+					<p>El propio método que genera la excepción puede gestionarla <em>capturándola</em> como acabamos de ver en un bloque <span class="naranja">try-catch-finally</span>.</p>
+					<p>O también puede <em>delegarla</em> a quien la ha llamado mediante la instrucción <span class="naranja">throws</span> en su cabecera, acompañada de las excepciones que se puedan generar.</p>
+				</section>
+
+				<!-- Excepciones -->
+				<section>
+					<h2>Excepciones</h2>
+					<h3>Delegación de excepciones</h3>
+					<pre>
+						<code class="hljs" data-trim> 
+							public static void main(String[] args) { 
+								int numero=-1, intentos=0;
+								String linea;
+								Scanner teclado = new Scanner(System.in);
+								
+								do{ 
+									try{
+										System.out.print("Introduzca un número entre 0 y 100: "); 
+										numero = leeAnio(teclado);
+
+									}catch(NumberFormatException e){
+										System.out.println("Debe introducir un número entre 0 y 100."); 
+
+									}finally{
+										intentos++;
+									}
+								}while (numero < 0 || numero > 100);
+
+								System.out.println("El número introducido es: " + numero);
+								System.out.println("Número de intentos: " + intentos); 
+							}
+
+							public static int leeAnio(Scanner lector) throws NumberFormatException{ 
+								String linea = lector.nextLine();
+								return Integer.parseInt(linea); 
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Excepciones -->
+				<section>
+					<h2>Excepciones</h2>
+					<p>Crear una excepción propia</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							public class ExcepcionIntervalo extends Exception {
+								public ExcepcionIntervalo(String msg) {
+									super(msg);
+								}
+							}
+						</code>
+					</pre>
+					<p>Uso de la excepción propia</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							static void rango(int num, int den) throws ExcepcionIntervalo{
+								if((num>100) || (den<-5)){
+									throw new ExcepcionIntervalo("Números fuera del intervalo");
+								}
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Excepciones -->
+				<section>
+					<h2>Excepciones</h2>
+					<p>Ejemplo con varias excepciones</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							public class ExcepcionApp {
+								public static void main(String[] args) {
+									String str1="20", str2="2", respuesta;
+									int numerador, denominador, cociente;
+
+									try{
+										cociente=calcular(str1, str2);
+										respuesta=String.valueOf(cociente);
+
+									}catch(NumberFormatException ex){
+										respuesta="Se han introducido caracteres no numéricos";
+									}catch(ArithmeticException ex){
+										respuesta="División entre cero";
+									// Excepción definida por el usuario
+									}catch(ExcepcionIntervalo ex){
+										respuesta=ex.getMessage();
+									}
+									System.out.println(respuesta);
+								}
+								
+								static int calcular(String str1, String str2) throws ExcepcionIntervalo, 
+									NumberFormatException, ArithmeticException{
+									
+									int num=Integer.parseInt(str1);
+									int den=Integer.parseInt(str2);
+									if((num>100)||(den<-5)){
+										throw new ExcepcionIntervalo("Números fuera del intervalo");
+									}
+									return (num/den);
+								}
+							}
+						</code>
+					</pre>
+
+					<aside class="notes"><!-- Notas orador (pulsar S) -->
+						La función calcular puede lanzar, throws, tres tipos de excepciones. En el cuerpo de la función se crea, new, y se lanza, throw, explícitamente un objeto de la clase ExcepcionIntervalo, definida por el usuario, e implícitamente se crea y se lanza objetos de las clases NumberFormatException y ArithmeticException definidas en el lenguaje Java.					
+					</aside>
+				</section>
+
+				<!-- Excepciones -->
+				<section>
+					<h2>Excepciones</h2>
+					<h3>Recomendaciones</h3>
+					<ul>
+						<li>Usa excepciones que ya existen en lugar de crear propias.</li>
+						<li>Capturar excepciones en lugar de delegarlas a capas superiores.</li>
+						<li>Documentarlas correctamente con Javadoc:</li>
+					</ul>
+					<pre>
+						<code class="hljs" data-trim> 
+							/** 
+							* @author Eladio Blanco 
+							* @throws MiExcepcion se lanza en caso de producirse [...] condición especial. 
+							*/ 
+							public class MiClase throws MiExcepcion { 
+								// ... 
+							}
+						</code>
+					</pre>
+				</section>
+
+			
+				<!-- Para repasar -->
+				<section>
+					<h2>Repasar</h2>
+					<ul>
+						<li><a href="https://www.w3schools.com/java/java_math.asp" target="_blank">Java Tutorial - Clase Math</a></li>
+						<li><a href="https://www.w3schools.com/java/java_methods.asp" target="_blank">Java Tutorial - Funciones</a></li>
+                        <li><a href="https://www.w3schools.com/java/java_try_catch.asp" target="_blank">Java Tutorial - Excepciones</a></li>
+						<li><a href="https://www.w3schools.com/java/exercise.asp?filename=exercise_math1" target="_blank">Ejercicios interactivos - Java Math / Methods / Exceptions</a></li>
+					</ul>
+				</section>
+				
+				<!-- Presentación en PDF -->
+				<section>
+					<h2>Tips de la presentación</h2>
+					<p>¿Imprimir en PDF?</p>
+					<ol>
+						<li><a href="?print-pdf" target="_blank">Clic aquí</a></li>
+						<li><kbd>CTRL</kbd>/<kbd>CMD</kbd> + <kbd>P</kbd></li>
+						<li>Guardar como PDF</li>
+					</ol>
+					<p>Navegar por las diapositivas</p>
+					<ol>
+						<li>Pulsa <kbd>ESC</kbd></li>
+						<li>Clic a la que quieras ir</li>
+					</ol>
+				</section>
+
+				<!-- FIN -->
+				<section data-background-image="img/progt04-fin.gif">
+					<h2>A trabajar...</h2>
+				</section>				
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				slideNumber: true, // true/none
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Parallax background image
+				//parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+
+				// Parallax background size
+				//parallaxBackgroundSize: '2100px 900px',
+
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
