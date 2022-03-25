@@ -1155,17 +1155,6 @@
 				<section>
 					<h2>Otras estructuras</h2>
 					<h3>JSON</h3>
-					<ul>
-						<li><span class="naranja">Serializar</span> (stringify): Convierte un objeto en una cadena de texto JSON.</li>
-						<li><span class="naranja">Deserializar</span> (parse): Convierte un texto como JSON en un objeto manejable por Java.</li>
-					</ul>
-					<p><img src="img/progt05-59.png" alt="JSON serializar" /></p>
-				</section>
-
-				<!-- Otras estructuras -->
-				<section>
-					<h2>Otras estructuras</h2>
-					<h3>JSON</h3>
 					<p>Ejemplo</p>
 					<p><img src="img/progt05-60.jpg" alt="JSON ejemplo" /></p>
 				</section>
@@ -1174,22 +1163,19 @@
 				<section>
 					<h2>Otras estructuras</h2>
 					<h3>JSON</h3>
-					<p>Pasos para parsear un JSON desde Java (ver apuntes)</p>
-					<ol>
-						<li>Localizar una API</li>
-						<li>Probar la API en <a href="https://www.postman.com/" target="_blank">Postman</a></li>
-						<li>Generar el esquema de clases a partir del JSON mediante <a href="https://www.jsonschema2pojo.org/" target="_blank">jsonschema2pojo</a></li>
-						<li>Comprender la información del JSON y del esquema de clases para tener claro el parseo</li>
-						<li>Parsear mediante el método <span class="naranja">gson.fromJson(fichero, clasePrincipal)</span> de la librería <a href="https://github.com/google/gson" target="_blank">Gson</a></li>
-					</ol>
+					<ul>
+						<li><span class="azul">Serializar</span> (stringify): Convierte un objeto en una cadena de texto JSON &rarr; <span class="naranja">gson.toJson(objeto)</span></li>
+						<li><span class="azul">Deserializar</span> (parse): Convierte un texto como JSON en un objeto manejable por Java &rarr; <span class="naranja">gson.fromJson(fichero, clasePrincipal)</span></li>
+					</ul>
+					<p><img src="img/progt05-59.png" alt="JSON serializar" /></p>
 				</section>
 
 				<!-- Otras estructuras -->
 				<section>
 					<h2>Otras estructuras</h2>
 					<h3>JSON</h3>
+					<p>Crear JSON</p>
 					<ul>
-						<li>Igual de importante que leer (parsear) un JSON es crearlo. Suele ser tarea del backend</li>
 						<li>Para generar un JSON a partir de nuestros objetos, se utiliza el método <span class="naranja">gson.toJson(clase)</span> de la librería <a href="https://github.com/google/gson" target="_blank">Gson</a></li>
 					</ul>
 					<pre>
@@ -1197,7 +1183,27 @@
 							import com.google.gson.*;
 							...
 							Gson gson = new Gson();
-							System.out.println(gson.toJson(listadoCuentas));
+							System.out.println(gson.toJson(cuentas));
+							// Guardar a fichero
+						</code>
+					</pre>
+				</section>
+
+				<!-- Otras estructuras -->
+				<section>
+					<h2>Otras estructuras</h2>
+					<h3>JSON</h3>
+					<p>Leer o parsear JSON</p>
+					<p>Para leer un JSON y poder utilizar los datos con nuestros objetos, se utiliza el método <span class="naranja">gson.fromJson(buffer, clasePrincipal.class)</span> de la librería <a href="https://github.com/google/gson" target="_blank">Gson</a>.</p>
+					<p><em>buffer</em> es el JSON pasado a cadena (stringify) que normalmente se lee directamente desde fichero.</p>
+
+					<pre>
+						<code class="hljs" data-trim> 
+							import com.google.gson.*;
+							...
+							Gson gson = new Gson();
+							BufferedReader buffer = new BufferedReader(new FileReader("cuentas.json"));
+							Cuentas cuentas = gson.fromJson(buffer, Cuentas.class);			
 						</code>
 					</pre>
 				</section>
@@ -1208,6 +1214,20 @@
 					<h3>JSON</h3>
 					<p>Escritura en fichero</p>
 					<p><img src="img/progt05-61.png" alt="JSON escritura en fichero" /></p>
+				</section>
+
+				<!-- Otras estructuras -->
+				<section>
+					<h2>Otras estructuras</h2>
+					<h3>JSON</h3>
+					<p>Pasos para parsear un JSON descargado desde Java creando automáticamente las clases necesarias (más info en apuntes).</p>
+					<ol>
+						<li>Localizar una API</li>
+						<li>Probar la API en <a href="https://www.postman.com/" target="_blank">Postman</a></li>
+						<li>Generar el esquema de clases a partir del JSON mediante <a href="https://www.jsonschema2pojo.org/" target="_blank">jsonschema2pojo</a></li>
+						<li>Comprender la información del JSON y del esquema de clases para tener claro el parseo</li>
+						<li>Parsear mediante el método <span class="naranja">gson.fromJson(fichero, clasePrincipal)</span> de la librería <a href="https://github.com/google/gson" target="_blank">Gson</a></li>
+					</ol>
 				</section>
 
 				<!-- Otras estructuras -->
