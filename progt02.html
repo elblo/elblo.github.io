@@ -82,6 +82,102 @@
 				<section>
 					<h2>Índice</h2>
 					<ol>
+						<li class="fragment highlight-blue">Salida de datos por pantalla</li>
+						<li>Lectura de datos por teclado</li>
+						<li>Variables e identificadores</li>
+						<li>Tipos de datos</li>
+						<li>Operadores y expresiones</li>
+						<li>Conversión de tipo</li>
+						<li>Comentarios</li>
+						<li>Estructuras selectivas</li>
+						<li>Estructuras repetitivas</li>
+					</ol>
+				</section>
+
+				<!-- Salida de datos por pantalla -->
+				<section>
+					<h2>Salida de datos por pantalla</h2>
+					<p>Funciones para escribir por la salida estándar (pantalla):</p>
+					<ul>
+						<li>System.out.<span class="naranja">print</span>("texto");</li>
+						<li>System.out.<span class="naranja">println</span>("texto");</li>
+						<li>System.out.<span class="naranja">printf</span>("texto");</li>
+					</ul>
+				</section>
+
+				<!-- Salida de datos por pantalla -->
+				<section>
+					<h2>Salida de datos por pantalla</h2>
+					<p><span class="naranja">Colorear texto</span> mediante código ANSI de escape (<em>\033[</em> o <em>\u001B[</em>) seguido del código de color (31, 32, 33...) y la letra m. <a href="https://www.campusmvp.es/recursos/post/como-cambiar-los-colores-de-la-consola-con-java-y-system-out-println.aspx" target="_blank">(MÁS INFO)</a></p>
+					<pre>
+						<code class="hljs" data-trim>
+							public class Colores {
+								public static void main(String[] args) {
+									System.out.print("\033[33m mandarina"); 
+									System.out.print("\033[32m hierba"); 
+									ystem.out.print("\033[31m tomate");
+								} 
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Salida de datos por pantalla -->
+				<section>
+					<h2>Salida de datos por pantalla</h2>
+					<p><span class="naranja">Caracteres especiales</span> como emojis y similares mediante <em>\u</em> seguido del código Unicode como 266A o 266B. <a href="https://unicode-table.com/es/" target="_blank">(MÁS INFO)</a></p>
+					<pre>
+						<code class="hljs" data-trim>
+							public class CaracteresEspeciales {
+								public static void main(String[] args) {
+									System.out.print("Corchea: \u266A"); 
+									System.out.print("Doble corchea: \u266B"); 
+								} 
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Salida de datos por pantalla -->
+				<section>
+					<h2>Salida de datos por pantalla</h2>
+					<p><span class="naranja">Formatear salida</span> </p>
+						<code class="hljs" data-trim>
+							public class SalidaFormateada01 {
+								public static void main(String[] args) {
+									System.out.printf("El número %d no tiene decimales.\n", 21); 
+									System.out.printf("El número %f sale con decimales.\n", 21.0); 
+									System.out.printf("El %.3f sale exactamente con 3 decimales.\n", 21.0);
+								} 
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- TODO
+					Enlace salida por pantalla o ejemplo completo y seguir por lectura datos
+				-->
+
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li>Salida de datos por pantalla</li>
+						<li class="fragment highlight-blue">Lectura de datos por teclado</li>
+						<li>Variables e identificadores</li>
+						<li>Tipos de datos</li>
+						<li>Operadores y expresiones</li>
+						<li>Conversión de tipo</li>
+						<li>Comentarios</li>
+						<li>Estructuras selectivas</li>
+						<li>Estructuras repetitivas</li>
+					</ol>
+				</section>
+
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
 						<li>Introducción</li>
 						<li class="fragment highlight-blue">Variables e identificadores</li>
 						<li>Tipos de datos</li>
