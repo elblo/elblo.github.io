@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="css/reveal.css">
 
 		<!-- TEMA: beige, black, blood, league, moon, night, serif, simple, sky, solarized, white -->
-		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+		<link rel="stylesheet" href="css/theme/whiteMIO.css" id="theme">
 
 		<!-- CSS propio -->
 		<link rel="stylesheet" href="css/micss.css">
@@ -62,8 +62,10 @@
 					<h2>Índice</h2>
 					<ol>
 						<li class="fragment highlight-blue">Introducción</li>
+						<li>Salida de datos por pantalla</li>
 						<li>Variables e identificadores</li>
 						<li>Tipos de datos</li>
+						<li>Lectura de datos desde teclado</li>
 						<li>Operadores y expresiones</li>
 						<li>Conversión de tipo</li>
 						<li>Comentarios</li>
@@ -75,17 +77,19 @@
 				<!-- Introducción -->
 				<section>
 					<h2>Introducción</h2>
-					<p></p>
+					<p>En este tema vas a aprender a utilizar variables con el tipo de dato más adecuado, a operar con ellas y a ejecutar de forma condicional un conjunto de instrucciones.</p>
+					<p class="fragment">¡Las bases de la programación!</p>
 				</section>
 
 				<!-- Índice -->
 				<section>
 					<h2>Índice</h2>
 					<ol>
+						<li>Introducción</li>
 						<li class="fragment highlight-blue">Salida de datos por pantalla</li>
-						<li>Lectura de datos por teclado</li>
 						<li>Variables e identificadores</li>
 						<li>Tipos de datos</li>
+						<li>Lectura de datos desde teclado</li>
 						<li>Operadores y expresiones</li>
 						<li>Conversión de tipo</li>
 						<li>Comentarios</li>
@@ -97,7 +101,8 @@
 				<!-- Salida de datos por pantalla -->
 				<section>
 					<h2>Salida de datos por pantalla</h2>
-					<p>Funciones para escribir por la salida estándar (pantalla):</p>
+					<h3>Funciones</h3>
+					<p>Escribir por la salida estándar (pantalla):</p>
 					<ul>
 						<li>System.out.<span class="naranja">print</span>("texto");</li>
 						<li>System.out.<span class="naranja">println</span>("texto");</li>
@@ -108,7 +113,8 @@
 				<!-- Salida de datos por pantalla -->
 				<section>
 					<h2>Salida de datos por pantalla</h2>
-					<p><span class="naranja">Colorear texto</span> mediante código ANSI de escape (<em>\033[</em> o <em>\u001B[</em>) seguido del código de color (31, 32, 33...) y la letra m. <a href="https://www.campusmvp.es/recursos/post/como-cambiar-los-colores-de-la-consola-con-java-y-system-out-println.aspx" target="_blank">(MÁS INFO)</a></p>
+					<h3>Colorear texto</h3> 
+					<p>Mediante código ANSI de escape (<em>\033[</em> o <em>\u001B[</em>) seguido del código de color (<em>31</em>, <em>32</em>, <em>33</em>...) y la letra <em>m</em>. <a href="https://www.campusmvp.es/recursos/post/como-cambiar-los-colores-de-la-consola-con-java-y-system-out-println.aspx" target="_blank">(+info)</a></p>
 					<pre>
 						<code class="hljs" data-trim>
 							public class Colores {
@@ -125,7 +131,8 @@
 				<!-- Salida de datos por pantalla -->
 				<section>
 					<h2>Salida de datos por pantalla</h2>
-					<p><span class="naranja">Caracteres especiales</span> como emojis y similares mediante <em>\u</em> seguido del código Unicode como 266A o 266B. <a href="https://unicode-table.com/es/" target="_blank">(MÁS INFO)</a></p>
+					<h3>Caracteres especiales</h3>
+					<p>Con <em>\u</em> seguido del código Unicode como <em>266A</em> o <em>266B</em>. <a href="https://unicode-table.com/es/" target="_blank">(+info)</a></p>
 					<pre>
 						<code class="hljs" data-trim>
 							public class CaracteresEspeciales {
@@ -141,46 +148,31 @@
 				<!-- Salida de datos por pantalla -->
 				<section>
 					<h2>Salida de datos por pantalla</h2>
-					<p><span class="naranja">Formatear salida</span> </p>
+					<h3>Formatear salida</h3>
+					<p>Utilizando la máscara correspondiente (<em>%s</em>, <em>%d</em>, <em>%f</em>...) con la función <span class="naranja">printf</span>. <a href="https://xperti.io/blogs/formatting-with-printf-in-java/" target="_blank">(+info)</a></p>
+					<pre>
 						<code class="hljs" data-trim>
 							public class SalidaFormateada {
 								public static void main(String[] args) {
 									System.out.printf("El número %d no tiene decimales.\n", 21); 
 									System.out.printf("El número %f sale con decimales.\n", 21.0); 
 									System.out.printf("El %.3f sale exactamente con 3 decimales.\n", 21.0);
+									System.out.printf("Soy %s y tengo %d años.\n", "Eladio", 39);
 								} 
 							}
 						</code>
 					</pre>
-				</section>
-
-				<!-- TODO
-					Enlace salida por pantalla o ejemplo completo y seguir por lectura datos
-				-->
-
-				<!-- Índice -->
-				<section>
-					<h2>Índice</h2>
-					<ol>
-						<li>Salida de datos por pantalla</li>
-						<li class="fragment highlight-blue">Lectura de datos por teclado</li>
-						<li>Variables e identificadores</li>
-						<li>Tipos de datos</li>
-						<li>Operadores y expresiones</li>
-						<li>Conversión de tipo</li>
-						<li>Comentarios</li>
-						<li>Estructuras selectivas</li>
-						<li>Estructuras repetitivas</li>
-					</ol>
-				</section>
+				</section>	
 
 				<!-- Índice -->
 				<section>
 					<h2>Índice</h2>
 					<ol>
 						<li>Introducción</li>
+						<li>Salida de datos por pantalla</li>
 						<li class="fragment highlight-blue">Variables e identificadores</li>
 						<li>Tipos de datos</li>
+						<li>Lectura de datos desde teclado</li>
 						<li>Operadores y expresiones</li>
 						<li>Conversión de tipo</li>
 						<li>Comentarios</li>
@@ -196,9 +188,10 @@
 					<ul>
 						<li>Es el nombre que damos a una variable.</li>
 						<li>Java distingue mayúsculas de minúsculas: (num != Num)</li>
-						<li>Se escribe según la norma lowerCamelCase.</li>
+						<li>Se escribe según la norma <em>lowerCamelCase</em>.</li>
 						<li>Primer carácter: letra. También _ o símbolo (no recomendados).</li>
-						<li>Utilizar identificadores descriptivos.</li>
+						<li>Utilizar <em>identificadores descriptivos</em>.</li>
+						<li>Guía de estilo de Google <a href="https://google.github.io/styleguide/javaguide.html#s5-naming" target="_blank">(+info)</a>.</a></li>
 					</ul>
 				</section>
 
@@ -207,6 +200,7 @@
 					<h2>Variables e identificadores</h2>
 					<h3>Identificadores</h3>
 					<p><img src="img/progt02-01.png" alt="Identificadores" /></p>
+					<p>Ojo! El nombre de funciones, mejor también en <em>lowerCamelCase</em></p>
 				</section>
 
 				<!-- Variables e identificadores -->
@@ -264,8 +258,10 @@
 					<h2>Índice</h2>
 					<ol>
 						<li>Introducción</li>
+						<li>Salida de datos por pantalla</li>
 						<li>Variables e identificadores</li>
 						<li class="fragment highlight-blue">Tipos de datos</li>
+						<li>Lectura de datos desde teclado</li>
 						<li>Operadores y expresiones</li>
 						<li>Conversión de tipo</li>
 						<li>Comentarios</li>
@@ -285,8 +281,8 @@
 				<section>
 					<h2>Tipos de datos</h2>
 					<ul>
-						<li><strong>Primitivos:</strong> Representan valores predefinidos en el lenguaje: enteros (short, int, long...), reales (float, double), boolean...</li>
-						<li><strong>Referenciados:</strong> Se definen con un nombre o referencia (puntero) que contiene la dirección en memoria de un valor o grupo de valores: Clases, interfaces, arrays...</li>
+						<li><strong>Primitivos:</strong> Representan valores predefinidos en el lenguaje: <span class="naranja">enteros</span> (short, int, long...), <span class="naranja">reales</span> (float, double), <span class="naranja">boolean</span>...</li>
+						<li><strong>Referenciados:</strong> Se definen con un nombre o referencia (puntero) que contiene la dirección en memoria de un valor o grupo de valores: <span class="naranja">Clases</span>, <span class="naranja">interfaces</span>, <span class="naranja">arrays</span>...</li>
 					</ul>
 				</section>
 
@@ -294,6 +290,31 @@
 				<section>
 					<h2>Tipos de datos</h2>
 					<p><img src="img/progt02-06.png" alt="Tipos de datos primitivos" /></p>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<h3>Rangos y valores por defecto</h3>
+					<p><img src="img/progt02-48.png" alt="Rangos de datos primitivos" /></p>
+				</section>
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<h3>Ejemplos de declaraciones</h3>
+					<pre>
+						<code class="hljs" data-trim>
+							boolean abierto = true; 
+							byte repeticiones = 22; 
+							char letra = ‘a’; 
+							short pantalones = 22; 
+							int asistentes = 22; 
+							long poblacion = 22L; 
+							float nota = 9.5f; 
+							double precio = 22.55d;
+						</code>
+					</pre>
 				</section>
 
 				<!-- Tipos de datos -->
@@ -319,7 +340,7 @@
 					<h2>Tipos de datos</h2>
 					<h3>Declaración e inicialización</h3>
 					<ul>
-						<li>Declarar variable = reservar espacio en RAM para alojar un dato.</li>
+						<li>Declarar variable = reservar espacio en memoria RAM para alojar un dato.</li>
 						<li>Por ello, se especifica su tipo de dato: int, long, double...</li>
 						<li>Se puede declarar una variable en cualquier lugar del código.</li>
 						<li>En la misma declaración, se puede inicializar (asignar un valor).</li>
@@ -347,7 +368,7 @@
 				<section>
 					<h2>Tipos de datos</h2>
 					<h3>Declaración e inicialización</h3>
-					<p>Se puede declarar la variable con "var" y el intérprete le asignará el tipo de datos correspondiente al valor de su inicialización. <strong class="fragment highlight-blue">NO RECOMENDABLE</strong></p>
+					<p>Se puede declarar la variable con "var" y el intérprete de Java le asignará el tipo de datos correspondiente al valor de su inicialización. <strong class="fragment highlight-blue">NO RECOMENDABLE</strong></p>
 					<p><img src="img/progt02-11.png" alt="Declaración de variables con var" /></p>
 				</section>
 
@@ -402,7 +423,16 @@
 						<li>Estructuras de datos: Arrays, listas, árboles...</li>
 						<li>Objetos de clases</li>
 					</ul>
-					<p><img src="img/progt02-16.png" alt="Tipos de datos referenciados" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							public class Main{
+								public static void main(String[] args){
+									Usuario usarioActivo;
+									int listaNotas[];
+								}
+							}
+						</code>
+					</pre>
 				</section>
 
 				<!-- Tipos de datos: Ejercicio -->
@@ -413,8 +443,120 @@
 					<h2>Índice</h2>
 					<ol>
 						<li>Introducción</li>
+						<li>Salida de datos por pantalla</li>
 						<li>Variables e identificadores</li>
 						<li>Tipos de datos</li>
+						<li class="fragment highlight-blue">Lectura de datos desde teclado</li>
+						<li>Operadores y expresiones</li>
+						<li>Conversión de tipo</li>
+						<li>Comentarios</li>
+						<li>Estructuras selectivas</li>
+						<li>Estructuras repetitivas</li>
+					</ol>
+				</section>
+
+				<!-- Lectura de datos desde teclado -->
+				<section>
+					<h2>Lectura de datos</h2>
+					<h3>Leer texto</h3>
+					<p>Mediante <em>System.console().readLine()</em> se lee texto en consola hasta que se pulsa la tecla ENTER.</p>
+					<pre>
+						<code class="hljs" data-trim>
+							public class LeerTexto {
+								public static void main(String[] args) {
+									String nombre;
+									System.out.print("Dime cómo te llamas: ");
+									nombre = System.console().readLine();
+									System.out.println("Hola " + nombre + ", ¡encantado de conocerte!");
+								} 
+							}
+						</code>
+					</pre>
+				</section>		
+				
+				<!-- Lectura de datos desde teclado -->
+				<section>
+					<h2>Lectura de datos</h2>
+					<h3>Leer números</h3>
+					<p>El texto leído se convierte mediante las funciones <em>parseInt</em> a entero o <em>parseFloat</em> a real.</p>
+					<pre>
+						<code class="hljs" data-trim>
+							public class LeerNumeros {
+								public static void main(String[] args) {
+									String respuesta;
+									System.out.print("Dime tu edad: ");
+									respuesta = System.console().readLine();
+									int edad = Integer.parseInt(respuesta);	
+									
+									System.out.print("Dime tu estatura en metros: ");
+									respuesta = System.console().readLine();
+									float estatura = Float.parseFloat(respuesta);
+									
+									System.out.printf("Edad: %d años. Estatura: %.2f metros.", edad, estatura);
+								} 
+							}
+						</code>
+					</pre>
+				</section>	
+				
+				<!-- Lectura de datos desde teclado -->
+				<section>
+					<h2>Lectura de datos</h2>
+					<h3>Clase Scanner</h3>
+					<p>Funciona en consola e IDEs. Mediante su función <em>nextLine()</em> se lee texto hasta pulsar ENTER.</p>
+					<pre>
+						<code class="hljs" data-trim>
+							// 1º) Importar la clase
+							import java.util.Scanner;
+
+							public class LeerTextoScanner {
+								public static void main(String[] args) {
+									// 2º) Declarar el objeto Scanner
+									Scanner s = new Scanner(System.in);
+
+									System.out.print("Dime tu nombre completo: ");
+									// 3º) Leer texto
+									String nombre = s.nextLine();
+								} 
+							}
+						</code>
+					</pre>
+				</section>	
+
+				<!-- Lectura de datos desde teclado -->
+				<section>
+					<h2>Lectura de datos</h2>
+					<h3>Clase Scanner</h3>
+					<p>Mediante <em>next()</em>, <em>nextInt()</em>, <em>nextFloat()</em>... se lee el tipo de dato correspondiente separado por espacios.</p>
+					<pre>
+						<code class="hljs" data-trim>
+							// 1º) Importar la clase
+							import java.util.Scanner;
+
+							public class LeerTextoScanner {
+								public static void main(String[] args) {
+									// 2º) Declarar el objeto Scanner
+									Scanner s = new Scanner(System.in);
+
+									System.out.print("Dime tu nombre y edad separados por espacio: ");
+									// 3º) Leer texto
+									String nombre = s.next();
+									int edad = s.nextInt();
+								} 
+							}
+						</code>
+					</pre>
+				</section>	
+
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li>Introducción</li>
+						<li>Salida de datos por pantalla</li>
+						<li>Variables e identificadores</li>
+						<li>Tipos de datos</li>
+						<li>Lectura de datos desde teclado</li>
 						<li class="fragment highlight-blue">Operadores y expresiones</li>
 						<li>Conversión de tipo</li>
 						<li>Comentarios</li>
@@ -430,7 +572,7 @@
 						<li>Llevan a cabo operaciones sobre tipos de datos primitivos.</li>
 						<li>Devuelven un tipo de dato primitivo.</li>
 						<li>Una <strong>expresión</strong> es un conjunto de operadores y operandos que devuelve un resultado.</li>
-						<li>Las expresiones combiandas con palabras reservadas foraman las <strong>sentencias</strong> o <strong>instrucciones</strong>.</li>
+						<li>Las expresiones combiandas con palabras reservadas forman las <strong>sentencias</strong> o <strong>instrucciones</strong>.</li>
 					</ul>
 				</section>
 
@@ -523,7 +665,7 @@
 				<section>
 					<h2>Operadores y expresiones</h2>
 					<h3>Operadores lógicos</h3>
-					<p>Ejercicio: Diseñar un programa que devuelva si un número está dentro de un rango establecido entre los valores 0 y 10. Debe devolver true si está en el rango y false en caso contrario.</p>
+					<p><strong>Ejercicio</strong>: Diseñar un programa que devuelva si un número está dentro de un rango establecido entre los valores 0 y 10. Debe devolver true si está en el rango y false en caso contrario.</p>
 				</section>
 
 				<!-- Operadores y expresiones -->
@@ -537,7 +679,7 @@
 				<section>
 					<h2>Operadores y expresiones</h2>
 					<h3>Operadores lógicos</h3>
-					<p>Ejercicio: Diseñar un programa de login que, a partir de unas variables booleanas previamente inicializadas, muestre diferentes mensajes en función de si no está logueado en el sistema, si sí lo está y si además de estarlo, es admin.</p>
+					<p><strong>Ejercicio</strong>: Diseñar un programa de login que, a partir de unas variables booleanas previamente inicializadas, muestre diferentes mensajes en función de si no está logueado en el sistema, si sí lo está y si además de estarlo, es admin.</p>
 				</section>
 
 				<!-- Operadores y expresiones -->
@@ -553,8 +695,8 @@
 					<h3>Operador ternario</h3>
 					<ul>
 						<li>Operador que evalúa una condición y devuelve un valor u otro.</li>
-						<li>Sintáxis: <strong class="fragment highlight-blue">variable = condición ? valor si V : valor si F;</strong></li>
-						<li>Ejemplo: <strong class="fragment highlight-blue">rdo = num % 2 ? "Es par" : "Es impar";</strong></li>
+						<li>Sintáxis: variable = <span class="azul">condición</span> ? <span class="verde">valor si V</span> : <span class="rojo">valor si F</span>;</li>
+						<li><span class="fragment">Ejemplo:</span> <span class="fragment">rdo =</span> <span class="fragment azul">num % 2</span> <span class="fragment">?</span> <span class="fragment verde">"Es par"</span> <span class="fragment">:</span> <span class="fragment rojo">"Es impar"</span><span class="fragment">;</span></li>
 					</ul>
 				</section>
 
@@ -599,8 +741,10 @@
 					<h2>Índice</h2>
 					<ol>
 						<li>Introducción</li>
+						<li>Salida de datos por pantalla</li>
 						<li>Variables e identificadores</li>
 						<li>Tipos de datos</li>
+						<li>Lectura de datos desde teclado</li>
 						<li>Operadores y expresiones</li>
 						<li class="fragment highlight-blue">Conversión de tipo</li>
 						<li>Comentarios</li>
@@ -647,8 +791,10 @@
 					<h2>Índice</h2>
 					<ol>
 						<li>Introducción</li>
+						<li>Salida de datos por pantalla</li>
 						<li>Variables e identificadores</li>
 						<li>Tipos de datos</li>
+						<li>Lectura de datos desde teclado</li>
 						<li>Operadores y expresiones</li>
 						<li>Conversión de tipo</li>
 						<li class="fragment highlight-blue">Comentarios</li>
@@ -671,7 +817,7 @@
 				<!-- Comentarios -->
 				<section>
 					<h2>Comentarios</h2>
-					<p>Ejercicio: Diseña un programa para determinar si un número introducido por teclado es par o impar. Muy importante utilizar comentarios. Opcional, hacerlo con el operador ternario.</p>
+					<p><strong>Ejercicio</strong>: Diseña un programa para determinar si un número introducido por teclado es par o impar. Muy importante utilizar comentarios. Opcional, hacerlo con el operador ternario.</p>
 				</section>
 
 				<!-- Comentarios -->
@@ -692,8 +838,10 @@
 					<h2>Índice</h2>
 					<ol>
 						<li>Introducción</li>
+						<li>Salida de datos por pantalla</li>
 						<li>Variables e identificadores</li>
 						<li>Tipos de datos</li>
+						<li>Lectura de datos desde teclado</li>
 						<li>Operadores y expresiones</li>
 						<li>Conversión de tipo</li>
 						<li>Comentarios</li>
@@ -774,7 +922,7 @@
 				<section>
 					<h2>Estructuras selectivas</h2>
 					<h3>Estructura if-else</h3>
-					<p>Ejercicio: Diseña un programa para determinar la nota de un alumno (insuficiente, suficiente, bien, notable y sobresaliente) a partir del valor numérico.</p>
+					<p><strong>Ejercicio</strong>: Diseña un programa para determinar la nota de un alumno (insuficiente, suficiente, bien, notable y sobresaliente) a partir del valor numérico.</p>
 				</section>
 
 				<!-- Estructuras selectivas -->
@@ -839,14 +987,14 @@
 				<section>
 					<h2>Estructuras selectivas</h2>
 					<h3>Estructura switch</h3>
-					<p>Ejercicio: Diseña un programa que pida el número de mes y devuelva la estación meteorológica a la que corresponde. Variante: Cambia el programa para que en vez de pedir el número del mes, se pida el nombre del mes.</p>
+					<p><strong>Ejercicio</strong>: Diseña un programa que pida el número de mes y devuelva la estación meteorológica a la que corresponde. Variante: Cambia el programa para que en vez de pedir el número del mes, se pida el nombre del mes.</p>
 				</section>
 
 				<!-- Estructuras selectivas -->
 				<section>
 					<h2>Estructuras selectivas</h2>
 					<h3>Estructura switch</h3>
-					<p>Ejercicio: Diseña un programa para calcular el área del cuadrado, rectángulo y triángulo. Realiza un menú para que el usuario seleccione la figura que le interese. Utiliza la estructura switch.</p>
+					<p><strong>Ejercicio</strong>: Diseña un programa para calcular el área del cuadrado, rectángulo y triángulo. Realiza un menú para que el usuario seleccione la figura que le interese. Utiliza la estructura switch.</p>
 				</section>
 
 				<!-- Estructuras selectivas -->
@@ -868,8 +1016,10 @@
 					<h2>Índice</h2>
 					<ol>
 						<li>Introducción</li>
+						<li>Salida de datos por pantalla</li>
 						<li>Variables e identificadores</li>
 						<li>Tipos de datos</li>
+						<li>Lectura de datos desde teclado</li>
 						<li>Operadores y expresiones</li>
 						<li>Conversión de tipo</li>
 						<li>Comentarios</li>
@@ -948,7 +1098,7 @@
 						<code class="hljs" data-trim>
 							String semana[] = {"lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"};
 
-							for (String dia: semana){
+							for (String dia : semana){
 								System.out.println("día = " + dia);
 							}
 						</code>
