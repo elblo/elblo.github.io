@@ -435,9 +435,6 @@
 					</pre>
 				</section>
 
-				<!-- Tipos de datos: Ejercicio -->
-				<section data-background-iframe="doc/progt02-EjercicioTiposDatos.pdf" data-background-interactive></section>
-
 				<!-- Índice -->
 				<section>
 					<h2>Índice</h2>
@@ -453,50 +450,6 @@
 						<li>Estructuras selectivas</li>
 						<li>Estructuras repetitivas</li>
 					</ol>
-				</section>
-
-				<!-- Lectura de datos desde teclado -->
-				<section>
-					<h2>Lectura de datos</h2>
-					<h3>Leer texto</h3>
-					<p>Mediante <em>System.console().readLine()</em> se lee texto en consola hasta que se pulsa la tecla ENTER.</p>
-					<pre>
-						<code class="hljs" data-trim>
-							public class LeerTexto {
-								public static void main(String[] args) {
-									String nombre;
-									System.out.print("Dime cómo te llamas: ");
-									nombre = System.console().readLine();
-									System.out.println("Hola " + nombre + ", ¡encantado de conocerte!");
-								} 
-							}
-						</code>
-					</pre>
-				</section>		
-				
-				<!-- Lectura de datos desde teclado -->
-				<section>
-					<h2>Lectura de datos</h2>
-					<h3>Leer números</h3>
-					<p>El texto leído se convierte mediante las funciones <em>parseInt</em> a entero o <em>parseFloat</em> a real.</p>
-					<pre>
-						<code class="hljs" data-trim>
-							public class LeerNumeros {
-								public static void main(String[] args) {
-									String respuesta;
-									System.out.print("Dime tu edad: ");
-									respuesta = System.console().readLine();
-									int edad = Integer.parseInt(respuesta);	
-									
-									System.out.print("Dime tu estatura en metros: ");
-									respuesta = System.console().readLine();
-									float estatura = Float.parseFloat(respuesta);
-									
-									System.out.printf("Edad: %d años. Estatura: %.2f metros.", edad, estatura);
-								} 
-							}
-						</code>
-					</pre>
 				</section>	
 				
 				<!-- Lectura de datos desde teclado -->
@@ -517,6 +470,37 @@
 									System.out.print("Dime tu nombre completo: ");
 									// 3º) Leer texto
 									String nombre = s.nextLine();
+								} 
+							}
+						</code>
+					</pre>
+				</section>	
+
+				<!-- Lectura de datos desde teclado -->
+				<section>
+					<h2>Lectura de datos</h2>
+					<h3>Leer números</h3>
+					<p>El texto leído se convierte mediante las funciones <em>parseInt</em> a entero o <em>parseFloat</em> a real.</p>
+					<pre>
+						<code class="hljs" data-trim>
+							// 1º) Importar la clase
+							import java.util.Scanner;
+
+							public class LeerNumeros {
+								public static void main(String[] args) {
+									// 2º) Declarar el objeto Scanner
+									Scanner s = new Scanner(System.in);
+
+									String respuesta;
+									System.out.print("Dime tu edad: ");
+									respuesta = s.nextLine();
+									int edad = Integer.parseInt(respuesta);	
+									
+									System.out.print("Dime tu estatura en metros: ");
+									respuesta = s.nextLine();
+									float estatura = Float.parseFloat(respuesta);
+									
+									System.out.printf("Edad: %d años. Estatura: %.2f metros.", edad, estatura);
 								} 
 							}
 						</code>
