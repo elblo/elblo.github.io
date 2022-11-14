@@ -320,19 +320,67 @@
 				<!-- Tipos de datos -->
 				<section>
 					<h2>Tipos de datos</h2>
-					<p><img src="img/progt02-07.png" alt="Tipos de datos primitivos" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							public static void main(String[] args) {
+								// Declaración de variables
+								int numero; // Guardará un entero
+								char letra; // Guardará un caracter
+								String nombre; // Guardará una caden ade texto
+						
+								int vector[]; // Guardará 10 números enteros
+								Persona usuario; // Guardará un objeto de la clase Persona
+						
+								System.out.println("Programa ejecutado");
+							}			
+						</code>
+					</pre>				
+				</section>
+
+			
+
+				<!-- Tipos de datos -->
+				<section>
+					<h2>Tipos de datos</h2>
+					<pre>
+						<code class="hljs" data-trim>
+							public static void main(String[] args) {
+								// Declaración e inicialización de variables
+								boolean encontrado = true;
+								char letra = 'Z';
+								byte mes = 12;
+								int contador = 0;
+								float interes = 4.25e2f;
+								double pi = 3.1415926535897932384626433832795;
+						
+								// Imprimir valores
+								System.out.println(encontrado); // true
+								System.out.println(letra); // Z
+								System.out.println(mes); // 12
+								System.out.println(contador); // 0
+								System.out.println(interes); // 425.0
+								System.out.println(pi); // 3.141592653589793
+							}					
+						</code>
+					</pre>	
 				</section>
 
 				<!-- Tipos de datos -->
 				<section>
 					<h2>Tipos de datos</h2>
-					<p><img src="img/progt02-08.png" alt="Tipos de datos primitivos" /></p>
-				</section>
-
-				<!-- Tipos de datos -->
-				<section>
-					<h2>Tipos de datos</h2>
-					<p><img src="img/progt02-09.png" alt="Tipos de datos primitivos" /></p>
+					<h3>Información del tipo de dato</h3>
+					<p>Partiendo del ejemplo, haz lo mismo para el resto de tipo de datos (el Boolean depende de la arquitectura).</p>
+					<pre>
+						<code class="hljs" data-trim>
+							public static void main(String[] args) {
+								System.out.println("Tipo de dato Byte");
+								System.out.println("bits: " + Byte.SIZE); // 8
+								System.out.println("Bytes: " + Byte.BYTES); // 1
+								System.out.println("Valor mínimo: " + Byte.MIN_VALUE); // -128
+								System.out.println("Valor máximo: " + Byte.MAX_VALUE); // 127
+							}				
+						</code>
+					</pre>				
 				</section>
 
 				<!-- Tipos de datos -->
@@ -361,7 +409,16 @@
 				<section>
 					<h2>Tipos de datos</h2>
 					<h3>Declaración e inicialización</h3>
-					<p><img src="img/progt02-10.png" alt="Declaración de variables y constantes" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							public static void main(String[] args) {
+								// Declaración e inicialización
+								int numeroAlumnos = 15;
+								double radio = 3.14, importe = 102.95;
+								final double PI = 3.1415926536;
+							}				
+						</code>
+					</pre>	
 				</section>
 
 				<!-- Tipos de datos -->
@@ -369,7 +426,17 @@
 					<h2>Tipos de datos</h2>
 					<h3>Declaración e inicialización</h3>
 					<p>Se puede declarar la variable con "var" y el intérprete de Java le asignará el tipo de datos correspondiente al valor de su inicialización. <strong class="fragment highlight-blue">NO RECOMENDABLE</strong></p>
-					<p><img src="img/progt02-11.png" alt="Declaración de variables con var" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							public static void main(String[] args) {
+								// Declaración e inicialización
+								var numeroAlumnos = 15;
+								var radio = 3.14; // var no permite declaraciones compuestas (en la misma línea)
+								var importe = 102.95;
+								final var PI = 3.1415926536;
+							}			
+						</code>
+					</pre>	
 				</section>
 
 				<!-- Tipos de datos -->
@@ -388,23 +455,64 @@
 				<section>
 					<h2>Tipos de datos</h2>
 					<h3>Declaración e inicialización</h3>
-					<p><img src="img/progt02-12.png" alt="Declaración de variables char" /></p>
+					<p>Tipo dato char</p>
+					<pre>
+						<code class="hljs" data-trim>	
+							public static void main(String[] args) {
+								// Declaración
+								char simbolo1, simbolo2, simbolo3;
+								// Inicialización
+								simbolo1 = '&';
+								simbolo2 = '\u0040';
+								simbolo3 = 63;
+						
+								System.out.println("simbolo1 = " + simbolo1); // &
+								System.out.println("simbolo2 = " + simbolo2); // @
+								System.out.println("simbolo3 = " + simbolo3); // ?
+							}
+						</code>
+					</pre>					
 				</section>
 
 				<!-- Tipos de datos -->
 				<section>
 					<h2>Tipos de datos</h2>
 					<h3>Declaración e inicialización</h3>
-					<p>Tipos boolean</p>
-					<p><img src="img/progt02-13.png" alt="Declaración de variables boolean" /></p>
+					<p>Tipo dato boolean</p>
+					<pre>
+						<code class="hljs" data-trim>	
+							public static void main(String[] args) {
+								boolean variableLogica = true;
+						
+								if(variableLogica){
+									System.out.println("La variable es verdadera");
+								}else{
+									System.out.println("La variable es falsa");
+								}
+							}
+						</code>
+					</pre>					
 				</section>
 
 				<!-- Tipos de datos -->
 				<section>
 					<h2>Tipos de datos</h2>
 					<h3>Declaración e inicialización</h3>
-					<p>Tipos boolean</p>
-					<p><img src="img/progt02-14.png" alt="Declaración de variables boolean" /></p>
+					<p>Tipo dato boolean</p>
+					<pre>
+						<code class="hljs" data-trim>	
+							public static void main(String[] args) {
+								int edad = 12;
+								boolean adulto = edad >= 18;
+						
+								if(adulto){
+									System.out.println("Eres mayor de edad");
+								}else{
+									System.out.println("Eres menor de edad");
+								}
+							}
+						</code>
+					</pre>					
 				</section>
 
 				<!-- Tipos de datos -->
