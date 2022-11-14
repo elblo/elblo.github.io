@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Programación Orientada a Objetos</title>
+		<title>Aleatorios y funciones</title>
 
-		<meta name="description" content="Programación Orientada a Objetos">
+		<meta name="description" content="Funciones, aleatorios y excepciones">
 		<meta name="author" content="Eladio Blanco">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -51,1245 +51,379 @@
 				<!-- Título -->
 				<section>
 					<h1>Programación</h1>
-					<h3>Tema 3: Programación Orientada a Objetos</h3>
+					<h3>Tema 3: Aleatorios y funciones</h3>
 					<p>
 						<small><a href="http://www.eladioblanco.es">Eladio Blanco</a></small>
 					</p>
 				</section>
 
-				<!-- Índice -->
-				<section>
+				  <!-- Índice -->
+				  <section>
 					<h2>Índice</h2>
 					<ol>
-						<li class="fragment highlight-blue">Introducción</li>
-						<li>Fundamentos de la POO</li>
-						<li>Estructura de una clase</li>
-						<li>Atributos</li>
-						<li>Métodos</li>
-						<li>Encapsulación, control de acceso y visibilidad</li>
-						<li>Constructores</li>
-						<li>Empaquetado de clases</li>
+						<li class="fragment highlight-blue">Números aleatorios</li>
+						<li>Funciones</li>
 					</ol>
 				</section>
 
-				<!-- Introducción -->
+                <!-- Números aleatorios -->
 				<section>
-					<h2>Introducción</h2>
-					<p><em>Programación tradicional</em>: Problema cuando el software crece y es necesario reutilizar código.</p>
-					<p>Surge la <em>POO</em>: Técnicas para solucionar un problema basándonos en modelos el mundo real con sus propiedades y acciones.</p>
+					<h2>Números aleatorios</h2>
+                    <p>Se utilizan para emular el comportamiento de algún fenómeno natural, el resultado de un juego de azar o
+                         para generar cualquier valor impredecible a priori.</p>
 				</section>
 
-				<!-- Índice -->
+                <!-- Números aleatorios -->
 				<section>
-					<h2>Índice</h2>
-					<ol>
-						<li>Introducción</li>
-						<li class="fragment highlight-blue">Fundamentos de la POO</li>
-						<li>Estructura de una clase</li>
-						<li>Atributos</li>
-						<li>Métodos</li>
-						<li>Encapsulación, control de acceso y visibilidad</li>
-						<li>Constructores</li>
-						<li>Empaquetado de clases</li>
-					</ol>
-				</section>
-			
-				<!-- Fundamentos de la POO -->
-				<section>
-					<h2>Fundamentos de la POO</h2>
-					<p><strong>Programación Estructurada</strong>, se crean funciones y procedimientos que definen las acciones a realizar, y que posteriormente forman los programas.</p>
-				</section>
-
-				<!-- Fundamentos de la POO -->
-				<section>
-					<h2>Fundamentos de la POO</h2>
-					<p><strong>Programación Orientada a Objetos</strong>, considera los programas en términos de objetos y todo gira alrededor de ellos.</p>
-					<p><img src="img/progt03-01.png" alt="Diagrama UML" /></p>
-				</section>
-
-				<!-- Fundamentos de la POO -->
-				<section>
-					<h2>Fundamentos de la POO</h2>
-					<h3>Conceptos</h3>
-					<ul>
-						<li>Se descompone la aplicación en objetos que son representaciones del mundo real.</li>
-						<li>Más cercano a la forma humana de pensar.</li>
-						<li>Los datos y funciones de los objetos no están accesibles al resto de objetos.</li>
-						<li>Cualquier programa escrito en POO puede ser escrito en Programación Estructurada.</li>
-					</ul>
-				</section>	
-
-				<!-- Fundamentos de la POO -->
-				<section>
-					<h2>Fundamentos de la POO</h2>
-					<h3>Beneficios</h3>
-					<ul>
-						<li>Comprensión</li>
-						<li>Modularidad</li>
-						<li>Mantenimiento</li>
-						<li>Seguridad</li>
-						<li>Reusabilidad</li>
-					</ul>
-				</section>
-
-				<!-- Fundamentos de la POO -->
-				<section>
-					<h2>Fundamentos de la POO</h2>
-					<h3>Características</h3>
-					<p><strong>Abstracción</strong></p>
-					<p>Consiste en centrarnos en el desarollo del objeto definiedno sus características y operaciones sin preocuparnos de dónde será utilizado.</p>
-					<p>Reflejar entidades de la vida real mediante <em>clases</em>.</p>
-					<p>Ejemplo: Clase Vehículo (con sus propiedades como matrícula, marca, color...) es una abstracción de Coche y Camión.</p>
-				</section>
-
-				<!-- Fundamentos de la POO -->
-				<section>
-					<h2>Fundamentos de la POO</h2>
-					<h3>Características</h3>
-					<p><strong>Modularidad</strong></p>
-					<p>Nuestro programa se descompone en clases en archivos independinetes.</p>
-					<p>Favorece la modificación y reutilizaciónn del código.</p>
-				</section>
-
-				<!-- Fundamentos de la POO -->
-				<section>
-					<h2>Fundamentos de la POO</h2>
-					<h3>Características</h3>
-					<p><strong>Encapsulación</strong></p>
-					<p>Ocultamiento de información.</p>
-					<p>El programador decide que partes (atributos y métodos) de la clase pueden ser accedidas desde el exterior.</p>
-					<p>Incrementa la seguridad.</p>
-				</section>
-
-				<!-- Fundamentos de la POO -->
-				<section>
-					<h2>Fundamentos de la POO</h2>
-					<h3>Características</h3>
-					<p><strong>Jerarquía</strong></p>
-					<p>Relaciones entre clases.</p>
-					<ul>
-						<li><em>Generalización o especialización (herencia)</em>: Crea nueva clase a partir de otra. "Es un". Ej: Coche hereda de Vehículo.</li>
-						<li><em>Abregación o inclusión</em>: Agrupa objetos dentro de una clase. "Es parte de". Ej: Coche esta compuesta por Ruedas, Motor...</li>
-					</ul>
-				</section>
-
-				<!-- Fundamentos de la POO -->
-				<section>
-					<h2>Fundamentos de la POO</h2>
-					<h3>Características</h3>
-					<p><strong>Polimorfismo</strong></p>
-					<p>Propiedad de que varias clases creadas a partir de una antecesora realicen una misma acción de forma diferente.</p>
-					<p>Ej: Triangulo, Cuadrado, Circulo heredan de Figura. El método "pintar" de Figura se haría de forma diferente en cada clase.</p>
-				</section>
-
-				<!-- Fundamentos de la POO -->
-				<section>
-					<h2>Fundamentos de la POO</h2>
-					<h3>Lenguajes POO</h3>
-					<ul>
-						<li>Simula (1962)</li>
-						<li>SmallTalk (1972)</li>
-						<li>C++ (1985)</li>
-						<li>Eiffel (1986)</li>
-						<li>Java (1995)</li>
-						<li>C# (2000)</li>
-					</ul>
-				</section>
-
-				<!-- Ejercicios Repaso Clase -->
-				<section data-background-iframe="https://www.tiobe.com/tiobe-index/" data-background-interactive>
-					<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
-						<p>Ranking lenguajes de programación</p>
-					</div>
-				</section>
-				
-				<!-- Índice -->
-				<section>
-					<h2>Índice</h2>
-					<ol>
-						<li>Introducción</li>
-						<li>Fundamentos de la POO</li>
-						<li class="fragment highlight-blue">Estructura de una clase</li>
-						<li>Atributos</li>
-						<li>Métodos</li>
-						<li>Encapsulación, control de acceso y visibilidad</li>
-						<li>Constructores</li>
-						<li>Empaquetado de clases</li>
-					</ol>
-				</section>
-
-				<!-- Estructura de una clase -->
-				<section>
-					<h2>Estructura de una clase</h2>
-					<ul>
-						<li><strong>Campos, atributos o propiedades</strong>: Parte de la clase que almacena los datos. Pueden ser de tipo primitivo u otro objeto.</li>
-						<li><strong>Métodos o funciones</strong>: Parte de la clase que realiza operaciones sobre los datos. Sólo se deben modificar los atributos a través de los métodos.</li>
-					</ul>
-				</section>
-
-				<!-- Estructura de una clase -->
-				<section>
-					<h2>Estructura de una clase</h2>
-					<p><img src="img/progt03-02.png" alt="Ejemplo de clase" /></p>
-				</section>
-
-				<!-- Estructura de una clase -->
-				<section>
-					<h2>Estructura de una clase</h2>
-					<p><img src="img/progt03-03.png" alt="Estructura de clase" /></p>
-				</section>
-
-				<!-- Estructura de una clase -->
-				<section>
-					<h2>Estructura de una clase</h2>
-					<p>Durante la ejecución de la aplicación se instanciarán (crearán) objetos reales con sus propios atributos.</p>
-					<p><img src="img/progt03-04.png" alt="Instanciación objetos" /></p>
-				</section>
-
-				<!-- Estructura de una clase -->
-				<section>
-					<h2>Estructura de una clase</h2>
-					<h3>Declaración de una clase</h3>
-					<ul>
-						<li><strong>Cabecera</strong>: Nombre, modificadores, herencia...</li>
-						<li><strong>Cuerpo</strong>: Atributos y métodos.</li>
-					</ul>
-					<pre>
+					<h2>Números aleatorios</h2>
+                    <p><strong>Math.random()</strong> genera un double aleatorio tal que<br/> <span class="naranja">0 <= número < 1</span></p>
+                    <pre>
 						<code class="hljs" data-trim> 
-						// Cabecera de la clase 
-						[modificadores] class NombreClase [herencia] [interfaces] { 
-							// Cuerpo de la clase
-							Declaración de los atributos
-							Declaración de los métodos
-						}
-						</code>
-					</pre>
-				</section>
-
-				<!-- Estructura de una clase -->
-				<section>
-					<h2>Estructura de una clase</h2>
-					<h3>Declaración de una clase</h3>
-					<p>Ejemplo:</p>
-					<pre>
-						<code class="hljs" data-trim> 
-							/** 
-							* Ejemplo de clase Punto 
-							*/
-							public class Punto { 
-								// Atributos
-								int x,y;
-								// Métodos
-								int obtenerX () { return x; }
-								int obtenerY() {return y; }
-								void establecerX(int vx) { x = vx; }; 
-								void establecerY(int vy) { y = vy; }; 
+							public static void main(String[] args) {
+								// Declaración e inicialización de 3 números aleatorios entre 0 y 1
+								double aleatorio1 = Math.random();
+								double aleatorio2 = Math.random();
+								double aleatorio3 = Math.random();
+						
+								// En cada ejecución variará el valor devuelto
+								System.out.println(aleatorio1); // 0.7885120757570676
+								System.out.println(aleatorio2); // 0.7591427401039763
+								System.out.println(aleatorio3); // 0.5081770986579679
 							}
 						</code>
 					</pre>
 				</section>
 
-				<!-- Estructura de una clase -->
+				<!-- Números aleatorios -->
 				<section>
-					<h2>Estructura de una clase</h2>
-					<h3>Declaración de una clase</h3>
-					<ul>
-						<li>Primera letra de la clase en mayúsculas: <em>Punto</em></li>
-						<li>Si esta formada por varias palabras, el inicio de cada una en mayúsculas: <em>PuntoEspecial</em></li>
-						<li>Nombre del archivo igual que la clase: <em>PuntoEspecial.java</em></li>
-						<li>Definición e implementación en el mismo archivo. No ocurre como en C++ (archivos .h y .cpp).</li>
-					</ul>
-					<aside class="notes"><!-- Notas orador (pulsar S) -->
-						Es posible crear varias clases en el un archivo (distintas a public).
+					<h2>Números aleatorios</h2>
+                    <p><em>Rangos personalizados</em>: Multiplicamos el número aleatorio por el número de elementos del rango, le sumamos 1 para que llegue al valor final y hacemos casting a (int) si lo queremos entero</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							public static void main(String[] args) {
+								// Aleatorio entre 0 y 1 con decimales
+								double aleatorio = Math.random();
+								// Convertimos a rango 1-6
+								int caraDado = (int) (aleatorio * 6 + 1);
+								System.out.println(caraDado); //
+							}
+						</code>
+					</pre>
+				</section>
+
+                <!-- Números aleatorios -->
+				<section>
+					<h2>Números aleatorios</h2>
+                    <pre>
+						<code class="hljs" data-trim> 
+                            public static void main(String[] args) {
+                                System.out.println("Veinte números aleatorios entre 1 y 10:\n"); 
+                                for (int i = 1; i < 21; i++) {
+                                    System.out.println((int) (Math.random()*10) + 1); 
+                                }
+
+                                System.out.println("Diez números aleatorios entre 51 y 60:\n"); 
+                                for (int i = 1; i < 11; i++) {
+                                    System.out.println((int) (Math.random()*10) + 51); 
+                                }
+                            }
+						</code>
+					</pre>
+				</section>
+
+                <!-- Números aleatorios -->
+				<section>
+					<h2>Números aleatorios</h2>
+                    <p>Combinados con un <em>switch</em> se pueden generar palabras aleatorias</p>
+                    <pre>
+						<code class="hljs" data-trim> 
+                            public static void main(String[] args) {
+                                System.out.println("Genera al azar piedra, papel o tijera:"); 
+                                // genera un número al azar entre 0 y 2 (ambos incluidos)
+                                int mano = (int) (Math.random() * 3); 
+
+                                switch (mano) {
+                                    case 0: System.out.println("piedra"); break;
+                                    case 1: System.out.println("papel"); break;
+                                    case 2: System.out.println("tijera"); break;
+                                    default: 
+                                }
+                            }
+						</code>
+					</pre>
+				</section>
+
+                <!-- Números aleatorios -->
+				<section>
+					<h2>Números aleatorios</h2>
+                    <p>Ejercicio: Implementa un programa que devuelva un día de la semana aleatorio.</p>
+					<p><img src="img/progt04-05.gif" alt="Ejercicios" /></p>
+				</section>
+
+                <!-- Números aleatorios -->
+				<section>
+					<h2>Números aleatorios</h2>
+                    <p>Ejercicios de la relación</p>
+					<p><img src="img/progt04-06.gif" alt="Ejercicios" /></p>
+				</section>
+
+
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li>Números aleatorios</li>
+						<li class="fragment highlight-blue">Funciones</li>
+					</ol>
+				</section>
+
+				<!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+					    <p>Fragmento de código que realiza una tarea muy concreta y que se puede 
+                        incluir en cualquier programa cuando hace falta resolver esa tarea.</p>
+                        <p>Opcionalmente aceptan una entrada (parámetros) y devuelven una salida.</p>
+				</section>
+
+                <!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+                    <p>Documentación mediante comentarios <span class="naranja">Javadoc</span>:</p>
+                    <ul>
+                        <li><strong>/**</strong>: Inicio comentario Javadoc</li>
+                        <li><strong>@author:</strong> Autor de la función</li>
+                        <li><strong>@param:</strong> Parámetros de la función</li>
+                        <li><strong>@return:</strong> Lo que devuelve la función</li>
+                    </ul>
+					<p class="rojo">Mejor con sistema de control de versiones como Git</p>
+				</section>
+
+                <!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+                    <h3>Declaración</h3>
+                    <pre>
+						<code class="hljs" data-trim> 
+                            /**
+                            * Comprueba si un número entero positivo es primo o no.
+                            * Un número es primo cuando únicamente es divisible entre * él mismo y la unidad.
+                            *
+                            * @author Thomas A. Anderson
+                            * @param x un número entero positivo
+                            * @return true si el número es primo
+                            * @return false en caso contrario
+                            */
+
+                            public static boolean esPrimo(int x) { 
+                                for (int i = 2; i < x; i++) {
+                                    if ((x % i) == 0) {
+                                        return false;
+                                    } 
+                                }
+                                return true;
+                            }
+						</code>
+					</pre>
+
+                    <aside class="notes"><!-- Notas orador (pulsar S) -->
+						Importante declararla como <strong>static</strong> para que pueda ser llamada directamente
 					</aside>
 				</section>
 
-				<!-- Estructura de una clase -->
+                <!-- Funciones -->
 				<section>
-					<h2>Estructura de una clase</h2>
-					<h3>Cabecera: Modificadores</h3>
-					<pre>
-						<code class="hljs" data-trim data-line-numbers="1-2"> 
-						// Cabecera de la clase 
-						[modificadores] class NombreClase [herencia] [interfaces] { 
-							// Cuerpo de la clase
-							Declaración de los atributos
-							Declaración de los métodos
-						}
+					<h2>Funciones</h2>
+                    <h3>Llamada</h3>
+                    <pre>
+						<code class="hljs" data-trim> 
+                            public static void main(String[] args) {
+                                Scanner s = new Scanner(System.in);
+
+                                System.out.print("Bienvenido, introduzca un número: ");
+                                int num1 = Integer.parseInt(s.nextLine());
+                                if (esPrimo(num1)) System.out.println("El número 1 es primo"); 
+                                else System.out.println("El número 1 no es primo"); 
+                                
+                                System.out.print("Introduzca otro número: ");
+                                int num2 = Integer.parseInt(s.nextLine());
+                                if (esPrimo(num2)) System.out.println("El número 2 es primo"); 
+                                else System.out.println("El número 2 no es primo");
+                            }
 						</code>
 					</pre>
-					<ul>
-						<li><em>public</em>, <em>protected</em> y <em>private</em>: Nivel de visibilidad</li>
-						<li><em>abstract</em>: No permite crear objetos directos de ella</li>
-						<li><em>final</em>: No permite que otras clases hereden de ella</li>
-					</ul>
-					<aside class="notes"><!-- Notas orador (pulsar S) -->
-						<p>Nivel de visibilidad (crear objetos de la clase) desde cualquier lado, paquete o clases internas.</p>
-						<p>abstract y final son contrarias.</p>
+				</section>
+
+                <!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+                    <p>Comentarios Javadoc automáticos en IntelliJ</p>
+					<p><img src="img/progt04-01.gif" alt="IntelliJ comentarios automáticos" /></p>
+				</section>
+
+                <!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+                    <p>Tools > Generate JavaDoc</p>
+					<p><img src="img/progt04-02.png" alt="Generar Javadoc" /></p>
+
+                    <aside class="notes"><!-- Notas orador (pulsar S) -->
+						Seleccionar el <strong>output directory</strong> y <strong>nivel de visibilidad</strong>
+                        (private, package, protected o public) de los miembros a incluir en la documentación.
 					</aside>
 				</section>
 
-				<!-- Estructura de una clase -->
+                <!-- Funciones -->
 				<section>
-					<h2>Estructura de una clase</h2>
-					<h3>Cabecera: Herencia</h3>
-					<pre>
-						<code class="hljs" data-trim data-line-numbers="1-2"> 
-						// Cabecera de la clase 
-						[modificadores] class NombreClase [herencia] [interfaces] { 
-							// Cuerpo de la clase
-							Declaración de los atributos
-							Declaración de los métodos
-						}
-						</code>
-					</pre>
-					<ul>
-						<li><em>extends ClasePadre</em>: Hereda sus atributos y métodos</li>
-						<li>Java NO permite herencia múltiple. Una clase sólo puede heredar de otra.</li>
-					</ul>
-					<aside class="notes"><!-- Notas orador (pulsar S) -->
-						Motivos NO permite herencia múltiple: Evitar la ambigüedad de código, simplicidad con respecto a C++
-						 y otros lenguajes, causaba más problemas que los que resolvía...
-					</aside>
+					<h2>Funciones</h2>
+                    <p>Ejemplo de documentación generada con Javadoc</p>
+					<p><img src="img/progt04-03.png" alt="Ejemplo de documentación Javadoc" /></p>
 				</section>
 
-				<!-- Estructura de una clase -->
-				<section>
-					<h2>Estructura de una clase</h2>
-					<h3>Cabecera: Interfaces</h3>
-					<pre>
-						<code class="hljs" data-trim data-line-numbers="1-2"> 
-						// Cabecera de la clase 
-						[modificadores] class NombreClase [herencia] [interfaces] { 
-							// Cuerpo de la clase
-							Declaración de los atributos
-							Declaración de los métodos
-						}
+                <!-- Funciones -->
+                <section>
+                    <h2>Funciones</h2>
+                    <h3>Ámbito de las variables</h3>
+                    <p>Una variable actúa dentro de su ámbito o bloque donde está definida.</p>
+                    <p>Dos variables con el mismo nombre, definidas dentro y fuera de la función serán dos variables distintas.</p>
+                </section>
+
+                <!-- Funciones -->
+                <section>
+                    <h2>Funciones</h2>
+                    <h3>Ámbito de las variables</h3>
+                    <pre>
+						<code class="hljs" data-trim> 
+                            public static void main(String[] args) {
+                                Scanner s = new Scanner(System.in);
+								
+                                System.out.print("Bienvenido, introduzca un número: ");
+                                int i = Integer.parseInt(s.nextLine());
+                                if (esPrimo(i)) System.out.println("El número 1 es primo"); 
+                                else System.out.println("El número 1 no es primo"); 
+                                
+                                System.out.print("Introduzca otro número: ");
+                                int x = Integer.parseInt(s.nextLine());
+                                if (esPrimo(x)) System.out.println("El número 2 es primo"); 
+                                else System.out.println("El número 2 no es primo");
+                            }
+
+                            public static boolean esPrimo(int x) { 
+                                for (int i = 2; i < x; i++) {
+                                    if ((x % i) == 0) {
+                                        return false;
+                                    } 
+                                }
+                                return true;
+                            }
 						</code>
 					</pre>
-					<ul>
-						<li><em>implements NombreInterface</em>: Implementa sus métodos</li>
-						<li>Java SÍ permite implementar más de una interfaz separándolas por comas</li>
-					</ul>
+                </section>
+
+				<!-- Funciones -->
+                <section>
+                    <h2>Funciones</h2>
+                    <h3>Paso de parámetros por valor o referencia</h3>
+                    <p><span class="naranja">Valor</span>: Se pasa una copia de la variable, sólo importa su valor. Cualquier modificación que se haga a la variable dentro de la función no tendrá ningún efecto fuera. </p>
+					<p><span class="naranja">Referencia</span>: Si se modifica el valor de la variable dentro de la función, los cambios se mantienen fuera de la misma.</p>
 				</section>
 
-				<!-- Estructura de una clase -->
-				<section>
-					<h2>Estructura de una clase</h2>
-					<h3>Cuerpo</h3>
-					<pre>
-						<code class="hljs" data-trim data-line-numbers="3-6"> 
-						// Cabecera de la clase 
-						[modificadores] class NombreClase [herencia] [interfaces] { 
-							// Cuerpo de la clase
-							Declaración de los atributos
-							Declaración de los métodos
-						}
-						</code>
-					</pre>
-					<ul>
-						<li><em>Atributos</em>: Se declaran igual que las variables</li>
-						<li><em>Métodos</em>: Operaciones (funciones) que se realizan con los atributos de la clase</li>
-					</ul>
+				<!-- Funciones -->
+                <section>
+                    <h2>Funciones</h2>
+                    <h3>Paso de parámetros por valor o referencia</h3>
+					<p>En muchos lenguajes es el programador quien decide cuándo se pasa un parámetro por valor o por referencia. En Java no podemos elegir. </p>
+					<p>Todos los parámetros que son de <span class="naranja">tipo primitivo</span> (int, double, float, char, String...) se pasan siempre por <em>valor</em> mientras que los <span class="naranja">arrays</span> se pasan siempre por <em>referencia</em>.</p>
 				</section>
 
-				<!-- Estructura de una clase -->
+                <!-- Funciones -->
 				<section>
-					<h2>Estructura de una clase</h2>
-					<h3>Cuerpo</h3>
+					<h2>Funciones</h2>
+                    <h3>Crear bibliotecas mediante paquetes</h3>
+					<p>Las funciones de un determinado tipo se pueden agrupar para crear un paquete que luego se importará desde el programa que necesite usarlas.</p>
+					<p>Cada paquete equivale a un directorio, por lo que podremos crear agrupaciones complejas mediante subpaquetes simplemente creando subdirectorios.</p>
+				</section>
+
+				<!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+                    <h3>Crear bibliotecas mediante paquetes</h3>
+					<p>Declaración de las funciones</p>
 					<pre>
 						<code class="hljs" data-trim> 
-						public class Cuenta {
-							// Atributos
-							long numero;
-							String titular;
-							float saldo;
-							// Métodos
-							void ingreso(float cantidad) { saldo += cantidad; }
-							void reintegro(float cantidad) { saldo -= cantidad; }
-							float leerSaldo() { return saldo; }
-							boolean enRojos() { return (saldo < 0); }
-						}
-						</code>
-					</pre>
-				</section>
+							package bibliotecaFunciones;
 
-				<!-- Estructura de una clase -->
-				<section>
-					<h2>Estructura de una clase</h2>
-					<h3>Miembros estáticos</h3>
-					<ul>
-						<li>Atributos o métodos estáticos (<em>static</em>) son elementos de la clase y no de cada objeto que instancie de ella</li>
-						<li>Ejemplo: atributo <span class="naranja">banco</span> igual para todas las cuentas o método genérico <span class="naranja">cambioEuroDolar</span></li>
-					</ul>
-				</section>
-
-				<!-- Estructura de una clase -->
-				<section>
-					<h2>Estructura de una clase</h2>
-					<h3>Miembros estáticos</h3>
-					<pre>
-						<code class="hljs" data-trim> 
-						public class Cuenta {
-							// Atributos
-							...
-							static String banco = "BBVA";
-							// Métodos
-							...
-							static float cambioEuroDolar(float euros) { 
-								return euros * 1.14f;
-							}
-						}
-						</code>
-					</pre>
-				</section>
-
-				<!-- Estructura de una clase -->
-				<section>
-					<h2>Estructura de una clase</h2>
-					<h3>Miembros estáticos</h3>
-					<pre>
-						<code class="hljs" data-trim>
-						public class Main{
-							public static void main(String[] args){
-								Cuenta c1 = new Cuenta();
-								System.out.println("Banco: " + Cuenta.banco);
-								c1.saldo = 1000f;
-								System.out.println("El saldo es de " + 
-									Cuenta.cambioEuroDolar(c1.leerSaldo()) + " dólares");
-							}
-						}
-						</code>
-					</pre>
-				</section>
-
-				<!-- Índice -->
-				<section>
-					<h2>Índice</h2>
-					<ol>
-						<li>Introducción</li>
-						<li>Fundamentos de la POO</li>
-						<li>Estructura de una clase</li>
-						<li class="fragment highlight-blue">Atributos</li>
-						<li>Métodos</li>
-						<li>Encapsulación, control de acceso y visibilidad</li>
-						<li>Constructores</li>
-						<li>Empaquetado de clases</li>
-					</ol>
-				</section>
-
-				<!-- Atributos -->
-				<section>
-					<h2>Atributos</h2>
-					<h3>Declaración</h3>
-					<ul>
-						<li><em>Modificadores</em>: De acceso, de contenido y otros. Configuran el comportamieto del atributo.</li>
-						<li><em>Tipo</em>: Primitivo, otros objeto, array, estructuras de datos...</li>
-						<li><em>Nombre</em>: Para identificarlo. Mismas restricciones que las variables</li>
-					</ul>
-					<pre>
-						<code class="hljs" data-trim>
-						[private|protected|public] [static] [final] tipo nombre;
-						</code>
-					</pre>
-					<pre>
-						<code class="hljs" data-trim>
-						private float saldo;
-						</code>
-					</pre>
-					<aside class="notes"><!-- Notas orador (pulsar S) -->
-						<strong>transient</strong> indica que un atributo es transitorio (no persistente) y 
-						<strong>volatile</strong> indica al compilador que no debe realizar optimizaciones sobre esa variable
-					</aside>
-				</section>
-
-				<!-- Atributos -->
-				<section>
-					<h2>Atributos</h2>
-					<h3>Modificadores de acceso</h3>
-					<ul>
-						<li>Indican la forma de acceso al atributo desde el código</li>
-						<li>Permiten implementar la <em>encapsulación</em> ocultando los atributos de la clase fuera de ella</li>
-					</ul>
-					<p><img src="img/progt03-05.png" alt="Modificadores de acceso" /></p>
-				</section>
-
-				<!-- Atributos -->
-				<section>
-					<h2>Atributos</h2>
-					<h3>Modificadores de acceso</h3>
-					<p>Representación en diagrama UML:</p>
-					<p><img src="img/progt03-06.png" alt="Modificadores en UML" /></p>
-				</section>
-
-				<!-- Atributos -->
-				<section>
-					<h2>Atributos</h2>
-					<h3>Modificadores de acceso</h3>
-					<p>Ejemplo de acceso a atributo privado:</p>
-					<p><img src="img/progt03-07.png" alt="Ejemplo modificadores acceso" /></p>
-				</section>
-
-				<!-- Atributos -->
-				<section>
-					<h2>Atributos</h2>
-					<h3>Modificadores de acceso</h3>
-					<pre>
-						<code class="hljs" data-trim> 
-						public class Cuenta {
-							// Atributos privados
-							private long numero;
-							private String titular;
-							private float saldo;
-							// Métodos públicos
-							public void ingreso(float cantidad) { saldo += cantidad; }
-							public void reintegro(float cantidad) { saldo -= cantidad; }
-							public float leerSaldo() { return saldo; }
-							public boolean enRojos() { return (saldo < 0); }
-						}
-						</code>
-					</pre>
-				</section>
-
-				<!-- Atributos -->
-				<section>
-					<h2>Atributos</h2>
-					<h3>Modificadores de contenido</h3>
-					<ul>
-						<li><em>static</em>: Atributo de clase, no del objeto instanciado</li>
-						<li><em>final</em>: Define el atributo como constante</li>
-					</ul>
-				</section>
-
-				<!-- Atributos -->
-				<section>
-					<h2>Atributos</h2>
-					<h3>Modificadores de contenido</h3>
-					<pre>
-						<code class="hljs" data-trim> 
-						public class Cuenta {
-							// Atributos
-							private long numero;
-							private String titular;
-							private float saldo;
-							private static String banco = "BBVA";
-							private static int contadorCuentas;
-							...
-						}
-						</code>
-					</pre>
-				</section>
-
-				<!-- Índice -->
-				<section>
-					<h2>Índice</h2>
-					<ol>
-						<li>Introducción</li>
-						<li>Fundamentos de la POO</li>
-						<li>Estructura de una clase</li>
-						<li>Atributos</li>
-						<li class="fragment highlight-blue">Métodos</li>
-						<li>Encapsulación, control de acceso y visibilidad</li>
-						<li>Constructores</li>
-						<li>Empaquetado de clases</li>
-					</ol>
-				</section>
-
-				<!-- Métodos -->
-				<section>
-					<h2>Métodos</h2>
-					<p>Definen el comportamiento de un objeto.</p>
-					<p>Se declaran después de los atributos y constan de <em>cabecera</em> (modificadores, nombre, tipo de dato devuelto...) y <em>cuerpo</em> (sentencias del método que interactúan con los atributos).</p>
-				</section>
-
-				<!-- Métodos -->
-				<section>
-					<h2>Métodos</h2>
-					<h3>Cabecera</h3>
-					
-					<pre>
-						<code class="hljs" data-trim> 
-							// Cabecera del método
-							public void ingreso(float cantidad) { 
-								// Cuerpo del Método
-								saldo += cantidad; 
-							}
-						</code>
-					</pre>
-				</section>
-
-				<!-- Métodos -->
-				<section>
-					<h2>Métodos</h2>
-					<h3>Cabecera</h3>
-					<pre>
-						<code class="hljs" data-trim data-line-numbers="1"> 
-							[private | protected | public] [static] [abstract] [final] [native] [synchronized]
-							tipo nombreMétodo ( [lista_parametros] )
-							[throws lista_excepciones]
-						</code>
-					</pre>
-					<ul>
-						<li>Modificadores de acceso: private, protected, public</li>
-						<li>Modificadores de contenido: final, static</li>
-						<li>Otros modificadores: abstract, native, synchronized</li>
-					</ul>
-				</section>
-
-				<!-- Métodos -->
-				<section>
-					<h2>Métodos</h2>
-					<h3>Cabecera</h3>
-					<pre>
-						<code class="hljs" data-trim data-line-numbers="2"> 
-							[private | protected | public] [static] [abstract] [final] [native] [synchronized]
-							tipo nombreMétodo ( [lista_parametros] )
-							[throws lista_excepciones]
-						</code>
-					</pre>
-					<ul>
-						<li>Tipo de dato devuelto (void si no devuelve nada)</li>
-						<li>Nombre del método</li>
-						<li>Lista de parámetros entre paréntesis</li>
-					</ul>
-				</section>
-
-				<!-- Métodos -->
-				<section>
-					<h2>Métodos</h2>
-					<h3>Cabecera</h3>
-					<pre>
-						<code class="hljs" data-trim data-line-numbers="3"> 
-							[private | protected | public] [static] [abstract] [final] [native] [synchronized]
-							tipo nombreMétodo ( [lista_parametros] )
-							[throws lista_excepciones]
-						</code>
-					</pre>
-					<ul>
-						<li>Lista de excepciones (se tratará en temas posteriores)</li>
-					</ul>
-				</section>
-
-				<!-- Métodos -->
-				<section>
-					<h2>Métodos</h2>
-					<h3>Cuerpo</h3>
-					<p>El cuerpo del método está encerrado entre llaves.</p>
-					<p>Si devuelve un tipo de dato, obligatoriamente debe llevar una instrucción <em>return</em>.</p>
-					<pre>
-						<code class="hljs" data-trim> 
-						public void ingreso(float cantidad, boolean urgente) {
-							// Si es urgente, se le aplica una comisión del 1%
-							if(urgente) saldo += (cantidad-(cantidad*0.01)); 
-							else saldo += cantidad;
-						}
-						public float leerSaldo() { 
-							return saldo; 
-						}
-						</code>
-					</pre>
-				</section>
-
-				<!-- Métodos -->
-				<section>
-					<h2>Métodos</h2>
-					<h3>Parámetros</h3>
-					<ul>
-						<li>Se pueden incluir los que necesitemos separándolos por comas</li>
-						<li>Pueden ser de cualquier tipo</li>
-						<li>Dentro del método no se pueden declarar variables con el mismo nombre que los parámetros</li>
-						<li>Tampoco puede haber 2 parámetros con el mismo nombre (en el mismo método)</li>
-						<li>El parámetro si se puede llamar igual que un atributo de la clase. En ese caso, se distinguen llamando al atributo this.atributo</li>
-					</ul>					
-				</section>
-
-				<!-- Métodos -->
-				<section>
-					<h2>Métodos</h2>
-					<h3>Parámetros</h3>
-					<pre>
-						<code class="hljs" data-trim> 
-						public void ingreso(float cantidad, boolean urgente) {
-							// Si es urgente, se le aplica una comisión del 1%
-							if(urgente) saldo += (cantidad-(cantidad*0.01)); 
-							else saldo += cantidad;
-						}
-						public float leerSaldo() { 
-							return saldo; 
-						}
-						public void setSaldo(float saldo){
-							// this para diferenciar atributo y parámetro
-							this.saldo = saldo; 
-						}
-						</code>
-					</pre>
-				</section>
-				
-				<!-- Métodos -->
-				<section>
-					<h2>Métodos</h2>
-					<h3>Sobrecarga</h3>
-					<ul>
-						<li>Java permite definir varios métodos con el mismo nombre pero diferentes parámetros</li>
-						<li>Esto se conoce como <em>sobrecarga de métodos</em></li>
-						<li>El compilador distingue el método a utilizar por el número y tipo de parámetros</li>
-						<li>Muy utilizado en los constructores</li>
-					</ul>					
-				</section>
-
-				<!-- Métodos -->
-				<section>
-					<h2>Métodos</h2>
-					<h3>Sobrecarga</h3>
-					<pre>
-						<code class="hljs" data-trim> 
-						public void ingreso(float cantidad) {
-							saldo += cantidad;
-						}
-						public void ingreso(double cantidad) {
-							saldo += (float) cantidad;
-						}
-						public void ingreso(float cantidad, boolean urgente) {
-							// Si es urgente, se le aplica una comisión del 1%
-							if(urgente) saldo += (cantidad-(cantidad*0.01)); 
-							else saldo += cantidad;
-						}
-						</code>
-					</pre>					
-				</section>
-
-				<!-- Métodos -->
-				<section>
-					<h2>Métodos</h2>
-					<h3>this</h3>
-					<ul>
-						<li><em>this</em> hace referencia al objeto actual</li>
-						<li>Se puede utilizar para hacer referencia a atributos mediante <span class="rosa">this.atributo</span></li>
-						<li>Se usa principalmente para distinguir atributos y parámetros con el mismo nombre</li>
-					</ul>		
-					<pre>
-						<code class="hljs" data-trim> 
-							public void setSaldo(float saldo){
-								// this para diferenciar atributo y parámetro
-								this.saldo = saldo; 
-							}
-						</code>
-					</pre>			
-				</section>
-
-				<!-- Índice -->
-				<section>
-					<h2>Índice</h2>
-					<ol>
-						<li>Introducción</li>
-						<li>Fundamentos de la POO</li>
-						<li>Estructura de una clase</li>
-						<li>Atributos</li>
-						<li>Métodos</li>
-						<li class="fragment highlight-blue">Encapsulación, control de acceso y visibilidad</li>
-						<li>Constructores</li>
-						<li>Empaquetado de clases</li>
-					</ol>
-				</section>
-
-				<!-- Encapsulación, control de acceso y visibilidad -->
-				<section>
-					<h2>Encapsulación y visibilidad</h2>
-					<ul>
-						<li>Característica muy importante en POO</li>
-						<li>Consiste en no tener los atributos públicos (modificador de acceso "public")</li>
-						<li>Para <span class="naranja">leer</span> su valor se hará a través de métodos <em>get</em></li>
-						<li>Para <span class="naranja">modificar</span> su valor se hará a través de métodos <em>set</em></li>
-					</ul>				
-				</section>
-
-				<!-- Encapsulación, control de acceso y visibilidad -->
-				<section>
-					<h2>Encapsulación y visibilidad</h2>
-					<p>IntelliJ crea automáticamente los <em>setters</em> y <em>getters</em> al comenzar a escribirlos</p>
-					<p><img src="img/progt03-08.png" alt="Creación métodos set" /></p>
-					<p><img src="img/progt03-09.png" alt="Creación métodos get" /></p>			
-				</section>
-
-				<!-- Encapsulación, control de acceso y visibilidad -->
-				<section>
-					<h2>Encapsulación y visibilidad</h2>
-					<p>Importante, tener bien creados los atributos</p>
-					<pre>
-						<code class="hljs" data-trim> 
-							public class Cuenta {
-								// Atributos privados
-								private static String banco = "BBVA";
-								private long numero;
-								private String titular;
-								private float saldo;
-								private float interesAnual;
-								...
-						</code>
-					</pre>			
-				</section>
-
-				<!-- Encapsulación, control de acceso y visibilidad -->
-				<section>
-					<h2>Encapsulación y visibilidad</h2>
-					<pre>
-						<code class="hljs" data-trim> 
-							// Métodos públicos SETTERS
-							public void setNumero(long numero){
-								this.numero = numero;
-							}
-							public void setTitular(String titular){
-								this.titular = titular;
-							}
-							public void setInteresAnual(float interesAnual){
-								this.interesAnual = interesAnual;
-							}
-							public void setSaldo(float saldo){
-								this.saldo = saldo;
-							}
-						</code>
-					</pre>			
-				</section>
-
-				<!-- Encapsulación, control de acceso y visibilidad -->
-				<section>
-					<h2>Encapsulación y visibilidad</h2>
-					<pre>
-						<code class="hljs" data-trim> 						
-							// Métodos públicos GETTERS
-							public static String getBanco() {
-								return banco;
-							}
-							public float getInteresAnual() {
-								return interesAnual;
-							}
-							public float getSaldo() {
-								return saldo;
-							}
-							public long getNumero() {
-								return numero;
-							}
-							public String getTitular() {
-								return titular;
-							}
-						</code>
-					</pre>			
-				</section>
-
-				<!-- Encapsulación, control de acceso y visibilidad -->
-				<section>
-					<h2>Encapsulación y visibilidad</h2>
-					<pre>
-						<code class="hljs" data-trim> 
-							public class Main {
-
-								public static void main(String[] args){
-									Cuenta c1 = new Cuenta();
-
-									System.out.println("Cuenta creada");
-									System.out.println("Banco: " + c1.getBanco());
+							public class Matematicas {
 							
-									c1.ingreso(100f, false);
-									c1.ingreso(100f, true);
-
-									System.out.println("Saldo: " + c1.getSaldo());
+								public static int suma(int a, int b){
+									return a+b;
+								}
+							
+								public static int resta(int a, int b){
+									return a-b;
 								}
 							}
 						</code>
-					</pre>			
+					</pre>
 				</section>
 
-				<!-- Encapsulación, control de acceso y visibilidad -->
+				<!-- Funciones -->
 				<section>
-					<h2>Encapsulación y visibilidad</h2>
-					<ul>
-						<li>Hay métodos que sólo se utilizan dentro de la propia clase para operaciones internas</li>
-						<li>En esos casos es recomendable ocultarlos marcándolos como private o protected</li>
-						<li>Ejemplo: Método que calcula el dígito de control de la cuenta bancaria. Se utiliza interanamente desde otros métodos al hacer ingresos/reintegros</li>
-					</ul>				
-				</section>
-
-				<!-- Ejercicio DNI -->
-				<section data-background-iframe="doc/progt03-EjercicioDNI.pdf" data-background-interactive></section>
-
-				<!-- Índice -->
-				<section>
-					<h2>Índice</h2>
-					<ol>
-						<li>Introducción</li>
-						<li>Fundamentos de la POO</li>
-						<li>Estructura de una clase</li>
-						<li>Atributos</li>
-						<li>Métodos</li>
-						<li>Encapsulación, control de acceso y visibilidad</li>
-						<li class="fragment highlight-blue">Constructores</li>
-						<li>Empaquetado de clases</li>
-					</ol>
-				</section>
-
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<p>Son métodos con el mismo nombre que su clase y se encargan de inicializar los atributos del objeto</p>
-					<p><img src="img/progt03-04.png" alt="Diagrama UML" /></p>				
-				</section>
-
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<ul>
-						<li>Al crear un objeto con el operador <em>new</em> hemos utilizado el <em>constructor por defecto</em></span></li>
-						<li>A partir de ahora crearemos nuestros propios constructores</li>
-						<li><span class="rojo">Importante!</span> Al crear cualquier constructor, el compilador de Java no generará el constructor por defecto y tendremos que crearlo también</li>
-						<li>Los constructores aceptan sobrecarga y no devuelven ningún dato (return)</li>
-					</ul>
-				</section>
-
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<p>Para crear constructores hay que indicar:</p>
-					<ul>
-						<li>El tipo de acceso (también pueden ser private)</li>
-						<li>El nombre del constructor (igual que la clase)</li>
-						<li>La lista de parámetros</li>
-						<li>Si lanza excepciones</li>
-						<li>El cuerpo del constructor</li>
-					</ul>
-				</section>
-
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<pre>
-						<code class="hljs" data-trim>
-							// Constructor por defecto (hay que definirlo)
-							public Cuenta() {
-								numero = 0;
-								titular = "";
-								saldo = 0;
-								interesAnual = 1;
-								contadorCuentas++;
-							}
-						</code>
-					</pre>	
-				</section>
-
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<pre>
-						<code class="hljs" data-trim>
-							// Constructor con datos básicos
-							public Cuenta(long numero, String titular, float interesAnual){
-								this.numero = numero;
-								this.titular = titular;
-								this.saldo = 0;
-								this.interesAnual = interesAnual;
-								contadorCuentas++;
-							}
-						</code>
-					</pre>	
-				</section>
-
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
+					<h2>Funciones</h2>
+                    <h3>Crear bibliotecas mediante paquetes</h3>
+					<p>Uso de las funciones</p>
 					<pre>
 						<code class="hljs" data-trim> 
-							// Constructor con datos básicos
-							public Cuenta(long numero, String titular, float interesAnual){
-								this.numero = numero;
-								this.titular = titular;
-								this.saldo = 0;
-								this.interesAnual = interesAnual;
-								contadorCuentas++;
+							package funciones;
+
+							public class Funciones01 {
+								public static void main(String[] args) {
+									int resultado = bibliotecaFunciones.Matematicas.suma(5, 6);
+									System.out.println(resultado);
+								}
 							}
 						</code>
-					</pre>	
+					</pre>
 				</section>
 
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<h3>Constructor copia</h3>
-					<ul>
-						<li>Son constructores a los que se les pasa un objeto de la misma clase y crean uno nuevo a partir de sus atributos</li>
-						<li>Útil para clonar objetos, ya que si hiciéramos <em>obj1 = obj2</em> tendremos un único objeto con 2 referencias </li>
-					</ul>
-				</section>
-
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<h3>Constructor copia</h3>
-					<p>¿Cuál es la salida del código?</p>
-					<pre>
-						<code class="hljs" data-trim> 
-							Cuenta c1 = new Cuenta(123456789, "Eladio Blanco", 1.5f);
-							Cuenta c2 = new Cuenta();
-							System.out.println("Cuentas creadas");
-							System.out.printf("c1 --> Número: %d - Titular: %s - Interés: %.2f \n", c1.getNumero(), c1.getTitular(), c1.getInteresAnual());
-							System.out.printf("c2 --> Número: %d - Titular: %s - Interés: %.2f \n", c2.getNumero(), c2.getTitular(), c2.getInteresAnual());
-
-							c2 = c1;
-							c2.setNumero(987654321);
-							c2.setInteresAnual(5.2f);
-							System.out.println("Cuentas copiadas");
-							System.out.printf("c1 --> Número: %d - Titular: %s - Interés: %.2f \n", c1.getNumero(), c1.getTitular(), c1.getInteresAnual());
-							System.out.printf("c2 --> Número: %d - Titular: %s - Interés: %.2f \n", c2.getNumero(), c2.getTitular(), c2.getInteresAnual());
-						</code>
-					</pre>	
-				</section>
-
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<h3>Constructor copia</h3>
-					<p>Salida:</p>
-					<p><img src="img/progt03-10.png" alt="Salida copia objetos" /></p>				
-				</section>
-
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<h3>Constructor copia</h3>
-					<pre>
-						<code class="hljs" data-trim> 
-							// Constructor copia
-							public Cuenta(Cuenta c){
-								this.interesAnual = c.getInteresAnual();
-								this.saldo = c.getSaldo();
-								this.titular = c.getTitular();
-								this.numero = c.getNumero();
-								contadorCuentas++;
-							}
-						</code>
-					</pre>	
-				</section>
-
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<h3>Constructor copia</h3>
-					<p>¿Cuál es la salida del código?</p>
-					<pre>
-						<code class="hljs" data-trim> 
-							Cuenta c1 = new Cuenta(123456789, "Eladio Blanco", 1.5f);
-							Cuenta c2 = new Cuenta(c1);
-							System.out.println("Cuentas creadas mediante el constructor copia");
-							System.out.printf("c1 --> Número: %d - Titular: %s - Interés: %.2f \n", c1.getNumero(), c1.getTitular(), c1.getInteresAnual());
-							System.out.printf("c2 --> Número: %d - Titular: %s - Interés: %.2f \n", c2.getNumero(), c2.getTitular(), c2.getInteresAnual());
-
-							c2.setNumero(987654321);
-							c2.setInteresAnual(5.2f);
-							System.out.println("Cuentas c2 modificada");
-							System.out.printf("c1 --> Número: %d - Titular: %s - Interés: %.2f \n", c1.getNumero(), c1.getTitular(), c1.getInteresAnual());
-							System.out.printf("c2 --> Número: %d - Titular: %s - Interés: %.2f \n", c2.getNumero(), c2.getTitular(), c2.getInteresAnual());
-						</code>
-					</pre>	
-				</section>
-
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<h3>Constructor copia</h3>
-					<p>Salida:</p>
-					<p><img src="img/progt03-11.png" alt="Salida creación de objetos mediante constructor copia" /></p>				
-				</section>
-
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<h3>Destrucción de objetos</h3>
-					<ul>
-						<li>Cuando los objetos no son necesarios, hay que destruirlos para liberar memoria</li>
-						<li>El <em>recolector de basura</em> de Java los destruye automáticamente</li>
-						<li>Invoca a un método <span class="rosa">finalize</span> que libera la memoria del objeto</li>
-					</ul>
-				</section>
 				
-				<!-- Constructores -->
+				<!-- Funciones -->
 				<section>
-					<h2>Constructores</h2>
-					<h3>Destrucción de objetos</h3>
-					<p>Podemos declarar nuestro propio método <span class="rosa">finalize</p>
+					<h2>Funciones</h2>
+                    <h3>Crear bibliotecas mediante paquetes</h3>
+					<p>Uso de las funciones</p>
 					<pre>
 						<code class="hljs" data-trim> 
-							// Destructor finalize
-							public void finalize() throws IOException {
-								FileOutputStream fos = new FileOutputStream(numero + ".cnt");
-								ObjectOutputStream oos = new ObjectOutputStream((fos));
-								oos.writeObject(titular);
-								oos.writeFloat(saldo);
-								oos.writeFloat(interesAnual);
-								oos.close();
+							package funciones;
+
+							import static bibliotecaFunciones.Matematicas.suma;
+							// import static bibliotecaFunciones.Matematicas.*;
+
+							public class Funciones01 {
+								public static void main(String[] args) {
+									int resultado = suma(5, 6);
+									System.out.println(resultado);
+								}
 							}
 						</code>
-					</pre>					
+					</pre>
 				</section>
 
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<h3>Destrucción de objetos</h3>
-					<ul>
-						<li>Problema: No sabemos cuando se va a ejecutar exactamente</li>
-						<li>Recomendación: Implementar las "operaciones finales" en métodos a los que llamemos antes de terminar de trabajar con los objetos</li>
-					</ul>
+				 <!-- Funciones -->
+				 <section>
+					<h2>Funciones</h2>
+                    <p>Ejercicios de la relación</p>
+					<p><img src="img/progt04-04.gif" alt="Ejercicios" /></p>
 				</section>
 
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<h3>Destrucción de objetos</h3>
-					<p>En el ejemplo del Banco vamos a crear un método <span class="naranja">salvar()</span> para guardar el estado de las cuentas</p>
-					<pre>
-						<code class="hljs" data-trim> 
-							// Salvar estado cuentas
-							public void salvar() throws IOException {
-								FileOutputStream fos = new FileOutputStream(numero + ".cnt");
-								ObjectOutputStream oos = new ObjectOutputStream((fos));
-								oos.writeObject(titular);
-								oos.writeFloat(saldo);
-								oos.writeFloat(interesAnual);
-								oos.close();
-							}
-						</code>
-					</pre>	
-				</section>
 
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<pre>
-						<code class="hljs" data-trim> 
-							// Guardar cuenta a disco
-							try {
-								c1.salvar();
-							}catch (Exception e){
-								System.out.println("Error al guardar la cuenta en disco");
-							}
-						
-							// Recuperar cuenta de disco
-							try {
-								c1 = new Cuenta(123456789);
-							}catch (Exception e){
-								System.out.println("Error al recuperar la cuenta en disco");
-							}
-						</code>
-					</pre>	
-				</section>
-
-				<!-- Constructores -->
-				<section>
-					<h2>Constructores</h2>
-					<p>Completa la clase Cuenta y genera el Javadoc (menú Tools > Generate Javadoc...)</p>
-					<p><img src="img/progt03-12.png" alt="Generar Javadoc" /></p>				
-				</section>
-
-				<!-- Índice -->
-				<section>
-					<h2>Índice</h2>
-					<ol>
-						<li>Introducción</li>
-						<li>Fundamentos de la POO</li>
-						<li>Estructura de una clase</li>
-						<li>Atributos</li>
-						<li>Métodos</li>
-						<li>Encapsulación, control de acceso y visibilidad</li>
-						<li>Constructores</li>
-						<li class="fragment highlight-blue">Empaquetado de clases</li>
-					</ol>
-				</section>
-
-				<!-- Empaquetado de clases -->
-				<section>
-					<h2>Empaquetado de clases</h2>
-					<ul>
-						<li>La encapsulación dentro de las clases nos permite realizar el proceso de ocultación</li>
-						<li>Cuando las aplicaciones crecen, es necesario utilizar un nivel superior de encapsulación y ocultación: el empaquetado</li>
-						<li>Un <em>paquete</em> es un conjunto de clases relacionadas entre sí y agrupadas bajo un mismo nombre</li>
-						<li>Los atributos y métodos <span class="naranja">protected</span> son accesibles desde cualquier clase del paquete</li>
-					</ul>
-				</section>
-
-				<!-- Empaquetado de clases -->
-				<section>
-					<h2>Empaquetado de clases</h2>
-					<h3>Jerarquía de paquetes</h3>
-					<ul>
-						<li>Los paquetes se organizan jerárquicamente como el sistema de archivos</li>
-						<li>Clases: archivos</li>
-						<li>Paquete: carpeta que aloja otras clases o paquetes</li>
-					</ul>
-					<pre>
-						<code class="hljs" data-trim> 
-							paquete_raiz.subpaquete1. ... .subpaquete_n.NombreClase
-							java.lang.String
-							java.util.Scanner
-							java.util.regex.Pattern
-						</code>
-					</pre>	
-					<aside class="notes"><!-- Notas orador (pulsar S) -->
-						si la clase Punto se encuentra dentro del paquete prog.figuras, el archivo Punto.java debería encontrarse en la carpeta prog/figuras					</aside>
-				</section>
-
-				<!-- Empaquetado de clases -->
-				<section>
-					<h2>Empaquetado de clases</h2>
-					<h3>Uso de paquetes</h3>
-					<ul>
-						<li>Cada vez que usemos una clase tendríamos que utilizar todo su trayectoria</li>
-						<li>La sentencia <em>import</em> simplifica su uso</li>
-						<li>Al inicio de nuestra código se realizan todos los imports que necesitemos</li>
-					</ul>
-					<pre>
-						<code class="hljs" data-trim> 
-							import java.lang.String;
-							import java.util.Scanner;
-							import java.util.regex.Pattern;
-							// Importa todas las clases directas de util: Date, Calendar, Timer...
-							import java.util.*; 
-						</code>
-					</pre>	
-					<aside class="notes"><!-- Notas orador (pulsar S) -->
-						import static java.lang.Math.* importaría todos los métodos estáticos de Math para usarlos tal cual: sqrt, pow...
-					</aside>
-				</section>
-
-				<!-- Empaquetado de clases -->
-				<section>
-					<h2>Empaquetado de clases</h2>
-					<h3>Incluir clase en paquete</h3>
-					<ul>
-						<li>Al inicio del archivo .java se indica mediante <em>package</em> a qué paquete pertenece la clase</li>
-						<li>Si no se especifica, formará parte del paquete por omisión (paquete sin nombre asociado al proyecto)</li>
-					</ul>
-					<pre>
-						<code class="hljs" data-trim> 
-							package paqueteEjemplo; 
-							
-							class claseEjemplo { 
-								...
-							}
-							   
-						</code>
-					</pre>	
-					<aside class="notes"><!-- Notas orador (pulsar S) -->
-						El nombre del paquete se define de manera inversa al dominio de la organización: com.dominio.utilidades
-					</aside>
-				</section>
-
-				<!-- Ejercicio Cliente Banco -->
-				<section data-background-iframe="doc/progt03-EjercicioClienteBanco.pdf" data-background-interactive></section>
-
+			
 				<!-- Para repasar -->
 				<section>
 					<h2>Repasar</h2>
 					<ul>
-						<li><a href="https://www.w3schools.com/java/java_oop.asp" target="_blank">Java Tutorial - Clases</a></li>
-						<li><a href="https://www.w3schools.com/java/exercise.asp?filename=exercise_classes1" target="_blank">Ejercicios interactivos - Clases/Objetos</a></li>
+						<li><a href="https://www.w3schools.com/java/java_math.asp" target="_blank">Java Tutorial - Clase Math</a></li>
+						<li><a href="https://www.w3schools.com/java/java_methods.asp" target="_blank">Java Tutorial - Funciones</a></li>
+						<li><a href="https://www.w3schools.com/java/exercise.asp?filename=exercise_math1" target="_blank">Ejercicios interactivos - Java Math / Methods</a></li>
 					</ul>
 				</section>
 				
@@ -1310,7 +444,7 @@
 				</section>
 
 				<!-- FIN -->
-				<section data-background-image="img/progt03-fin.gif">
+				<section data-background-image="img/progt04-fin.gif">
 					<h2>A trabajar...</h2>
 				</section>				
 			</div>
