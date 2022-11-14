@@ -335,6 +335,28 @@
 					<p>Todos los parámetros que son de <span class="naranja">tipo primitivo</span> (int, double, float, char, String...) se pasan siempre por <em>valor</em> mientras que los <span class="naranja">arrays</span> se pasan siempre por <em>referencia</em>.</p>
 				</section>
 
+				<!-- Funciones -->
+                <section>
+                    <h2>Funciones</h2>
+                    <h3>Sobrecarga de funciones</h3>
+					<p>Java permite que varias funciones compartan el mismo identificador siempre que sus parámetros sean diferentes en número o tipo.</p>	
+					<pre>
+						<code class="hljs" data-trim> 
+							public static int suma(int a, int b){
+								return a+b;
+							}
+						
+							public static int suma(int a, int b, int c){
+								return a+b+c;
+							}
+						
+							public static float suma(float a, float b){
+								return a+b;
+							}
+						</code>
+					</pre>
+				</section>
+
                 <!-- Funciones -->
 				<section>
 					<h2>Funciones</h2>
