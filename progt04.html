@@ -595,14 +595,65 @@
 					<p>Ejercicios de lal relación</p>
 					<p><img src="img/progt05-25.gif" alt="Ejercicios" /></p>
 				</section>
-			
+
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li>Introducción</li>
+						<li>Cadenas de caracteres</li>
+						<li>Arrays estáticos</li>
+						<li class="fragment highlight-blue">BONUS: Argumentos de programa</li>
+					</ol>
+				</section>
+
+				<!-- Paso de argumentos al programa -->
+				<section>
+					<h2>Argumentos del programa</h2>
+					<p>En la función main se le pasa un array <em>String[] args</em> con los argumentos que recibe nuestro programa desde fuera.</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							public class EjemploPasoArgumentos {
+								public static void main(String[] args) {
+									for(int i=0; i < args.length; i++) System.out.println(args[i]);
+								}
+							}
+						</code>
+					</pre> 
+				</section>
+
+				<!-- Paso de argumentos al programa -->
+				<section>
+					<h2>Argumentos del programa</h2>
+					<p>Para probarlo desde consola, hay que compilarlo y luego ejecutarlo con los argumentos que queramos:</p>
+					<ul>
+						<li><span class="naranja">javac</span> EjemploPasoArgumentos.java</li>
+						<li><span class="naranja">java</span> EjemploPasoArgumentos <em>uno dos tres</em></li>
+					</ul>
+				</section>
+
+				<!-- Paso de argumentos al programa -->
+				<section>
+					<h2>Argumentos del programa</h2>
+					<p>También podemos probarlos directamente desde IntelliJ en <em>Run</em> > <em>Edit configurations...</em></p>
+					<p><img src="img/progt04-paso-argumentos.png" alt="Paso de argumentos desde IntelliJ" /></p>
+				</section>
+
+				<!-- Paso de argumentos al programa -->
+				<section>
+					<h2>Argumentos del programa</h2>
+					<h3>Ejercicio</h3>
+					<p>Crea un programa que cualquier profesor sin conocimientos de informática pueda utilizar con sus alumnos para sacarlos a la pizarra de forma "voluntaria".</p>
+					<p>El programa recibirá el nombre de todos los alumnos y devuelverá al agraciado de forma aleatoria.</p>
+				</section>
+				
+		
 				<!-- Para repasar -->
 				<section>
 					<h2>Repasar</h2>
 					<ul>
 						<li><a href="https://www.w3schools.com/java/java_strings.asp" target="_blank">Java Tutorial - Strings</a></li>
-						<li><a href="https://www.w3schools.com/java/java_arrays.asp" target="_blank">Java Tutorial - Arrays estáticos</a></li>
-											
+						<li><a href="https://www.w3schools.com/java/java_arrays.asp" target="_blank">Java Tutorial - Arrays estáticos</a></li>					
 					</ul>
 				</section>
 				
