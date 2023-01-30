@@ -69,6 +69,7 @@
 						<li>Encapsulación, control de acceso y visibilidad</li>
 						<li>Constructores</li>
 						<li>Empaquetado de clases</li>
+						<li>Arrays estáticos de objetos</li>
 					</ol>
 				</section>
 
@@ -91,6 +92,7 @@
 						<li>Encapsulación, control de acceso y visibilidad</li>
 						<li>Constructores</li>
 						<li>Empaquetado de clases</li>
+						<li>Arrays estáticos de objetos</li>
 					</ol>
 				</section>
 			
@@ -215,6 +217,7 @@
 						<li>Encapsulación, control de acceso y visibilidad</li>
 						<li>Constructores</li>
 						<li>Empaquetado de clases</li>
+						<li>Arrays estáticos de objetos</li>
 					</ol>
 				</section>
 
@@ -475,6 +478,7 @@
 						<li>Encapsulación, control de acceso y visibilidad</li>
 						<li>Constructores</li>
 						<li>Empaquetado de clases</li>
+						<li>Arrays estáticos de objetos</li>
 					</ol>
 				</section>
 
@@ -592,6 +596,7 @@
 						<li>Encapsulación, control de acceso y visibilidad</li>
 						<li>Constructores</li>
 						<li>Empaquetado de clases</li>
+						<li>Arrays estáticos de objetos</li>
 					</ol>
 				</section>
 
@@ -789,6 +794,7 @@
 						<li class="fragment highlight-blue">Encapsulación, control de acceso y visibilidad</li>
 						<li>Constructores</li>
 						<li>Empaquetado de clases</li>
+						<li>Arrays estáticos de objetos</li>
 					</ol>
 				</section>
 
@@ -924,6 +930,7 @@
 						<li>Encapsulación, control de acceso y visibilidad</li>
 						<li class="fragment highlight-blue">Constructores</li>
 						<li>Empaquetado de clases</li>
+						<li>Arrays estáticos de objetos</li>
 					</ol>
 				</section>
 
@@ -1183,6 +1190,7 @@
 						<li>Encapsulación, control de acceso y visibilidad</li>
 						<li>Constructores</li>
 						<li class="fragment highlight-blue">Empaquetado de clases</li>
+						<li>Arrays estáticos de objetos</li>
 					</ol>
 				</section>
 
@@ -1266,6 +1274,84 @@
 
 				<!-- Ejercicio Cliente Banco -->
 				<section data-background-iframe="doc/progt03-EjercicioClienteBanco.pdf" data-background-interactive></section>
+
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li>Introducción</li>
+						<li>Fundamentos de la POO</li>
+						<li>Estructura de una clase</li>
+						<li>Atributos</li>
+						<li>Métodos</li>
+						<li>Encapsulación, control de acceso y visibilidad</li>
+						<li>Constructores</li>
+						<li>Empaquetado de clases</li>
+						<li class="fragment highlight-blue">Arrays estáticos de objetos</li>
+					</ol>
+				</section>
+
+				<!-- Arrays estáticos -->
+				<section>
+					<h2>Arrays estáticos de objetos</h2>
+					<ul>
+						<li>Un array también puede almacenar objetos, igual que hace con tipos primitivos.</li>
+						<li>Va a permitir alojar grandes cantidades de objetos y recorrerlos para realizar operaciones <abbr lang="en" title="Create, Read, Update, Delete">CRUD</abbr>.</li>
+						<li>A día de hoy se utilizan otras estructuras que cambian su tamaño de forma dinámica, aunque su funcionamiento se basa en los arrays.</li>
+					</ul>
+				</section>
+
+				<!-- Arrays estáticos -->
+				<section>
+					<h2>Arrays estáticos de objetos</h2>
+					<p>Ejemplo de array de objetos: App Banco</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							String espera;
+							Scanner s = new Scanner(System.in);
+
+							// Crear array de 5 clientes. Ahora mismo todos a null
+							Cliente[] clientes = new Cliente[5];
+							Cliente cliente1, cliente2, cliente3, cliente4, cliente5;
+
+							cliente1 = new Cliente("Antonio", "Medina", "74589636Z", "635241589", "antonio@fernando3martos.com");
+							cliente2 = new Cliente("José", "López", "58963612Z", "625789589", "jose@fernando3martos.com");
+							cliente3 = new Cliente("María", "González", "56589600Z", "614789632", "maria@fernando3martos.com");
+							cliente4 = new Cliente("Lucía", "Torres", "52589677Z", "666321123", "lucia@fernando3martos.com");
+
+							// Se asignan al array
+							clientes[0] = cliente1; // Asignación directa. ¿Mejor con constructor copia?
+							clientes[1] = cliente2; // ¿Qué ocurre si modificamos cliente2 después de asignarlo?
+							clientes[2] = cliente3;
+							clientes[3] = cliente4;
+
+							System.out.println("Datos de nuestros clientes:");
+
+							for(Cliente c : clientes){
+								if(c != null){ // ¿Qué ocurre si no comprobamos null?
+									System.out.println("---------------------------------");
+									System.out.println("Nombre: " + c.getNombre());
+									System.out.println("Apellidos: " + c.getApellidos());
+									System.out.println("DNI: " + c.getDni());
+									System.out.println("Móvil: " + c.getNumMovil());
+									System.out.println("Email: " + c.getEmail());
+									System.out.println("---------------------------------");
+									System.out.println("Pulsa enter para continuar");
+									espera = s.nextLine();
+
+									// ¿Y si implementamos el toString en Cliente para simplificar esto?
+								}
+							}
+						</code>
+					</pre>	
+				</section>
+
+				<!-- Arrays estáticos -->
+				<section>
+					<h2>Arrays estáticos de objetos</h2>
+					<p>Ejercicio: App Colección discos (ejercicio 3 de la relación 3)</p>
+					<p><img src="img/progt05-23.png" alt="App Colección Discos" /></p>
+				</section>
 
 				<!-- Para repasar -->
 				<section>
