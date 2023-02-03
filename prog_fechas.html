@@ -100,7 +100,7 @@
 				<section>
 					<h2>Clases obsoletas</h2>
 					<p>Dos clases típicas para trabajar con fechas han sido <span class="rojo">java.util.Date</span> y <span class="rojo">java.util.Calendar</span>, pero a día de hoy se encuentran obsoletas.</p>
-					<p>Después, apareció <span class="rojo">java.sql.Date</span>, pero realmente es una subclase de la primera y tampoco se usa a día de hoy.</p>
+					<p>Después, apareció <span class="rojo">java.sql.Date</span>, pero realmente es una subclase de la primera y tampoco se usa actualmente.</p>
 				</section>
 
 				<!-- Índice -->
@@ -301,7 +301,7 @@
 					<h2>Transformar fechas y horas</h2>
 					<p>Según la clase utilizada dispondremos de métodos para añadir o quitar intervalos.</p>
 					<p>Por ejemplo, LocalDateTime dispone de <em>plusDays()</em>, <em>minusDays()</em>, <em>plusHours()</em>, <em>minusHours()</em>, <em>isBefore(fecha)</em>, <em>isAfter(fecha)</em>...</p>
-					<p>Ojo, estas las clases producen instancias inmutables (no pueden ser modificadas una vez que su información ha sido definida).</p>
+					<p>Ojo, estas clases producen instancias inmutables (no pueden ser modificadas una vez que su información ha sido definida).</p>
 				</section>
 
 				<!-- Transformar fechas y horas -->
@@ -458,6 +458,21 @@
 					<p><img src="img/time.gif" alt="Ejercicios" /></p>
 				</section>
 
+				<!-- Fechas y horas -->
+				<section>
+					<h2>Trabajar con fechas y horas</h2>
+                    <h3>Ejercicio 1: Info de vida</h3>
+					<p>Implementa un programa en el que a partir de una fecha de nacimiento proporcionada, se dé información de los <em>años</em>, <em>meses</em>, <em>semanas</em>, <em>días</em>, <em>horas</em>, <em>minutos</em> y <em>segundos</em> vividos.</p>
+					<p>El programa deberá decir cuánto queda de vida, calculándolo a partir de un valor aleatorio entre el día de hoy y en el que el usuario cumpla 100 años.</p>
+				</section>
+
+				<!-- Fechas y horas -->
+				<section>
+					<h2>Trabajar con fechas y horas</h2>
+                    <h3>Ejercicio 2: Memento mori</h3>
+					<p>Se dice que una persona de media vivirá 4000 semanas (unos 80 años). Implementa un programa en el que a partir de la fecha de nacimineto, dibuje un gráfico con las semanas vividas. </p>
+					<p>Ejemplos: <a href='img/prog_fechas_lifecalendar1.webp' target='blank'>1</a>, <a href='img/prog_fechas_lifecalendar2.webp' target='blank'>2</a> y <a href='img/prog_fechas_lifecalendar3.png' target='blank'>3</a>.</p>
+				</section>
 
 				<!-- Para repasar -->
 				<section>
