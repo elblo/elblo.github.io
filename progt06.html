@@ -214,8 +214,28 @@
 				<!-- Composición -->
 				<section>
 					<h2>Composición</h2>
-					<p>Prueba y corrije el siguiente código</p>
-					<p><img src="img/progt07-01.png" alt="Código corregir referencias objetos" /></p>
+					<p>Prueba y corrije el siguiente código creando las clases necesarias:</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							public static void main(String[] args) {
+								System.out.println("Bienvenido al catálogo de coches");
+								Ruedas michelin = new Ruedas("Michelin", "Primacy", 225, 'V');
+								Ruedas dunlop = new Ruedas("Michelin", "Primacy", 225, 'V');
+
+								Coche bmw = new Coche("BMW", "320d", 177, michelin);
+
+								System.out.println(michelin);
+								System.out.println(dunlop);
+								System.out.println(bmw);
+
+								System.out.println("Cambio el ancho del objeto michelin a 245");
+								michelin.setAncho(245);
+								System.out.println("Imprimo el objeto BMW");
+								System.out.println(bmw);
+							}
+						
+						</code>
+					</pre>
 				</section>
 
 				<!-- Composición -->
