@@ -233,7 +233,24 @@
 								System.out.println("Imprimo el objeto BMW");
 								System.out.println(bmw);
 							}
-						
+						</code>
+					</pre>
+				</section>
+
+				<!-- Composición -->
+				<section>
+					<h2>Composición</h2>
+					<p>Solución, en el constructor de Coche:</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							// Constructor
+							public Coche(String marca, String modelo, int caballos, Ruedas ruedas) {
+								this.marca = marca;
+								this.modelo = modelo;
+								this.caballos = caballos;
+								// this.ruedas = ruedas; // Composición débil
+								this.ruedas = new Ruedas(ruedas); // Composición fuerte o agregación
+							}
 						</code>
 					</pre>
 				</section>
@@ -301,7 +318,7 @@
 							public class Persona { 
 								String nombre;
 								String apellidos; 
-								GregorianCalendar fechaNacim;
+								LocalDate fechaNacim;
 								...
 							}
 							// Alumno hereda de Persona
@@ -347,15 +364,17 @@
 					<p>Clase Persona</p>
 					<pre>
 						<code class="hljs" data-trim> 
-							package modelo;
-							import java.util.GregorianCalendar;
+							package ejemplos.ejemplo02Personas;
+							import java.time.LocalDate;
 
 							public class Persona {
+								// Atributos accesibles desde el mismo paquete y subclases
 								protected String nombre;
 								protected String apellidos;
-								protected GregorianCalendar fechaNacim;
+								protected LocalDate fechaNacim;
 
-								public Persona(String nombre, String apellidos, GregorianCalendar fechaNacim) {
+								// Constructor
+								public Persona(String nombre, String apellidos, LocalDate fechaNacim) {
 									this.nombre = nombre;
 									this.apellidos = apellidos;
 									this.fechaNacim = fechaNacim;
@@ -366,7 +385,7 @@
 									return nombre; }
 								public String getApellidos(){
 									return apellidos; }
-								public GregorianCalendar getFechaNacim(){
+								public LocalDate getFechaNacim(){
 									return this.fechaNacim; }
 
 								// Setters
@@ -374,10 +393,9 @@
 									this.nombre = nombre; }
 								public void setApellidos(String apellidos){
 									this.apellidos = apellidos; }
-								public void setFechaNacim(GregorianCalendar fechaNacim){
+								public void setFechaNacim(LocalDate fechaNacim){
 									this.fechaNacim = fechaNacim; }
 							}
-
 						</code>
 					</pre>
 				</section>
@@ -388,14 +406,17 @@
 					<p>Clase Alumno</p>
 					<pre>
 						<code class="hljs" data-trim> 
-							package modelo;
-							import java.util.GregorianCalendar;
+							package ejemplos.ejemplo02Personas;
+							import java.time.LocalDate;
 
 							public class Alumno extends Persona{
+								// Atributos
 								private String grupo;
 								private double notaMedia;
 
-								public Alumno(String nombre, String apellidos, GregorianCalendar fechaNacim, String grupo, double notaMedia) {
+								// Constructor
+								public Alumno(String nombre, String apellidos, LocalDate fechaNacim, String grupo, double notaMedia) {
+									// Llamada al constructor del padre
 									super(nombre, apellidos, fechaNacim);
 									this.grupo = grupo;
 									this.notaMedia = notaMedia;
@@ -408,7 +429,7 @@
 								public void setGrupo(String grupo){ this.grupo = grupo; }
 								public void setNotaMedia(double notaMedia){ this.notaMedia = notaMedia; }
 
-								// Método sobreescrito
+								// Método definido en el padre y sobreescrito aquí
 								public String getNombre(){
 									return "Alumno " + nombre;
 								}
@@ -423,14 +444,17 @@
 					<p>Clase Profesor</p>
 					<pre>
 						<code class="hljs" data-trim> 
-							package modelo;
-							import java.util.GregorianCalendar;
+							package ejemplos.ejemplo02Personas;
+							import java.time.LocalDate;
 
 							public class Profesor extends Persona{
+								// Atributos
 								private String especialidad;
 								private double salario;
 
-								public Profesor(String nombre, String apellidos, GregorianCalendar fechaNacim, String especialidad, double salario) {
+								// Constructor
+								public Profesor(String nombre, String apellidos, LocalDate fechaNacim, String especialidad, double salario) {
+									// Llamada al constructor del padre
 									super(nombre, apellidos, fechaNacim);
 									this.especialidad = especialidad;
 									this.salario = salario;
@@ -450,7 +474,7 @@
 									this.salario = salario;
 								}
 
-								// Método sobreescrito
+								// Método definido en el padre y sobreescrito aquí
 								public String getNombre(){
 									return "Profesor " + nombre;
 								}
@@ -465,24 +489,23 @@
 					<p>Main</p>
 					<pre>
 						<code class="hljs" data-trim> 
-							import modelo.*;
-							import java.text.SimpleDateFormat;
-							import java.util.Calendar;
-							import java.util.GregorianCalendar;
+							package ejemplos.ejemplo02Personas;
+
+							import java.time.LocalDate;
+							import java.time.format.DateTimeFormatter;
 
 							public class Main {
 								public static void main(String[] args) {
-									GregorianCalendar fecha1 = new GregorianCalendar(), fecha2 = new GregorianCalendar();
-									SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 									// Nuevo alumno
-									fecha1.set(2001, Calendar.JUNE, 6);
-									Alumno alumno = new Alumno("Jose", "López García", fecha1, "1DAW", 9.3);
+									LocalDate fecha1 = LocalDate.of(2001, 11, 2);
+									Alumno alumno = new Alumno("Fran", "López", fecha1, "1DAW", 9.3);
 									// Nuevo profesor
-									fecha2.set(1983, Calendar.MARCH, 24);
-									Profesor profesor = new Profesor("Antonio", "Martínez Aranda", fecha2, "Programación", 1000);
+									LocalDate fecha2 = LocalDate.of(1983, 3, 24);
+									Profesor profesor = new Profesor("Eladio", "Blanco", fecha2, "Programación", 1245.35);
 									// Salida
-									System.out.println(alumno.getNombre() + " " + alumno.getApellidos() + " ("+ sdf.format(alumno.getFechaNacim().getTime()) +")");
-									System.out.println(profesor.getNombre() + " " + profesor.getApellidos() + " ("+ sdf.format(profesor.getFechaNacim().getTime()) +")");
+									DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+									System.out.println(alumno.getNombre() + " " + alumno.getApellidos() + " ("+ alumno.getFechaNacim().format(formatoFecha)+")");
+									System.out.println(profesor.getNombre() + " " + profesor.getApellidos() + " ("+ profesor.getFechaNacim().format(formatoFecha) +")");
 								}
 							}
 						</code>
@@ -527,7 +550,7 @@
 							public abstract class Persona { 
 								protected String nombre;
 								protected String apellidos; 
-								protected GregorianCalendar fechaNacim;
+								protected LocalDate fechaNacim;
 								...
 								// Método abstracto (no tienen cuerpo)
 								protected abstract void mostrar();
