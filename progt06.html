@@ -565,7 +565,7 @@
 					<p>Definición de métodos abstractos en clases derivadas</p>
 					<pre>
 						<code class="hljs" data-trim> 
-							public class Alumno { 
+							public class Alumno extends Persona{ 
 								...
 								// Método abstracto de Persona que hay que definir
 								public void mostrar(){
@@ -574,7 +574,7 @@
 								}
 							}
 
-							public class Profesor { 
+							public class Profesor extends Persona{ 
 								...
 								// Método abstracto de Persona que hay que definir
 								public void mostrar(){
@@ -728,7 +728,7 @@
 					<pre>
 						<code class="hljs" data-trim> 
 							public abstract class Animal {
-								// Atributyos
+								// Atributos
 								private String sexo;
 
 								// Constructores
