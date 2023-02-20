@@ -642,7 +642,7 @@
 				<section>
 					<h2>Interfaces</h2>
 					<ul>
-						<li>Clase sin atributos que declara métodos (sin cuerpo) que las clases que la implementen tendrán que definir obligatoriamente.</li>
+						<li>Clase sin atributos que declara métodos (abstractos) sin cuerpo que las clases que la implementen tendrán que definir obligatoriamente.</li>
 						<li>No es herencia. Lo que se consigue con las interfaz es definir un <em>comportamiento</em> común en las clases que la implementen.</li>
 					</ul>
 				</section>
@@ -664,9 +664,8 @@
 				<section>
 					<h2>Interfaces</h2>
 					<ul>
-						<li>Los nombres de las interfaces suelen acabar en <span class="naranja">-able, -or, -ente</span> para reflejar acciones: <em>serializable, clonable, servidor, buscador...</em></li>
-						<li>Ejemplo: Coche y Bici heredan de Vehículo. Coche implementa interfaz <em>arrancable</em> con los métodos arrancarMotor y detenerMotor que Bici no necesita.</li>
-						<li>Una clase puede implementar varias interfaces, pero heredar sólo de una.</li>
+						<li>Los nombres de las interfaces suelen acabar en <span class="naranja">-able, -or, -ente</span> para reflejar acciones: <em>Serializable, Clonable, Servidor, Buscador...</em></li>
+						<li>Ejemplo: Coche y Bici heredan de Vehículo. Coche implementa interfaz <em>Arrancable</em> con los métodos arrancarMotor y detenerMotor que Bici no necesita.</li>
 					</ul>
 				</section>
 
@@ -676,8 +675,7 @@
 					<p>Diferencias con las clases abstractas</p>
 					<ul>
 						<li>Una clase puede implementar varias interfaces pero solo heredar de una clase.</li>
-						<li>Una interfaz no puede definir métodos, solo los enumera.</li>
-						<li>Una interfaz permite establecer el comportamiento de clase pero sin dar detalles, porque esos métodos se definen en la clase que la implemente.</li>
+						<li>Una interfaz no puede definir métodos, solo los enumera (no define los cuerpos).</li>
 						<li>La jerarquía de interfaces y de herencia son totalmente	distintas.</li>
 					</ul>
 				</section>
@@ -685,7 +683,7 @@
 				<!-- Interfaces -->
 				<section>
 					<h2>Interfaces - Definición</h2>
-					<p>No es necesario indicar los modificadores</p>
+					<p>No es necesario indicar los modificadores porque van implícitos: Los métodos son abstractos.</p>
 					<p><img src="img/progt07-08.png" alt="Definición de interfaces" /></p>
 				</section>
 
@@ -703,7 +701,7 @@
 					<p>Una clase puede implementar cualquier interfaz. Basta con indicar <em>implements</em> y a continuación las clases a implementar separadas por comas.</p>
 					<pre>
 						<code class="hljs" data-trim> 
-							public class Coche implements serializable, arrancable { 
+							public class Coche implements Serializable, Arrancable { 
 								...
 							}
 						</code>
@@ -864,7 +862,7 @@
 				<!-- Interfaces -->
 				<section>
 					<h2>Interfaces - Implementación</h2>
-					<p>4. Ya se pueden utilzar desde otra clase (main)</p>
+					<p>4. Ya se pueden utilizar desde otra clase (main)</p>
 					<pre>
 						<code class="hljs" data-trim> 
 							// Main - Uso de métodos implementados en Gato y Perro
