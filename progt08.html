@@ -257,6 +257,22 @@
 
 				<!-- Ficheros -->
                 <section>
+                    <h2>Ficheros &rarr; Escritura</h2>
+                    <ul>
+						<p>Añadir información al final del archivo.</p>
+						<p>En el constructor de FileWriter, segundo parámetro <em>append</em> a true.</p>
+					</ul>
+					<pre>
+						<code class="hljs" data-trim> 
+							BufferedWriter bw = new BufferedWriter(new FileWriter("archivo.txt", true));
+							bw.write("Línea 1\n");
+							bw.close();
+						</code>
+					</pre>
+				</section>
+
+				<!-- Ficheros -->
+                <section>
                     <h2>Ficheros</h2>
 					<pre>
 						<code class="hljs" data-trim> 
