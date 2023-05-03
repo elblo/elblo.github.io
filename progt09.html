@@ -62,8 +62,8 @@
 					<h2>Índice</h2>
 					<ol>
 						<li class="fragment highlight-blue">Introducción</li>
-						<li>API JDBC</li>
 						<li>Drivers</li>
+						<li>API JDBC</li>
 						<li>Base de Datos con Docker</li>
 						<li>Resumen SQL</li>
 						<li>Patrón DAO</li>
@@ -117,8 +117,49 @@
 					<h2>Índice</h2>
 					<ol>
 						<li>Introducción</li>
-						<li class="fragment highlight-blue">API JDBC</li>
+						<li class="fragment highlight-blue">Drivers</li>
+						<li>API JDBC</li>
+						<li>Base de Datos con Docker</li>
+						<li>Resumen SQL</li>
+						<li>Patrón DAO</li>
+					</ol>
+				</section>
+
+				<!-- Drivers -->
+				<section>
+					<h2>Drivers</h2>
+					<p>Un conector o driver es un conjunto de clases encargadas de implementar las interfaces del API utilizado para <em>acceder a la base de datos</em>.</p>
+					<p>En nuestro caso, un fichero .jar que contiene una implementación de todas las interfaces del API JDBC que conectará con MySQL.</p>
+				</section>
+
+				<!-- Drivers -->
+				<section>
+					<h2>Drivers</h2>
+					<p><img src="img/progt08-02.png" alt="Diagrama JDBC API y drivers" /></p>
+				</section>
+
+				<!-- Drivers -->
+				<section>
+					<h2>Drivers</h2>
+					<p>Puedes descargar el driver o conector JDBC para MySQL desde <a href="https://www.mysql.com/products/connector/" target="_blank">aquí</a>. Selecciona la opción de "Independiente de la plataforma" y descarga el ZIP.</p>
+					<p><img src="img/progt08-22.png" alt="Descarga JDBC driver para MySQL" /></p>
+				</section>
+
+				<!-- Drivers -->
+				<section>
+					<h2>Drivers</h2>
+					<p>Una vez descargado, descomprime el ZIP y añade el .jar al proyecto desde "Project structure > Modules > Dependencies > + > JAR or directories".</p>
+					<p><img src="img/progt08-23.png" alt="Añadir el jar del JDBC driver para MySQL" /></p>
+				</section>
+
+				
+				<!-- Índice -->
+				<section>
+					<h2>Índice</h2>
+					<ol>
+						<li>Introducción</li>
 						<li>Drivers</li>
+						<li class="fragment highlight-blue">API JDBC</li>
 						<li>Base de Datos con Docker</li>
 						<li>Resumen SQL</li>
 						<li>Patrón DAO</li>
@@ -146,20 +187,144 @@
 				<!-- API JDBC -->
 				<section>
 					<h2>API JDBC</h2>
+					<h3>Ejemplo - Crear BDD y tabla</h3>
+					<p>Crear base de datos <em>pruebabdd</em> con la tabla <em>usuarios</em> con la siguiente estructura:</p>
+					<p><img src="img/progt09-01.png" alt="Captura de phpmyadmin con la estructura de la tabla de prueba." /></p>
+				</section> 
+
+				<!-- API JDBC -->
+				<section>
+					<h2>API JDBC</h2>
+					<h3>Ejemplo - Insert, Update y Delete</h3>
 					<pre>
 						<code class="hljs" data-trim> 
-							// Establece la conexión
-							Connection con = DriverManager.getConnection (“jdbc:odbc:miBD”, “miLogin”, “miPassword”);
+							import java.sql.*;
 
-							// Ejecuta la consulta
-							Statement stmt = con.createStatement();
-							ResultSet rs = stmt.executeQuery(“SELECT nombre, edad FROM Jugadores”);
+							/*
+							* En este ejemplo, se utilizan los métodos executeUpdate() del objeto Statement para realizar las operaciones INSERT, UPDATE y DELETE.
+							* El método executeUpdate() devuelve el número de filas afectadas por la operación.
+							* Se utiliza la variable filasInsertadas, filasActualizadas y filasEliminadas para mostrar el número de filas afectadas por cada operación.
+							* También se utiliza un bloque finally para cerrar la conexión y liberar los recursos después de ejecutar las operaciones.
+							* */
 
-							// Procesa los resultados
-							while (rs.next()){
-								String nombre = rs.getString(“nombre”); 
-								int edad = rs.getInt(“edad”);
+							public class EjemploOperacionesBD {
+								public static void main(String[] args) {
+									// Definir variables de conexión
+									Connection conn = null;
+									Statement stmt = null;
+
+									try {
+										// Cargar el driver de MySQL
+										Class.forName("com.mysql.cj.jdbc.Driver");
+
+										// Establecer la conexión a la base de datos
+										String url = "jdbc:mysql://localhost:3306/pruebabdd";
+										String user = "root";
+										String password = "";
+										conn = DriverManager.getConnection(url, user, password);
+
+										// INSERT
+										stmt = conn.createStatement();
+										String insert = "INSERT INTO usuarios (nombre, edad) VALUES ('Juan López', 25)";
+										int filasInsertadas = stmt.executeUpdate(insert);
+										System.out.println("Filas insertadas: " + filasInsertadas);
+
+										// UPDATE
+										String update = "UPDATE usuarios SET edad = 26 WHERE nombre = 'Juan'";
+										int filasActualizadas = stmt.executeUpdate(update);
+										System.out.println("Filas actualizadas: " + filasActualizadas);
+
+										// DELETE
+										String delete = "DELETE FROM usuarios WHERE edad > 30";
+										int filasEliminadas = stmt.executeUpdate(delete);
+										System.out.println("Filas eliminadas: " + filasEliminadas);
+
+									} catch (SQLException e) {
+										e.printStackTrace();
+									} catch (Exception e) {
+										e.printStackTrace();
+									} finally {
+										// Cerrar la conexión y liberar recursos
+										try {
+											if(stmt != null) stmt.close();
+										} catch (SQLException e) {
+											e.printStackTrace();
+										}
+										try {
+											if(conn != null) conn.close();
+										} catch (SQLException e) {
+											e.printStackTrace();
+										}
+									}
+								}
 							}
+						</code>
+					</pre>
+				</section> 		
+
+				<!-- API JDBC -->
+				<section>
+					<h2>API JDBC</h2>
+					<h3>Ejemplo - Select</h3>
+					<pre>
+						<code class="hljs" data-trim>
+							import java.sql.*;
+
+							/*
+							* En este ejemplo, se utiliza el método DriverManager.getConnection() para establecer la conexión a la base de datos MySQL.
+							* Luego, se ejecuta una consulta utilizando un objeto Statement y se procesan los resultados utilizando un objeto ResultSet.
+							* Finalmente, se cierra la conexión y se liberan los recursos utilizando el bloque finally.
+							* */
+
+							public class EjemploConexionMySQL {
+								public static void main(String[] args) {
+									// Definir variables de conexión
+									Connection conn = null;
+									Statement stmt = null;
+
+									try {
+										// Cargar el driver de MySQL
+										Class.forName("com.mysql.cj.jdbc.Driver");
+
+										// Establecer la conexión a la base de datos
+										String url = "jdbc:mysql://localhost:3306/pruebabdd";
+										String user = "root";
+										String password = "";
+										conn = DriverManager.getConnection(url, user, password);
+
+										// Ejecutar una consulta
+										stmt = conn.createStatement();
+										String consulta = "SELECT * FROM usuarios";
+										ResultSet rs = stmt.executeQuery(consulta);
+
+										// Procesar los resultados de la consulta
+										while (rs.next()) {
+											int id = rs.getInt("id");
+											String nombre = rs.getString("nombre");
+											int edad = rs.getInt("edad");
+											System.out.println("ID: " + id + ", Usuario: " + nombre + ", " + edad + " años.");
+										}
+
+									} catch (SQLException e) {
+										e.printStackTrace();
+									} catch (Exception e) {
+										e.printStackTrace();
+									} finally {
+										// Cerrar la conexión y liberar recursos
+										try {
+											if(stmt != null) stmt.close();
+										} catch (SQLException e) {
+											e.printStackTrace();
+										}
+										try {
+											if(conn != null) conn.close();
+										} catch (SQLException e) {
+											e.printStackTrace();
+										}
+									}
+								}
+							}
+
 						</code>
 					</pre>
 				</section> 
@@ -169,49 +334,8 @@
 					<h2>Índice</h2>
 					<ol>
 						<li>Introducción</li>
-						<li>API JDBC</li>
-						<li class="fragment highlight-blue">Drivers</li>
-						<li>Base de Datos con Docker</li>
-						<li>Resumen SQL</li>
-						<li>Patrón DAO</li>
-					</ol>
-				</section>
-
-				<!-- Drivers -->
-				<section>
-					<h2>Drivers</h2>
-					<p>Un conector o driver es un conjunto de clases encargadas de implementar las interfaces del API y <em>acceder a la base de datos</em>.</p>
-					<p>En nuestro caso, un fichero .jar que contiene una implementación de todas las interfaces del API JDBC que conectará con MySQL.</p>
-				</section>
-
-				<!-- Drivers -->
-				<section>
-					<h2>Drivers</h2>
-					<p><img src="img/progt08-02.png" alt="Diagrama JDBC API y drivers" /></p>
-				</section>
-
-				<!-- Drivers -->
-				<section>
-					<h2>Drivers</h2>
-					<p>Puedes descargar el driver o conector JDBC para MySQL desde <a href="https://www.mysql.com/products/connector/" target="_blank">aquí</a>. Selecciona la opción de "Independiente de la plataforma" y descarga el ZIP.</p>
-					<p><img src="img/progt08-22.png" alt="Descarga JDBC driver para MySQL" /></p>
-				</section>
-
-				<!-- Drivers -->
-				<section>
-					<h2>Drivers</h2>
-					<p>Una vez descargado, descomprime el ZIP y añade el .jar al proyecto desde "Project structure > Modules > Dependencies > + > JAR or directories".</p>
-					<p><img src="img/progt08-23.png" alt="Añadir el jar del JDBC driver para MySQL" /></p>
-
-				</section>
-
-				<!-- Índice -->
-				<section>
-					<h2>Índice</h2>
-					<ol>
-						<li>Introducción</li>
-						<li>API JDBC</li>
 						<li>Drivers</li>
+						<li>API JDBC</li>
 						<li class="fragment highlight-blue">Base de Datos con Docker</li>
 						<li>Resumen SQL</li>
 						<li>Patrón DAO</li>
@@ -357,8 +481,8 @@
 					<h2>Índice</h2>
 					<ol>
 						<li>Introducción</li>
-						<li>API JDBC</li>
 						<li>Drivers</li>
+						<li>API JDBC</li>
 						<li>Base de Datos con Docker</li>
 						<li class="fragment highlight-blue">Resumen SQL</li>
 						<li>Patrón DAO</li>
@@ -377,8 +501,8 @@
 					<h2>Índice</h2>
 					<ol>
 						<li>Introducción</li>
-						<li>API JDBC</li>
 						<li>Drivers</li>
+						<li>API JDBC</li>
 						<li>Base de Datos con Docker</li>
 						<li>Resumen SQL</li>
 						<li class="fragment highlight-blue">Patrón DAO</li>
