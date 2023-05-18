@@ -608,12 +608,8 @@
 							
 								// Abre la conexión con BD y la guarda en conn
 								public void open() throws Exception {
-									try {
-										Class.forName("com.mysql.cj.jdbc.Driver"); //Cargo el driver de conexión JDBC
-										conn = DriverManager.getConnection(URL, USER, PASS); //Uso la clase DriverManager para crear la conexión
-									} catch (Exception e) {
-										throw e;
-									}
+									Class.forName("com.mysql.cj.jdbc.Driver"); //Cargo el driver de conexión JDBC
+									conn = DriverManager.getConnection(URL, USER, PASS); //Uso la clase DriverManager para crear la conexión
 								}
 							
 								// Devuelve la conexión con la BD
@@ -622,13 +618,8 @@
 								}
 							
 								// Cierra la conexión con BD
-								public void close() throws SQLException {
-									try
-									{
-										if(this.conn!=null)
-											this.conn.close();
-									}
-									catch(Exception e) { throw e; }
+								public void close() throws Exception {
+									if(conn!=null) conn.close();
 								}
 							}
 						</code>
@@ -644,6 +635,7 @@
 							// Ejemplo de uso en el main
 							DAOManager dao = DAOManager.getSinglentonInstance();
 							DAOManager dao2 = DAOManager.getSinglentonInstance();
+
 							if (dao2 == null) System.out.println("El singlenton funciona");
 							try{
 								dao.open();
@@ -718,81 +710,68 @@
 							// DAO Alumno
 							public class DaoAlumnoSQL implements DaoAlumno {
 
-								@Override
-								public boolean insert(Alumno alumno, DAOManager dao) {
-									String sentencia;
-									SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
-									String Stringfecha = formatoFecha.format(alumno.getFechaNacim().getTime());
-									sentencia = "INSERT INTO alumnos VALUES ('"
-											+ alumno.getDni() + "','"
-											+ alumno.getNombre() + "','"
-											+ alumno.getApellidos() + "','"
-											+ Stringfecha + "','"
-											+ alumno.getGrupo() + "',"
-											+ alumno.getNotaMedia() + ");";
+								// Ejemplo de refactorización
+								// TODO hacer igual en DaoProfesorSQL
+								// Método para lanzar sentencias INSERT, UPDATE y DELETE
+								public boolean ejecutaSentencia(String sentencia, DAOManager dao){
 									System.out.println("sentencia = " + sentencia);
-									try (Statement stmt = dao.getConn().createStatement()) {
-										// enviar el commando insert
+									try {
+										Statement stmt = dao.getConn().createStatement();
 										stmt.executeUpdate(sentencia);
 										return true;
 									} catch (SQLException ex) {
 										return false;
 									}
+								}
+
+								@Override
+								public boolean insert(Alumno alumno, DAOManager dao) {
+									String sentencia = "INSERT INTO alumnos VALUES ('"
+											+ alumno.getDni() + "','"
+											+ alumno.getNombre() + "','"
+											+ alumno.getApellidos() + "','"
+											+ alumno.getFechaNacim().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "','"
+											+ alumno.getGrupo() + "',"
+											+ alumno.getNotaMedia() + ");";
+
+									boolean resultado = ejecutaSentencia(sentencia, dao);
+									return resultado;
 								}
 
 								@Override
 								public boolean update(Alumno alumno, DAOManager dao) {
-									String sentencia;
-									SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
-									String Stringfecha = formatoFecha.format(alumno.getFechaNacim().getTime());
-									sentencia = "UPDATE alumnos SET nombre = '"
+									String sentencia = "UPDATE alumnos SET nombre = '"
 											+ alumno.getNombre() + "', apellidos = '"
 											+ alumno.getApellidos() + "', fecha_nac = '"
-											+ Stringfecha + "', grupo = '"
+											+ alumno.getFechaNacim().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "', grupo = '"
 											+ alumno.getGrupo() + "', nota_media = "
 											+ alumno.getNotaMedia() +
 											" WHERE dni = '" + alumno.getDni() + "';";
-									System.out.println("sentencia = " + sentencia);
-									try (Statement stmt = dao.getConn().createStatement()) {
-										// enviar el commando insert
-										stmt.executeUpdate(sentencia);
-										return true;
-									} catch (SQLException ex) {
-										ex.printStackTrace();
-										return false;
-									}
+
+									boolean resultado = ejecutaSentencia(sentencia, dao);
+									return resultado;
 								}
 
 								@Override
 								public boolean delete(Alumno alumno, DAOManager dao) {
-									String sentencia;
-									sentencia = "delete from alumnos where dni = '" + alumno.getDni() + "';";
-									System.out.println("sentencia = " + sentencia);
-									try (Statement stmt = dao.getConn().createStatement()) {
-										// enviar el commando delete
-										stmt.executeUpdate(sentencia);
-										return true;
-									} catch (SQLException ex) {
-										return false;
-									}
+									String sentencia = "DELETE FROM alumnos WHERE dni = '" + alumno.getDni() + "';";
+
+									boolean resultado = ejecutaSentencia(sentencia, dao);
+									return resultado;
 								}
 
 								@Override
 								public Alumno read(String dni, DAOManager dao) {
 									Alumno alumno = null;
-									String sentencia;
-									sentencia = "select * from alumnos where dni = ?";
+									String sentencia = "SELECT * FROM alumnos WHERE dni = ?";
 									try {
 										PreparedStatement ps = dao.getConn().prepareStatement(sentencia);
 										ps.setString(1, dni);
 										System.out.println("sentencia = " + sentencia);
 										try (ResultSet rs = ps.executeQuery()) {
 											if (rs.next()) {
-												Calendar cal = Calendar.getInstance();
-												//Obtengo la fecha y la preparo para meterla en el objeto
-												SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-												cal.setTime(sdf.parse(rs.getString("fecha_nac")));
-												GregorianCalendar cal2 = (GregorianCalendar) cal;
+												LocalDate cal2 = LocalDate.parse(rs.getString("fecha_nac"), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
 												// obtener cada una de la columnas y mapearlas a la clase Alumno
 												alumno = new Alumno(dni,
 														rs.getString("nombre"),
@@ -802,10 +781,37 @@
 														rs.getDouble("nota_media"));
 											}
 										}
-									} catch (SQLException | ParseException ex) {
-										ex.printStackTrace();
+									} catch (SQLException e) {
+										e.printStackTrace();
 									}
 									return alumno;
+								}
+
+								// Método que lee todos los alumnos y los devuelve en un ArrayList
+								public ArrayList&lt;Alumno&gt; readAll(DAOManager dao) {
+									ArrayList&lt;Alumno&gt; alumnos = new ArrayList<>();
+									String sentencia = "SELECT * FROM alumnos";
+									try {
+										PreparedStatement ps = dao.getConn().prepareStatement(sentencia);
+										//ps.setString(1, dni);
+										System.out.println("sentencia = " + sentencia);
+										try (ResultSet rs = ps.executeQuery()) {
+											while(rs.next()) {
+												//Calendar cal = Calendar.getInstance();
+												LocalDate cal2 = LocalDate.parse(rs.getString("fecha_nac"), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+												// Añadir el alumno al ArrayList
+												alumnos.add(new Alumno(rs.getString("dni"),
+														rs.getString("nombre"),
+														rs.getString("apellidos"),
+														cal2,
+														rs.getString("grupo"),
+														rs.getDouble("nota_media")));
+											}
+										}
+									} catch (SQLException e) {
+										e.printStackTrace();
+									}
+									return alumnos;
 								}
 							}
 						</code>
@@ -826,19 +832,15 @@
 
 								@Override
 								public boolean insert(Profesor profesor, DAOManager dao) {
-									String sentencia;
-									SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
-									String Stringfecha= formatoFecha.format(profesor.getFechaNacim().getTime());
-									sentencia = "INSERT INTO profesores VALUES ('"
+									String sentencia = "INSERT INTO profesores VALUES ('"
 											+ profesor.getDni() + "','"
 											+ profesor.getNombre() + "','"
 											+ profesor.getApellidos()  + "','"
-											+ Stringfecha + "','"
+											+ profesor.getFechaNacim().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "','"
 											+ profesor.getMateria() + "',"
 											+ profesor.getSalario()+ ");";
 									System.out.println("sentencia = " + sentencia);
 									try (Statement stmt = dao.getConn().createStatement()) {
-										// enviar el commando insert
 										stmt.executeUpdate(sentencia);
 										return true;
 									} catch (SQLException ex) {
@@ -848,17 +850,28 @@
 
 								@Override
 								public boolean update(Profesor profesor, DAOManager dao) {
-									// TODO
-									return false;
+									String sentencia = "UPDATE profesores SET nombre = '"
+											+ profesor.getNombre() + "', apellidos = '"
+											+ profesor.getApellidos() + "', fecha_nac = '"
+											+ profesor.getFechaNacim().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "', materia = '"
+											+ profesor.getMateria() + "', salario = "
+											+ profesor.getSalario() +
+											" WHERE dni = '" + profesor.getDni() + "';";
+									System.out.println("sentencia = " + sentencia);
+									try (Statement stmt = dao.getConn().createStatement()) {
+										stmt.executeUpdate(sentencia);
+										return true;
+									} catch (SQLException ex) {
+										ex.printStackTrace();
+										return false;
+									}
 								}
 
 								@Override
 								public boolean delete(Profesor profesor, DAOManager dao) {
-									String sentencia;
-									sentencia = "delete from profesores where dni = '" + profesor.getDni() + "';";
+									String sentencia = "delete from profesores where dni = '" + profesor.getDni() + "';";
 									System.out.println("sentencia = " + sentencia);
 									try (Statement stmt = dao.getConn().createStatement()) {
-										// enviar el commando delete
 										stmt.executeUpdate(sentencia);
 										return true;
 									} catch (SQLException ex) {
@@ -869,20 +882,14 @@
 								@Override
 								public Profesor read(String dni, DAOManager dao) {
 									Profesor profesor = null;
-									String sentencia;
-									sentencia = "select * from profesores where dni = ?";
+									String sentencia = "SELECT * FROM profesores WHERE dni = ?";
 									try {
 										PreparedStatement ps = dao.getConn().prepareStatement(sentencia);
 										ps.setString(1, dni);
 										System.out.println("sentencia = " + sentencia);
 										try (ResultSet rs = ps.executeQuery()) {
 											if (rs.next()) {
-												Calendar cal = Calendar.getInstance();
-
-												//Obtengo la fecha y la preparo para meterla en el objeto
-												SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-												cal.setTime(sdf.parse(rs.getString("fecha_nac")));
-												GregorianCalendar cal2 = (GregorianCalendar) cal;
+												LocalDate cal2 = LocalDate.parse(rs.getString("fecha_nac"), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
 												// obtener cada una de la columnas y mapearlas a la clase Alumno
 												profesor = new Profesor(dni,
@@ -893,10 +900,38 @@
 														rs.getDouble("salario"));
 											}
 										}
-									} catch (SQLException | ParseException ex) {
-										ex.printStackTrace();
+									} catch (SQLException e) {
+										e.printStackTrace();
 									}
 									return profesor;
+								}
+
+								// Método que lee todos los profesores con los apellidos indicados y los devuelve en un ArrayList
+								public ArrayList&lt;Profesor&gt; readProfesoresByApellidos(String apellidos, DAOManager dao) {
+									ArrayList&lt;Profesor&gt; profesores = new ArrayList<>();
+									String sentencia = "SELECT * FROM profesores WHERE apellidos = ?";
+									try {
+										PreparedStatement ps = dao.getConn().prepareStatement(sentencia);
+										ps.setString(1, apellidos);
+										System.out.println("sentencia = " + sentencia);
+										try (ResultSet rs = ps.executeQuery()) {
+											while(rs.next()) {
+												LocalDate cal2 = LocalDate.parse(rs.getString("fecha_nac"), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
+												// Añadir el profesor al ArrayList
+												profesores.add(new Profesor(rs.getString("dni"),
+														rs.getString("nombre"),
+														rs.getString("apellidos"),
+														cal2,
+														rs.getString("materia"),
+														rs.getDouble("salario"))
+												);
+											}
+										}
+									} catch (SQLException e) {
+										e.printStackTrace();
+									}
+									return profesores;
 								}
 							}
 						</code>
@@ -907,7 +942,7 @@
 				<section>
 					<h2>Patrón DAO</h2>
 					<ul>
-						<li>Descarga el ejemplo completo <a href="recursos/PROGT8src.zip" target="_blank">aquí</a>.</li>
+						<li>Descarga el ejemplo completo <a href="recursos/patronDAO.zip" target="_blank">aquí</a>.</li>
 						<li>Implementa el método update del DAO Profesor</li>
 						<li>Implementa los siguientes métodos en los DAOs Profesor y Alumno</li>
 					</ul>
