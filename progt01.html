@@ -51,7 +51,7 @@
 				<!-- Título -->
 				<section>
 					<h1>Programación</h1>
-					<h3>Tema 1: Introducción</h3>
+					<h3>Tema 1: Introducción (cliente Reveal)</h3>
 					<p>
 						<small><a href="http://www.eladioblanco.es">Eladio Blanco</a></small>
 					</p>
@@ -666,6 +666,13 @@
 				// Parallax background size
 				//parallaxBackgroundSize: '2100px 900px',
 
+				multiplex: {
+					// Example values. To generate your own, see the socket.io server instructions.
+					secret: null, // null so the clients do not have control of the master presentation
+					id: '969583af1425902f', // id, obtained from socket.io server
+					url: 'https://reveal-multiplex.glitch.me/' // Location of socket.io server
+				},
+
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
@@ -674,7 +681,9 @@
 					{ src: 'plugin/highlight/highlight.js', async: true },
 					{ src: 'plugin/search/search.js', async: true },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'https://reveal-multiplex.glitch.me/socket.io/socket.io.js', async: true },
+					{ src: 'https://reveal-multiplex.glitch.me/client.js', async: true }
 				]
 			});
 
