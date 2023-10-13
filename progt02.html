@@ -606,7 +606,7 @@
 									
 									System.out.print("Dime tu estatura en metros: ");
 									respuesta = s.nextLine();
-									float estatura = Float.parseFloat(respuesta);
+									float estatura = Float.parseFloat(respuesta); // OJO! aquí con punto: 1.87
 									
 									System.out.printf("Edad: %d años. Estatura: %.2f metros.", edad, estatura);
 								} 
@@ -630,10 +630,11 @@
 									// 2º) Declarar el objeto Scanner
 									Scanner s = new Scanner(System.in);
 
-									System.out.print("Dime tu nombre y edad separados por espacio: ");
+									System.out.print("Dime tu nombre, edad y estatura separados por espacio: ");
 									// 3º) Leer texto
 									String nombre = s.next();
 									int edad = s.nextInt();
+									float estatura = s.nextFloat(); // OJO! aquí con coma: 1,87
 								} 
 							}
 						</code>
