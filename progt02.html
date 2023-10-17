@@ -606,7 +606,8 @@
 									
 									System.out.print("Dime tu estatura en metros: ");
 									respuesta = s.nextLine();
-									float estatura = Float.parseFloat(respuesta); // OJO! aquí con punto: 1.87
+									// OJO! Introducir decimal con punto: 1.87
+									float estatura = Float.parseFloat(respuesta); 
 									
 									System.out.printf("Edad: %d años. Estatura: %.2f metros.", edad, estatura);
 								} 
@@ -634,8 +635,39 @@
 									// 3º) Leer texto
 									String nombre = s.next();
 									int edad = s.nextInt();
-									float estatura = s.nextFloat(); // OJO! aquí con coma: 1,87
+									// OJO! Introducir decimal con coma: 1,87
+									float estatura = s.nextFloat(); 
 								} 
+							}
+						</code>
+					</pre>
+				</section>	
+
+				<!-- Lectura de datos desde teclado -->
+				<section>
+					<h2>Lectura de datos</h2>
+					<h3>Combinar métodos de lectura</h3>
+					<p>Cuidado con combinar métodos <em>next()</em>, <em>nextInt()</em>, <em>nextFloat()</em>... con <span class="naranja">nextLine()</span>.</p>
+					<p><span class="fragment">¿Funciona?</span> <span class="fragment">Si al introducir la edad se pulsa el intro, en el nombre se guarda una cadena vacía.</span></p>
+					<pre>
+						<code class="hljs" data-trim>
+							// 1º) Importar la clase
+							import java.util.Scanner;
+
+							public class LecturaCombinada {
+								public static void main(String[] args) {
+									// 2º) Declarar el objeto Scanner
+									Scanner s = new Scanner(System.in);
+
+									System.out.println("Introduce tu edad:");
+									int edad = s.nextInt();
+
+									System.out.println("Introduce tu nombre:");
+									String nombre = s.nextLine();
+
+									System.out.println("Edad: " + edad);
+									System.out.println("Nombre: " + nombre);
+								}
 							}
 						</code>
 					</pre>
@@ -793,7 +825,7 @@
 					<ul>
 						<li>Operador que evalúa una condición y devuelve un valor u otro.</li>
 						<li>Sintáxis: variable = <span class="azul">condición</span> ? <span class="verde">valor si V</span> : <span class="rojo">valor si F</span>;</li>
-						<li><span class="fragment">Ejemplo:</span> <span class="fragment">String rdo =</span> <span class="fragment azul">num%2 == 0</span> <span class="fragment">?</span> <span class="fragment verde">"par"</span> <span class="fragment">:</span> <span class="fragment rojo">"impar"</span><span class="fragment">;</span></li>
+						<li class="fragment"><span class="fragment">Ejemplo:</span> <span class="fragment">String rdo =</span> <span class="fragment azul">num%2 == 0</span> <span class="fragment">?</span> <span class="fragment verde">"par"</span> <span class="fragment">:</span> <span class="fragment rojo">"impar"</span><span class="fragment">;</span></li>
 					</ul>
 				</section>
 
