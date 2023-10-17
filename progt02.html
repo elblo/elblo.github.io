@@ -801,7 +801,19 @@
 				<section>
 					<h2>Operadores y expresiones</h2>
 					<h3>Operador ternario</h3>
-					<p><img src="img/progt02-29.png" alt="Ejemplo operador ternario" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							public class Ternario {
+								public static void main(String[] args) {
+									int num = 5;
+									String mensaje = (num%2 == 0) ? "par" : "impar";
+												
+									System.out.printf("El número %d es %s.", num, mensaje);
+								}
+							}
+						</code>
+					</pre>
+					<!-- <p><img src="img/progt02-29.png" alt="Ejemplo operador ternario" /></p> -->
 				</section>
 
 				<!-- Operadores y expresiones -->
@@ -854,7 +866,26 @@
 				<section>
 					<h2>Operadores y expresiones</h2>
 					<h3>Trabajo con cadenas</h3>
-					<p><img src="img/progt02-30.png" alt="Ejemplo de trabajo con cadenas" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							public class Cadenas {
+								public static void main(String[] args) {
+									String cad1 = "CICLO DAW", cad2 = "ciclo daw";
+							
+									System.out.printf("La cadena cad1 es %s con %d caracteres.\n", cad1, cad1.length());
+									System.out.printf("La cadena cad2 es %s con %d caracteres.\n", cad2, cad2.length());
+							
+									System.out.println("Contactenación: " + cad1.concat(cad2));
+									System.out.println("Comparación equals: " + cad1.equals(cad2));
+									System.out.println("Comparación equalsIgnoreCase: " + cad1.equalsIgnoreCase(cad2));
+									System.out.println("Extracción de subcadena: " + cad1.substring(6));
+									System.out.println("Minúsculas: " + cad1.toLowerCase());
+									System.out.println("Mayúsculas: " + cad2.toUpperCase());
+								}
+							}
+						</code>
+					</pre>
+					<!-- <p><img src="img/progt02-30.png" alt="Ejemplo de trabajo con cadenas" /></p> -->
 				</section>
 
 				<!-- Operadores y expresiones -->
@@ -885,14 +916,32 @@
 				<section>
 					<h2>Conversión de tipo</h2>
 					<p><strong>Conversión automática o implícita</strong>: La realiza el intérprete cuando asignamos un valor (de una variable o expresión) de menor tamaño a otro de mayor.</p>
-					<p><img src="img/progt02-32.png" alt="Ejemplo conversión de tipo automática" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							int coste = 10;
+							float resultado;
+
+							resultado = coste; // conversión automática
+							System.out.println("resultado = " + resultado);
+						</code>
+					</pre>		
+					<!-- <p><img src="img/progt02-32.png" alt="Ejemplo conversión de tipo automática" /></p> -->
 				</section>
 
 				<!-- Conversión de tipo -->
 				<section>
 					<h2>Conversión de tipo</h2>
 					<p><strong>Conversión explícita</strong>: Al hacer la conversión de un tipo con más bits a uno con menos bits. La realiza el programador mediante operador cast. Se puede producir pérdida de datos.</p>
-					<p><img src="img/progt02-33.png" alt="Ejemplo conversión de tipo explícita" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							int coste;
+							float resultado = 10.6f;
+
+							coste = (int) resultado; // conversión explícita
+							System.out.println("coste = " + coste);
+						</code>
+					</pre>		
+					<!-- <p><img src="img/progt02-33.png" alt="Ejemplo conversión de tipo explícita" /></p> -->
 				</section>
 
 				<!-- Conversión de tipo -->
@@ -911,7 +960,18 @@
 				<section>
 					<h2>Conversión de tipo</h2>
 					<p>¿Qué hace el código? ¿Cómo se soluciona?</p>
-					<p><img src="img/progt02-35.png" alt="Ejemplo conversión de tipos" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							int nota1, nota2, nota3;
+							float media;
+							nota1 = 4;
+							nota2 = 7;
+							nota3 = 8;
+							media = (nota1 + nota2 + nota3) / 3;
+							System.out.printf("Media: %.2f", media);
+						</code>
+					</pre>
+					<!-- <p><img src="img/progt02-35.png" alt="Ejemplo conversión de tipos" /></p> -->
 				</section>
 
 				<!-- Índice -->
