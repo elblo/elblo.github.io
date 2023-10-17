@@ -765,7 +765,43 @@
 				<section>
 					<h2>Operadores y expresiones</h2>
 					<h3>Operadores lógicos</h3>
-					<p><img src="img/progt02-27.png" alt="Ejercicio comprobar número en rango" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							import java.util.Scanner;
+
+							public class RangoBooleano {
+								public static void main(String[] args) {
+									Scanner s = new Scanner(System.in);
+
+									System.out.print("Introduce un número entre 0 y 10: ");
+									int numero = s.nextInt();
+
+									boolean rangoCorrecto = (numero >= 0) && (numero <= 10);
+
+									System.out.println("¿El número está en rango? " + rangoCorrecto);
+								}
+							}
+						</code>
+					</pre>
+					<!-- <p><img src="img/progt02-27.png" alt="Ejercicio comprobar número en rango" /></p> -->
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operador ternario</h3>
+					<ul>
+						<li>Operador que evalúa una condición y devuelve un valor u otro.</li>
+						<li>Sintáxis: variable = <span class="azul">condición</span> ? <span class="verde">valor si V</span> : <span class="rojo">valor si F</span>;</li>
+						<li><span class="fragment">Ejemplo:</span> <span class="fragment">String rdo =</span> <span class="fragment azul">num%2 == 0</span> <span class="fragment">?</span> <span class="fragment verde">"Es par"</span> <span class="fragment">:</span> <span class="fragment rojo">"Es impar"</span><span class="fragment">;</span></li>
+					</ul>
+				</section>
+
+				<!-- Operadores y expresiones -->
+				<section>
+					<h2>Operadores y expresiones</h2>
+					<h3>Operador ternario</h3>
+					<p><img src="img/progt02-29.png" alt="Ejemplo operador ternario" /></p>
 				</section>
 
 				<!-- Operadores y expresiones -->
@@ -779,25 +815,24 @@
 				<section>
 					<h2>Operadores y expresiones</h2>
 					<h3>Operadores lógicos</h3>
-					<p><img src="img/progt02-28.png" alt="Ejercicio login" /></p>
-				</section>
-
-				<!-- Operadores y expresiones -->
-				<section>
-					<h2>Operadores y expresiones</h2>
-					<h3>Operador ternario</h3>
-					<ul>
-						<li>Operador que evalúa una condición y devuelve un valor u otro.</li>
-						<li>Sintáxis: variable = <span class="azul">condición</span> ? <span class="verde">valor si V</span> : <span class="rojo">valor si F</span>;</li>
-						<li><span class="fragment">Ejemplo:</span> <span class="fragment">rdo =</span> <span class="fragment azul">num % 2</span> <span class="fragment">?</span> <span class="fragment verde">"Es par"</span> <span class="fragment">:</span> <span class="fragment rojo">"Es impar"</span><span class="fragment">;</span></li>
-					</ul>
-				</section>
-
-				<!-- Operadores y expresiones -->
-				<section>
-					<h2>Operadores y expresiones</h2>
-					<h3>Operador ternario</h3>
-					<p><img src="img/progt02-29.png" alt="Ejemplo operador ternario" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							public class LoginBooleano {
+								public static void main(String[] args) {
+									boolean logueado = true;
+									boolean admin = false;
+							
+									String mensaje = "";
+							
+									mensaje = logueado ? "Estás logueado en el sistema" : "No estás logueado en el sistema";
+									mensaje += admin ? " y eres admin." : " y no eres admin.";
+							
+									System.out.println(mensaje);
+								}
+							}
+						</code>
+					</pre>
+					<!-- <p><img src="img/progt02-28.png" alt="Ejercicio login" /></p> -->
 				</section>
 
 				<!-- Operadores y expresiones -->
