@@ -907,7 +907,7 @@
 									System.out.printf("La cadena cad1 es %s con %d caracteres.\n", cad1, cad1.length());
 									System.out.printf("La cadena cad2 es %s con %d caracteres.\n", cad2, cad2.length());
 							
-									System.out.println("Contactenación: " + cad1.concat(cad2));
+									System.out.println("Concatenación: " + cad1.concat(cad2));
 									System.out.println("Comparación equals: " + cad1.equals(cad2));
 									System.out.println("Comparación equalsIgnoreCase: " + cad1.equalsIgnoreCase(cad2));
 									System.out.println("Extracción de subcadena: " + cad1.substring(6));
@@ -992,6 +992,7 @@
 				<section>
 					<h2>Conversión de tipo</h2>
 					<p>¿Qué hace el código? ¿Cómo se soluciona?</p>
+					<p class="fragment">media = <span class="naranja">(float)</span> (nota1 + nota2 + nota3) / 3;</p>
 					<pre>
 						<code class="hljs" data-trim>
 							int nota1, nota2, nota3;
@@ -1032,18 +1033,6 @@
 						<li><strong>/*</strong> comentario de varias líneas <strong>*/</strong></li>
 						<li><strong>/**</strong> comentario para Javadoc <strong>*/</strong></li>
 					</ul>
-				</section>
-
-				<!-- Comentarios -->
-				<section>
-					<h2>Comentarios</h2>
-					<p><strong>Ejercicio</strong>: Diseña un programa para determinar si un número introducido por teclado es par o impar. Muy importante utilizar comentarios. Opcional, hacerlo con el operador ternario.</p>
-				</section>
-
-				<!-- Comentarios -->
-				<section>
-					<h2>Comentarios</h2>
-					<p><img src="img/progt02-36.png" alt="Solución ejercicio número par o impar" /></p>
 				</section>
 
 				<!-- Ejercicios -->
@@ -1138,6 +1127,38 @@
 					</pre>
 				</section>
 
+				<!-- Comentarios -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<h3>Estructura if-else</h3>
+					<p><strong>Ejercicio</strong>: Diseña un programa para determinar si un número introducido por teclado es par o impar. Muy importante utilizar comentarios.</p>
+				</section>
+
+				<!-- Comentarios -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<h3>Estructura if-else</h3>
+					<pre>
+						<code class="hljs" data-trim>
+							public class ParImpar {
+								public static void main(String[] args) {
+									Scanner s = new Scanner(System.in);
+									int num = Integer.parseInt(s.nextLine());
+							
+									// Es par si el resto de dividirlo entre 2 es 0
+									int resto = num % 2;
+									if(resto == 0){
+										System.out.printf("El número %d es par.", num);
+									}else{
+										System.out.printf("El número %d es impar.", num);
+									}
+								}
+							}
+						</code>
+					</pre>
+					<!-- <p><img src="img/progt02-36.png" alt="Solución ejercicio número par o impar" /></p> -->
+				</section>
+
 				<!-- Estructuras selectivas -->
 				<section>
 					<h2>Estructuras selectivas</h2>
@@ -1149,7 +1170,71 @@
 				<section>
 					<h2>Estructuras selectivas</h2>
 					<h3>Estructura if-else</h3>
-					<p><img src="img/progt02-38.png" alt="Ejercicio notas" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							public class Calificaciones {
+								public static void main(String[] args) {
+									Scanner s = new Scanner(System.in);
+									System.out.println("Introduce la nota:");
+									float nota = Float.parseFloat(s.nextLine());
+							
+									if(nota<0 || nota>10){
+										System.out.println("Nota no válida, fuera de rango.");
+									}else{
+										if(nota<5){
+											System.out.println("Insuficiente");
+										}else{
+											if(nota<6){
+												System.out.println("Suficiente");
+											}else{
+												if(nota<7){
+													System.out.println("Bien");
+												}else{
+													if(nota<8.5){
+														System.out.println("Notable");
+													}else{
+														System.out.println("Sobresaliente");
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						</code>
+					</pre>
+					<!-- <p><img src="img/progt02-38.png" alt="Ejercicio notas" /></p> -->
+				</section>
+
+				<!-- Estructuras selectivas -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<h3>Estructura if-else</h3>
+					<pre>
+						<code class="hljs" data-trim>
+							public class Calificaciones2 {
+								public static void main(String[] args) {
+									Scanner s = new Scanner(System.in);
+									System.out.println("Introduce la nota:");
+									float nota = Float.parseFloat(s.nextLine());
+							
+									if(nota<0 || nota>10){
+										System.out.println("Nota no válida, fuera de rango.");
+									}else if(nota<5){
+										System.out.println("Insuficiente");
+									}else if(nota<6){
+										System.out.println("Suficiente");
+									}else if(nota<7){
+										System.out.println("Bien");
+									}else if(nota<8.5){
+										System.out.println("Notable");
+									}else{
+										System.out.println("Sobresaliente");
+									}
+								}
+							}
+						</code>
+					</pre>
 				</section>
 
 				<!-- Estructuras selectivas -->
