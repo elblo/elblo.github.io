@@ -1345,20 +1345,45 @@
 				<section>
 					<h2>Estructuras selectivas</h2>
 					<h3>Estructura Switch Expression</h3>
-					<p>Valores múltiples separados por comas y devolución de valores mediante flecha (Java 12) o yield (Java 13)</p>
-								
+					<p>Ejemplo sin asignación de valores</p>
 					<pre>
 						<code class="hljs" data-trim>
-							int result = switch(mode) {
-								case "a", "b" -> 1;
-								case "c" -> 2;
-								case "d", "e", "f" -> {
+							int numMes = 5;
+							// Ejecutar sentencias (no necesario break)
+							switch(numMes) {
+								case 9, 10, 11, 12 -> System.out.println("1er trimestre");
+								case 1, 2, 3 -> System.out.println("2o trimestre");
+								case 4, 5, 6 -> {
 									// Ejemplo bloque multilínea
-									System.out.println("Bloque multilínea");
+									System.out.println("Último trimestre! :)");
+									System.out.println("3er trimestre");
+								}
+								default -> System.out.println("No hay clase");
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Estructuras selectivas -->
+				<section>
+					<h2>Estructuras selectivas</h2>
+					<h3>Estructura Switch Expression</h3>
+					<p>Ejemplo asignando valores a variable</p>
+					<pre>
+						<code class="hljs" data-trim>
+							String mes = "may";
+							// Asignar valores con -> o yield (si hay bloque)
+							int trimestre = switch(mes) {
+								case "sep", "oct", "nov", "dic" -> 1;
+								case "ene", "feb", "mar" -> 2;
+								case "abr", "may", "jun" -> {
+									// Ejemplo bloque multilínea (devuelve con yield)
+									System.out.println("Último trimestre! :)");
 									yield 3;
 								}
 								default -> -1;
 							};
+							System.out.println("Trimestre número " + trimestre);
 						</code>
 					</pre>
 				</section>
@@ -1367,33 +1392,7 @@
 				<section>
 					<h2>Estructuras selectivas</h2>
 					<h3>Estructura Switch Expression</h3>
-					<p>Valores múltiples separados por comas y devolución de valores mediante flecha (Java 12) o yield (Java 13)</p>
-								
-					<pre>
-						<code class="hljs" data-trim>
-							int result = switch (mode) {
-								case "a", "b":
-									yield 1;
-								case "c":
-									yield 2;
-								case "d", "e", "f":
-									// Ejemplo bloque multilínea
-									System.out.println("Bloque multilínea");
-									yield 3;
-								default:
-									yield -1;
-							};
-							return result;
-						</code>
-					</pre>
-				</section>
-
-				<!-- Estructuras selectivas -->
-				<section>
-					<h2>Estructuras selectivas</h2>
-					<h3>Estructura Switch Expression</h3>
-					<p><strong>Ejercicio</strong>: Modifica el ejemplo anterior de los meses para utilizar un estructura switch expression devolviendo el valor con flecha y o yield.</p>
-					
+					<p><strong>Ejercicio</strong>: Modifica el ejemplo de los 12 meses para utilizar un estructura switch expression devolviendo el valor con flecha o yield.</p>
 				</section>
 
 				<!-- Estructuras selectivas -->
