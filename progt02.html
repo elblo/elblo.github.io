@@ -1562,7 +1562,34 @@
 					<h2>Estructuras repetitivas</h2>
 					<h3>Bucle do-while</h3>
 					<p>¿Qué hace este código?</p>
-					<p><img src="img/progt02-43.png" alt="Ejemplo bucle while" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							boolean bloqueado = false, logueado = false;
+							String usuario = "admin", pass = "superPass1234";
+							int intentos = 3;
+
+							Scanner s = new Scanner(System.in);
+
+							while(!bloqueado && !logueado && intentos>0){
+								System.out.print("Bienvenido, introduzca su usuario: ");
+								String entradaUsuario = s.nextLine();
+								System.out.print("Introduzca su contraseña: ");
+								String entradaPass = s.nextLine();
+
+								if(entradaUsuario.equals(usuario) && entradaPass.equals(pass)){
+									logueado = true;
+								}else{
+									intentos--;
+									System.out.printf("\nDatos incorrectos. Le quedan %d intentos.\n", intentos);
+									if(intentos == 0) bloqueado = true;
+								}
+							}
+
+							if(logueado) System.out.println("Bienvenido " + usuario);
+							if(bloqueado) System.out.println("Su usuario ha sido bloqueado");
+						</code>
+					</pre>
+					<!-- <p><img src="img/progt02-43.png" alt="Ejemplo bucle while" /></p> -->
 				</section>
 
 				<!-- Estructuras repetitivas -->
@@ -1602,7 +1629,34 @@
 					<h2>Estructuras repetitivas</h2>
 					<h3>Bucle do-while</h3>
 					<p>¿Qué hace este código?</p>
-					<p><img src="img/progt02-44.png" alt="Ejemplo bucle do-while" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							boolean bloqueado = false, logueado = false;
+							String usuario = "admin", pass = "superPass1234";
+							int intentos = 3;
+
+							Scanner s = new Scanner(System.in);
+
+							do{
+								System.out.print("Bienvenido, introduzca su usuario: ");
+								String entradaUsuario = s.nextLine();
+								System.out.print("Introduzca su contraseña: ");
+								String entradaPass = s.nextLine();
+
+								if(entradaUsuario.equals(usuario) && entradaPass.equals(pass)){
+									logueado = true;
+								}else{
+									intentos--;
+									System.out.printf("\nDatos incorrectos. Le quedan %d intentos.\n", intentos);
+									if(intentos == 0) bloqueado = true;
+								}
+							}while(!bloqueado && !logueado && intentos>0);
+
+							if(logueado) System.out.println("Bienvenido " + usuario);
+							if(bloqueado) System.out.println("Su usuario ha sido bloqueado");
+						</code>
+					</pre>
+					<!-- <p><img src="img/progt02-44.png" alt="Ejemplo bucle do-while" /></p> -->
 				</section>
 
 				<!-- Estructuras repetitivas -->
