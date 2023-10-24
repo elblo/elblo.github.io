@@ -1688,7 +1688,16 @@
 					<h2>Estructuras repetitivas</h2>
 					<h3>Estructuras de salto</h3>
 					<p><strong>break</strong> termina la ejecución del bucle, saliendo de él.</p>
-					<p><img src="img/progt02-45.png" alt="Ejemplo break" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							for(int contador=0; contador<=10; contador++){
+								if(contador == 7) break;
+								System.out.println("Contador: " + contador);
+							}
+							System.out.println("Fin de programa");
+						</code>
+					</pre>
+					<!-- <p><img src="img/progt02-45.png" alt="Ejemplo break" /></p> -->
 				</section>
 
 				<!-- Estructuras repetitivas -->
@@ -1696,7 +1705,18 @@
 					<h2>Estructuras repetitivas</h2>
 					<h3>Estructuras de salto</h3>
 					<p><strong>continue</strong> salta a la siguiente iteración del bucle.</p>
-					<p><img src="img/progt02-46.png" alt="Ejemplo continue" /></p>
+					<pre>
+						<code class="hljs" data-trim>
+							System.out.println("Imprimir números pares del 1 al 10.");
+
+							for(int contador=1; contador<=10; contador++){
+								if(contador % 2 != 0) continue;
+								System.out.printf("El %d es par.\n", contador);
+							}
+							System.out.println("Fin de programa");
+						</code>
+					</pre>	
+					<!-- <p><img src="img/progt02-46.png" alt="Ejemplo continue" /></p> -->
 				</section>
 
 				<!-- Estructuras repetitivas -->
