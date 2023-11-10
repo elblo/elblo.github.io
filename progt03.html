@@ -180,9 +180,125 @@
 				<!-- Funciones -->
 				<section>
 					<h2>Funciones</h2>
-					    <p>Fragmento de código que realiza una tarea muy concreta y que se puede 
+					<p>Fragmento de código que realiza una tarea muy concreta y que se puede 
                         incluir en cualquier programa cuando hace falta resolver esa tarea.</p>
-                        <p>Opcionalmente aceptan una entrada (parámetros) y devuelven una salida.</p>
+				</section>
+
+				<!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+					<p><img src="img/progt03-funciones01.png" alt="Diagrama de funciones" /></p>
+					<p>Opcionalmente aceptan una entrada (parámetros) y devuelven una salida.</p>
+				</section>
+
+				<!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+					<p><img src="img/progt03-funciones02.png" alt="Diagrama de funciones" /></p>
+				</section>
+
+				<!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+					<p>Ejemplo de función que no recibe nada ni devuelve nada. Útil para mostrar menús.</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							public static void muestraMenu(){
+								System.out.println("\n###### Menú ######");
+								System.out.println("1. Suma");
+								System.out.println("2. Resta");
+								System.out.println("3. Multiplicación");
+								System.out.println("4. División");
+								System.out.println("5. Salir");
+								System.out.print("Selecciona una opción: ");
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+					<p>Ejemplo de función que no recibe nada y devuelve un número entero. Útil para pedir datos al usuario.</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							public static int leerNumero(){
+								Scanner s = new Scanner(System.in);
+								int opcion = Integer.parseInt(s.nextLine());
+								return opcion;
+							}
+						</code>
+					</pre>
+				</section>
+
+				<!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+					<p>Ejemplo de función que recibe un entero y no devuelve nada. Útil para procesar datos o hacer cálculos.</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							public static void ejecutaOpcion(int opc){
+								int num1=0, num2=0;
+						
+								// Leer 2 números para las opciones 1 a 4
+								if(opc > 0 && opc < 5){
+									System.out.println("Introduce el primer número");
+									num1 = leerNumero();
+									System.out.println("Introduce el segundo número");
+									num2 = leerNumero();
+								}
+						
+								switch(opc){
+									case 1:
+										System.out.println("El resultado de la suma es: " + suma(num1, num2));
+										break;
+									case 2:
+										// COMPLETAR CASOS
+									case 5:
+										System.out.println("Opción 5 Salir. Hasta la próxima.");
+										break;
+									default:
+										System.out.println("Opción incorrecta.");
+								}
+							}
+						</code>
+					</pre>
+				</section>
+
+				
+				<!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+					<p>Ejemplo de función que recibe por parámetros 2 valores enteros y devuelve un entero.</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							public static int suma(int num1, int num2){
+								int resultado = num1 + num2;
+								return resultado;
+							}
+							// COMPLETAR RESTO DE FUNCIONES: resta, multiplicacion y division
+						</code>
+					</pre>
+				</section>
+
+				
+				<!-- Funciones -->
+				<section>
+					<h2>Funciones</h2>
+					<p>El <em>main</em> es la función principal que tiene que tener todo código que se vaya a ejecutar.</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							public static void main(String[] args){
+								int opcion;
+								do {
+									// Llamadas a funciones
+									muestraMenu();
+									opcion = leerNumero();
+									ejecutaOpcion(opcion);
+								}while(opcion != 5);
+							}
+						</code>
+					</pre>
 				</section>
 
                 <!-- Funciones -->
