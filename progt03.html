@@ -69,8 +69,7 @@
                 <!-- Números aleatorios -->
 				<section>
 					<h2>Números aleatorios</h2>
-                    <p>Se utilizan para emular el comportamiento de algún fenómeno natural, el resultado de un juego de azar o
-                         para generar cualquier valor impredecible a priori.</p>
+                    <p>Se utilizan para emular el comportamiento de algún fenómeno natural, el resultado de un juego de azar o para generar cualquier valor impredecible a priori.</p>
 				</section>
 
                 <!-- Números aleatorios -->
@@ -80,7 +79,8 @@
                     <pre>
 						<code class="hljs" data-trim> 
 							public static void main(String[] args) {
-								// Declaración e inicialización de 3 números aleatorios entre 0 y 1
+								// Declaración e inicialización de 3 números 
+								// aleatorios entre 0 y 0.9999999999999999
 								double aleatorio1 = Math.random();
 								double aleatorio2 = Math.random();
 								double aleatorio3 = Math.random();
@@ -97,13 +97,15 @@
 				<!-- Números aleatorios -->
 				<section>
 					<h2>Números aleatorios</h2>
-                    <p><em>Rangos personalizados</em>: Multiplicamos el número aleatorio por el número de elementos del rango, le sumamos 1 para que llegue al valor final y hacemos casting a (int) si lo queremos entero</p>
+                    <p><em>Rangos personalizados</em>: Multiplicamos el aleatorio por el número de elementos del rango y le sumamos el <span class="naranja">Vi</span> (Valor inicial del rango) convirtiendo todo a entero.</p>
+					<p class="naranja">(int) (aleatorio * nº elementos + Vi)</p>
 					<pre>
 						<code class="hljs" data-trim> 
+							// Ejemplo: Cara dado aleatoria
 							public static void main(String[] args) {
-								// Aleatorio entre 0 y 1 con decimales
+								// Aleatorio entre 0 y 0.999999... con decimales
 								double aleatorio = Math.random();
-								// Convertimos a rango 1-6
+								// Convertimos a rango 1-6 caras posibles
 								int caraDado = (int) (aleatorio * 6 + 1);
 								System.out.println(caraDado); //
 							}
