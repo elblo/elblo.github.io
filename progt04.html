@@ -110,10 +110,13 @@
 				<section>
 					<h2>Cadenas de caracteres</h2>
 					<p>Son un tipo de estructura de datos que instanciamos mediante la clase <strong>String</strong>.</p>
+					<p>Formas equivalentes de declarar e inicializar una cadena:</p>
 					<pre>
 						<code class="hljs" data-trim> 
-							String cad = "Hola";
-							String cad = new String("Hola");
+							// Como tipo primitivo
+							String cad1 = "Hola";
+							// Instanciando objeto de la clase String
+							String cad2 = new String("Hola");
 						</code>
 					</pre>
 
@@ -139,7 +142,7 @@
 						<code class="hljs" data-trim> 
 							String cad = "¡Bien".concat("venido!"); 
 							int edad = 38;
-							System.out.println(cad + " En tu " + edad " aniversario");
+							System.out.println(cad + " En tu " + edad + " aniversario");
 						</code>
 					</pre>
 
@@ -176,23 +179,45 @@
 				<section>
 					<h2>Cadenas de caracteres</h2>
 					<h3>Operaciones</h3>
-					<p><strong>Convertir a número</strong>: El método <span class="naranja">.valueOf(String cad)</span> disponible en todas las clases descendientes de Number (<span class="rosa">Short, Integer, Long, Float, Double</span>) convierte la cadena pasada por parámetro al número correspondiente.</p>
-					<p>Se incluye en un try-catch porque puede lanzar la excepción NumberFormatException.</p>
+					<p><strong>Convertir a número</strong>: El método <span class="naranja">.valueOf(String cad)</span> disponible en todas las clases descendientes de <span class="naranja">Number</span> (<span class="rosa">Short, Integer, Long, Float, Double</span>) convierte la cadena pasada por parámetro al número correspondiente.</p>
 				</section>
 
 				<!-- Cadenas de caracteres -->
 				<section>
 					<h2>Cadenas de caracteres</h2>
 					<h3>Operaciones</h3>
-					<p><strong>Convertir a número</strong>. Similar a los métodos <span class="naranja">parseInt(), parseFloat()...</span>, sólo que estos devuelven tipos de datos primitivos (int, float...) y valueOf devuelve Integer, Float... Ejemplo:</p>
+					<p><strong>Convertir a número</strong>. Similar a los métodos <span class="naranja">parseInt(), parseFloat()...</span>, sólo que estos devuelven tipos de datos primitivos (int, float...) y <span class="naranja">valueOf</span> devuelve objetos de clases Integer, Float...</p>
+					<p>Ejemplo:</p>
 					<pre>
 						<code class="hljs" data-trim> 
-							String c="1234.5678";
-							double n;
+							// Equivalentes
+							float num1 = Float.parseFloat(numCadena);
+							float num2 = Float.valueOf(numCadena); 
+							// También así: Float num2 = Float.valueOf(num2);
+							// Firmas de ambas funciones:
+							// public static float parseFloat(String s) throws NumberFormatException
+							// public static Float valueOf(String s) throws NumberFormatException
+						</code>
+					</pre> 
+				</section>
+
+				<!-- Cadenas de caracteres -->
+				<section>
+					<h2>Cadenas de caracteres</h2>
+					<h3>Operaciones</h3>
+					<p><strong>Convertir a número</strong>. Se suele incluir en un bloque try-catch porque puede lanzar la excepción NumberFormatException.</p>
+					<p>Ejemplo:</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							String numCadena = "1234.5678";
 							try { 
-								n = Double.valueOf(c);
+								float num1 = Float.valueOf(numCadena);
+								double num2 = Double.valueOf(numCadena);
+								// Equivalentes:
+								float num1f = Float.parseFloat(numCadena);
+								double num2d = Double.parseDouble(numCadena);
 							}catch(NumberFormatException e){ 
-								/* Código a ejecutar si no se puede convertir */ 
+								// Código a ejecutar si no se puede convertir  
 							}
 						</code>
 					</pre> 
@@ -202,7 +227,7 @@
 				<section>
 					<h2>Cadenas de caracteres</h2>
 					<h3>Operaciones</h3>
-					<p><strong>Ejercicio</strong>: Realiza un programa que pida en una única cadena el nombre y apellidos del usuario y los muestre separados.</p>
+					<p><strong>Ejercicio</strong>: Realiza un programa que pida en una única cadena el nombre y apellidos del usuario y los muestre separados. Suponemos que tanto el nombre como cada apellido están formados por 1 palabra. Ejemplo: Armando Bronca Segura</p>
 				</section>
 
 				<!-- Cadenas de caracteres -->
@@ -270,13 +295,14 @@
 					<p><strong>Formatear cadena</strong>: Ejemplo</p>				
 					<pre>
 						<code class="hljs" data-trim> 
-							String np = "Lavadora"; 
-							int u = 10;
-							float ppu = 302.4f; 
-							float p = u * ppu;
-							String output=String.format("Producto: %s; Unidades: %d; Precio por unidad: %.2f €; Total: %.2f €", np, u, ppu, p);
-							System.out.println(output);
-							// Producto: Lavadora; Unidades: 10; Precio por unidad: 302,40 €; Total: 3024,00 €
+							String descripcion = "Lavadora";
+							int unidades = 10;
+							float precioUnidad = 302.4f;
+							float total = unidades * precioUnidad;
+							// Cada valor numérico se muestra con un ancho total de 8 espacios
+							String mensaje = String.format("Producto: %s; Unidades: %8d; Precio por unidad: %8.2f €; Total: %8.2f €", descripcion, unidades, precioUnidad, total);
+							System.out.println(mensaje);
+							Producto: Lavadora; Unidades:       10; Precio por unidad:   302,40 €; Total:  3024,00 €
 						</code>
 					</pre> 
 				</section>
