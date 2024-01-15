@@ -577,7 +577,7 @@
 							private String titular;
 							private float saldo;
 							private static String banco = "BBVA";
-							private static int contadorCuentas;
+							private static int contadorCuentas = 0;
 							...
 						}
 						</code>
@@ -893,7 +893,7 @@
 									Cuenta c1 = new Cuenta();
 
 									System.out.println("Cuenta creada");
-									System.out.println("Banco: " + c1.getBanco());
+									System.out.println("Banco: " + Cuenta.getBanco());
 							
 									c1.ingreso(100f, false);
 									c1.ingreso(100f, true);
