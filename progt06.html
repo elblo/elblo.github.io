@@ -768,9 +768,9 @@
 								private String codigo;
 
 								// Constructor
-								public Gato (Sexo s, String c) { 
-									super(s);
-									this.codigo = c;
+								public Gato (String sexo, String codigo) { 
+									super(sexo);
+									this.codigo = codigo;
 								}
 
 								// Métodos
@@ -783,7 +783,6 @@
 								@Override
 								public void come(String comida) {
 									if (comida.equals("pescado")) { 
-										super.come(); 
 										System.out.println("Hmmmm, gracias");
 									} else {
 										System.out.println("Lo siento, yo solo como pescado");
@@ -796,10 +795,10 @@
 								* @param contrincante es el animal contra el que pelear */
 								@Override
 								public void peleaCon(Animal contrincante) { 
-									if (this.getSexo() == Sexo.HEMBRA) {
+									if (this.getSexo().equals("hembra")) {
 										System.out.println("no me gusta pelear"); 
 									} else {
-										if (contrincante.getSexo() == Sexo.HEMBRA) { 
+										if (contrincante.getSexo().equals("hembra")) { 
 											System.out.println("no peleo contra hembras");
 										} else {
 											System.out.println("ven aquí que te vas a enterar");
@@ -822,9 +821,9 @@
 								private String codigo;
 
 								// Constructor
-								public Perro (Sexo s, String c) { 
-									super(s);
-									this.codigo = c;
+								public Perro (String sexo, String codigo) { 
+									super(sexo);
+									this.codigo = codigo;
 								}
 
 								// Métodos
@@ -836,7 +835,6 @@
 								@Override
 								public void come(String comida) {
 									if (comida.equals("carne")) { 
-										super.come(); 
 										System.out.println("Hmmmm, gracias");
 									} else {
 										System.out.println("Lo siento, yo solo como carne");
@@ -852,9 +850,10 @@
 									if (contrincante.getClass().getSimpleName().equals("Perro")) {
 										System.out.println("ven aquí que te vas a enterar"); 
 									} else {
-										System.out.println("no me gusta pelear"); }
+										System.out.println("no me gusta pelear"); 
 									} 
 								}
+							}						
 						</code>
 					</pre>
 				</section>
@@ -865,25 +864,31 @@
 					<p>4. Ya se pueden utilizar desde otra clase (main)</p>
 					<pre>
 						<code class="hljs" data-trim> 
-							// Main - Uso de métodos implementados en Gato y Perro
-							Mascota garfield = new Gato(Sexo.MACHO, "34569"); 
-							Mascota lisa = new Gato(Sexo.HEMBRA, "96059"); 
-							Mascota kuki = new Perro(Sexo.HEMBRA, "234678"); 
-							Mascota ayo = new Perro(Sexo.MACHO, "778950");
-
-							System.out.println(garfield.getCodigo()); 
-							System.out.println(lisa.getCodigo());
-							System.out.println(kuki.getCodigo()); 
-							System.out.println(ayo.getCodigo()); 
-
-							garfield.come("pescado"); 
-							lisa.come("hamburguesa"); 
-							kuki.come("pescado"); 
-
-							lisa.peleaCon((Gato)garfield); 
-							ayo.peleaCon((Perro)kuki);
+							public class Main {
+								public static void main(String[] args) {
+									Gato garfield = new Gato("macho", "34569");
+									Gato lisa = new Gato("hembra", "96059");
+									Perro kuki = new Perro("hembra", "234678");
+									Perro ayo = new Perro("macho", "778950");
+							
+									garfield.come("pescado"); // Hmmmm, gracias
+									lisa.come("hamburguesa"); // Lo siento, yo solo como pescado
+									kuki.come("pescado"); // Lo siento, yo solo como carne
+							
+									lisa.peleaCon(garfield); // no me gusta pelear
+									ayo.peleaCon(kuki); // ven aquí que te vas a enterar
+								}
+							}							
 						</code>
 					</pre>
+				</section>
+
+				<!-- Interfaces -->
+				<section>
+					<h2>Interfaces</h2>
+					<h3>Ejercicio: Depredador y presa</h3>
+					<p>Implementa el siguiente diagrama de clases y pruébalo en el Main.</p>
+					<p><img src="img/progt07-07.png" alt="Ejemplo interfaces" /></p>
 				</section>
 
 				<!-- Índice -->
@@ -925,21 +930,27 @@
 					<pre>
 						<code class="hljs" data-trim> 
 							public static void main(String[] args) {
-								var s = new Scanner(System.in);
+
+								Scanner s = new Scanner(System.in);
 								Persona persona;
+						
 								System.out.println("Introduce un número: ");
 								int num = Integer.parseInt(s.nextLine());
-								GregorianCalendar fecha = new GregorianCalendar();
+						
 								if(num % 2 == 0){
-									fecha.set(2001, Calendar.JUNE, 6);
+									LocalDate fecha = LocalDate.of(2001, Month.JUNE, 6);
 									// persona es polimórfico
 									persona = new Alumno("Jose", "López García", fecha, "1DAW", 9.3);
 								}else{
-									fecha.set(1983, Calendar.MARCH, 24);
+									LocalDate fecha = LocalDate.of(1983, Month.MARCH, 24);
 									// persona es polimórfico
 									persona = new Profesor("Antonio", "Martínez Aranda", fecha, "Programación", 1000);
 								}
-								persona.mostrar(); // Ligadura dinámica
+								// método definido en Persona y redefinido en Alumno y Profesor
+								persona.mostrar(); // Ligadura dinámica (resuelve la llamada al mostrar() correcto)
+						
+								// Comprobar si está instanciado un objeto de Alumno o Profesor
+								System.out.println("Objeto de clase " + persona.getClass().getSimpleName());
 							}
 						</code>
 					</pre>
@@ -951,10 +962,15 @@
 					<p>Salida ejemplo</p>
 					<p><img src="img/progt07-12.png" alt="Salida implementación ejemplo ligadura" /></p>
 					<p><img src="img/progt07-13.png" alt="Salida implementación ejemplo ligadura" /></p>
-
 				</section>
-				
 
+				<!-- Polimorfismo -->
+				<section>
+					<h2>Polimorfismo y ligadura dinámica</h2>
+					<h3>Ejercicio: Gestion Personal</h3>
+					<p>Continuando con las clases anteriores de Persona, Alumno y Profesor, implementa una clase <em>GestionPersonas</em> que contenga un array de Persona y un método imprimirPersonal() que llame a los métodos mostrar() de cada elemento del array.</p>
+					<p>Prueba en el Main a crear varios alumnos y profesores. Después llama a imprimirPersonal() para comprobar que la ligadura dinámica realiza su función correctamente.</p>
+				</section>
 			
 				<!-- Para repasar -->
 				<section>
