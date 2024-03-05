@@ -311,6 +311,27 @@
 				<section>
 					<h2>Colecciones</h2>
 					<h3>Listas</h3>
+					<p>ArrayList. Borrado</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							ArrayList<String> colores = new ArrayList<String>();
+							
+							colores.add("violeta");
+							colores.add("blanco");
+							colores.add("negro");
+							colores.add("verde");
+
+							// Eliminar elementos que cumplan la condición de la función
+							colores.removeIf(c -> c.startsWith("v"));
+							System.out.println(colores);
+						</code>
+					</pre>
+				</section>
+
+				<!-- Colecciones -->
+				<section>
+					<h2>Colecciones</h2>
+					<h3>Listas</h3>
 					<p>ArrayList. Set</p>
 					<p><img src="img/progt05-36.png" alt="ArrayList set" /></p>
 				</section>
