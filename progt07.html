@@ -914,7 +914,7 @@
 							BufferedReader buffer = new BufferedReader(new FileReader("cuentas.json"));
 							Cuentas cuentas = gson.fromJson(buffer, Cuentas.class);	
 							// Si quisiéramos mapear un JSON a una estructura directamente de la que no tenemos clase creada por nosotros:
-							ArrayList<Cuenta> cuentas = gson.fromJson(buffer, new TypeToken<ArrayList<Cuenta>>(){}.getType());
+							ArrayList&lt;Cuenta&gt; cuentas = gson.fromJson(buffer, new TypeToken&lt;ArrayList&lt;Cuenta&gt;&gt;(){}.getType());
 		
 						</code>
 					</pre>
