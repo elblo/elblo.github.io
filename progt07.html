@@ -922,7 +922,20 @@
 					<h2>Otras estructuras</h2>
 					<h3>JSON</h3>
 					<p>Escritura en fichero</p>
-					<p><img src="img/progt05-61.png" alt="JSON escritura en fichero" /></p>
+					<pre>
+						<code class="hljs" data-trim> 
+							public static void escribeJSONEnFichero(String json){
+								try{
+									FileWriter fichero = new FileWriter("cuentas.json");
+									PrintWriter pw = new PrintWriter(fichero);
+									pw.println(json);
+									fichero.close();
+								}catch (Exception e){
+									e.printStackTrace();
+								}
+							}		
+						</code>
+					</pre>
 				</section>
 
 				<!-- Otras estructuras -->
