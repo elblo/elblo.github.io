@@ -871,7 +871,7 @@
 					<h3>JSON</h3>
 					<ul>
 						<li><span class="azul">Serializar</span> (stringify): Convierte un objeto en una cadena de texto JSON &rarr; <span class="naranja">gson.toJson(objeto)</span></li>
-						<li><span class="azul">Deserializar</span> (parse): Convierte un texto como JSON en un objeto manejable por Java &rarr; <span class="naranja">gson.fromJson(fichero, clasePrincipal)</span></li>
+						<li><span class="azul">Deserializar</span> (parse): Convierte un texto como JSON en un objeto manejable por Java &rarr; <span class="naranja">gson.fromJson(cadenaJSON, clasePrincipal)</span></li>
 					</ul>
 					<p><img src="img/progt05-59.png" alt="JSON serializar" /></p>
 				</section>
@@ -912,7 +912,10 @@
 							...
 							Gson gson = new Gson();
 							BufferedReader buffer = new BufferedReader(new FileReader("cuentas.json"));
-							Cuentas cuentas = gson.fromJson(buffer, Cuentas.class);			
+							Cuentas cuentas = gson.fromJson(buffer, Cuentas.class);	
+							// Si quisiéramos mapear un JSON a una estructura directamente de la que no tenemos clase creada por nosotros:
+							ArrayList<Cuenta> cuentas = gson.fromJson(buffer, new TypeToken<ArrayList<Cuenta>>(){}.getType());
+		
 						</code>
 					</pre>
 				</section>
