@@ -905,17 +905,23 @@
 					<p>Leer o parsear JSON</p>
 					<p>Para leer un JSON y poder utilizar los datos con nuestros objetos, se utiliza el método <span class="naranja">gson.fromJson(buffer, clasePrincipal.class)</span> de la librería <a href="https://github.com/google/gson" target="_blank">Gson</a>.</p>
 					<p><em>buffer</em> es el JSON pasado a cadena (stringify) que normalmente se lee directamente desde fichero.</p>
+				</section>
 
+				<!-- Otras estructuras -->
+				<section>
+					<h2>Otras estructuras</h2>
+					<h3>JSON</h3>
+					<p>Leer o parsear JSON</p>
 					<pre>
 						<code class="hljs" data-trim> 
 							import com.google.gson.*;
 							...
 							Gson gson = new Gson();
 							BufferedReader buffer = new BufferedReader(new FileReader("cuentas.json"));
-							Cuentas cuentas = gson.fromJson(buffer, Cuentas.class);	
-							// Si quisiéramos mapear un JSON a una estructura directamente de la que no tenemos clase creada por nosotros:
+							GestionCuentas gc = gson.fromJson(buffer, GestionCuentas.class);	
+							
+							// Si quisiéramos mapear un JSON a una estructura directamente de la que no tenemos clase creada por nosotros, como por ejemplo un ArrayList:
 							ArrayList&lt;Cuenta&gt; cuentas = gson.fromJson(buffer, new TypeToken&lt;ArrayList&lt;Cuenta&gt;&gt;(){}.getType());
-		
 						</code>
 					</pre>
 				</section>
@@ -939,6 +945,22 @@
 							}		
 						</code>
 					</pre>
+				</section>
+
+				<!-- Otras estructuras -->
+				<section>
+					<h2>Otras estructuras</h2>
+					<h3>JSON</h3>
+					<p>Instalar el plugin <em>DataGraph</em> para IntelliJ IDEA para moestrar diagramas visuales de archivos JSON.</p>
+					<p><img src="img/progt07-14.png" alt="Plugin DataGraph" /></p>
+				</section>
+
+				<!-- Otras estructuras -->
+				<section>
+					<h2>Otras estructuras</h2>
+					<h3>JSON</h3>
+					<p>Los archivos JSON se guardarán en una sola línea. Si se abre el archivo en IntelliJ IDEA es posible reformatearlo con sus saltos de línea e indentación correcta, desde <em>Code - Reformat Code</em>.</p>
+					<p><img src="img/progt07-15.png" alt="Reformatear archivo json" /></p>
 				</section>
 
 				<!-- Otras estructuras -->
