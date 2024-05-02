@@ -179,9 +179,74 @@
 					<p>JDBC proporciona las clases e interfaces para:</p>
 					<ul>
 						<li>Establecer una conexión a una base de datos.</li>
-						<li>Ejecutar una consulta.</li>
+						<li>Ejecutar una sentencia o consulta SQL.</li>
 						<li>Procesar los resultados.</li>
 					</ul>
+				</section> 
+
+				<!-- API JDBC -->
+				<section>
+					<h2>API JDBC</h2>
+					<h3>Establecer conexión con la BDD</h3>
+					<pre>
+						<code class="hljs" data-trim> 									
+							// Cargar el driver de MySQL
+							Class.forName("com.mysql.cj.jdbc.Driver");
+
+							// Establecer servidor, puerto, BDD y usuario
+							String url = "jdbc:mysql://localhost:3306/pruebabdd";
+							String user = "root";
+							String password = "";
+
+							// Establecer la conexión a la base de datos
+							Connection conn = DriverManager.getConnection(url, user, password);
+						</code>
+					</pre>
+				</section> 
+
+				<!-- API JDBC -->
+				<section>
+					<h2>API JDBC</h2>
+					<h3>Ejecutar sentencias</h3>
+					<p>Mediante <em>executeUpdate</em> se ejecutan sentencias INSERT, UPDATE y DELETE, devolviendo el número de filas afectadas con la sentencia.</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							// Crear y ejecutar la sentencia									
+							Statement stmt = conn.createStatement();
+							String sql = "INSERT INTO usuarios (nombre, edad) VALUES ('Juan López', 25)";
+							int rows = stmt.executeUpdate(sql);
+							System.out.println("Filas insertadas: " + rows);
+
+							// Cerrar la sentencia
+							stmt.close();
+						</code>
+					</pre>
+				</section> 
+
+				<!-- API JDBC -->
+				<section>
+					<h2>API JDBC</h2>
+					<h3>Ejecutar consultas</h3>
+					<p>Mediante <em>executeQuery</em> se ejecutan consultas, devolviendo los datos en un objeto <em>ResulSet</em>.</p>
+					<pre>
+						<code class="hljs" data-trim> 
+							// Crear y ejecutar una consulta
+							stmt = conn.createStatement();
+							String sql = "SELECT * FROM usuarios";
+							ResultSet rs = stmt.executeQuery(sql);
+
+							// Procesar los resultados de la consulta
+							while (rs.next()) {
+								int id = rs.getInt("id");
+								String nombre = rs.getString("nombre");
+								int edad = rs.getInt("edad");
+								System.out.println("ID: " + id + ", Usuario: " + nombre + ", " + edad + " años.");
+							}
+
+							// Cerrar la sentencia
+							stmt.close();
+						</code>
+					</pre>
 				</section> 
 
 				<!-- API JDBC -->
